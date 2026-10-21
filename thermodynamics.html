@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="آموزش گرما و ترمودینامیک با فرمول‌ها، مثال‌های حل‌شده، تصاویر، کاربردهای صنعتی، ماشین‌حساب و آزمون">
+<title>گرما و ترمودینامیک | علم‌خانه</title>
+<style>
+:root{--bg:#071321;--panel:#102238;--panel2:#142b43;--line:#294660;--text:#edf5ff;--muted:#b5c8dc;--cyan:#5ee7e0;--blue:#7db8ff;--yellow:#ffd166;--green:#75e0a0}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:linear-gradient(180deg,#071321,#0b1b2d 50%,#071321);color:var(--text);font-family:Tahoma,Arial,sans-serif;line-height:1.95}
+a{color:var(--cyan)}header{padding:28px 16px 34px;background:radial-gradient(ellipse at top,#65351f 0%,#17263a 60%,#071321 100%);border-bottom:1px solid var(--line)}
+.wrap{max-width:1100px;margin:auto;padding:0 16px}.topnav{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}
+.topnav a,.pill{display:inline-block;padding:7px 12px;border:1px solid #5d4b3b;border-radius:999px;text-decoration:none;color:var(--text);font-size:13px;background:#172235}
+h1{font-size:clamp(28px,5vw,44px);line-height:1.5;margin:0 0 10px}h2{font-size:clamp(21px,3vw,29px);margin-top:0}h3{font-size:19px;color:var(--cyan);margin-bottom:8px}
+p{margin:8px 0 14px}.lead{color:var(--muted);max-width:850px;font-size:17px}.hero-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+main{padding:26px 0 60px}.layout{display:grid;grid-template-columns:260px minmax(0,1fr);gap:22px;align-items:start}
+aside{position:sticky;top:12px;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px;max-height:calc(100vh - 24px);overflow:auto}
+aside h2{font-size:18px}aside a{display:block;text-decoration:none;padding:6px 8px;border-radius:8px;color:var(--muted);font-size:14px}aside a:hover{background:var(--panel2);color:var(--text)}
+.content{min-width:0}.card,.lesson{background:linear-gradient(145deg,var(--panel),#0d1d30);border:1px solid var(--line);border-radius:18px;padding:22px;margin-bottom:18px;box-shadow:0 8px 24px #00000018}
+.lesson{scroll-margin-top:16px}.lesson-number{font-size:12px;color:var(--cyan)}
+.formula{direction:ltr;text-align:center;font-family:Arial,sans-serif;font-size:clamp(18px,3vw,25px);font-weight:bold;color:#fff;background:#081726;border:1px dashed #8e6c50;border-radius:12px;padding:14px;margin:14px 0}
+.note,.example,.warning,.answer{padding:12px 14px;border-radius:10px;margin:13px 0}.note{background:#0b3040;border-right:4px solid var(--cyan)}.example{background:#132d27;border-right:4px solid var(--green)}.warning{background:#39251c;border-right:4px solid var(--yellow)}.answer{background:#1d2741;border-right:4px solid var(--blue)}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.mini{background:#0a1a2a;border:1px solid var(--line);border-radius:12px;padding:14px}
+.physics-image{margin:18px 0;padding:12px;background:#091827;border:1px solid var(--line);border-radius:14px}.physics-image img{display:block;width:100%;max-height:390px;object-fit:contain;background:#fff;border-radius:8px;min-height:80px}.physics-image figcaption{font-size:13px;color:var(--muted);text-align:center;margin-top:9px}.physics-image a{font-size:12px}
+table{border-collapse:collapse;width:100%;margin:12px 0;font-size:14px}th,td{border:1px solid var(--line);padding:9px;text-align:right}th{background:#18324b}td{background:#0c1d2e}
+ul,ol{padding-right:24px}li{margin:5px 0}label{display:block;margin:8px 0 4px;color:var(--muted);font-size:14px}
+input,select{width:100%;padding:11px;border-radius:9px;border:1px solid #45647f;background:#071726;color:var(--text);font:inherit}
+button{cursor:pointer;border:0;border-radius:10px;background:var(--cyan);color:#06202b;font:inherit;font-weight:bold;padding:10px 16px;margin-top:12px}button.secondary{background:#203c57;color:var(--text);border:1px solid #45647f}
+.result{margin-top:12px;padding:12px;border-radius:10px;background:#071726;border:1px solid var(--line);min-height:45px}
+.quiz-q{padding:14px 0;border-bottom:1px solid var(--line)}.quiz-q label{display:flex;gap:8px;align-items:flex-start;color:var(--text)}.quiz-q input{width:auto;margin-top:8px}
+footer{text-align:center;padding:24px;color:var(--muted);border-top:1px solid var(--line)}.small{font-size:13px;color:var(--muted)}.searchbox{margin:12px 0 16px}.hidden{display:none!important}
+@media(max-width:800px){.layout{grid-template-columns:1fr}aside{position:static;max-height:none}.grid2,.grid3{grid-template-columns:1fr}.card,.lesson{padding:17px}header{padding-top:20px}}
+</style>
+</head>
+<body>
+<header><div class="wrap">
+<nav class="topnav" aria-label="ناوبری"><a href="index.html">صفحهٔ اصلی</a><a href="physics.html">فیزیک</a><a href="mechanics.html">مکانیک</a><a href="optics.html">نور و اپتیک</a><a href="math.html">ریاضی</a><a href="chemistry.html">شیمی</a></nav>
+<h1>گرما و ترمودینامیک؛ انرژی در دنیای واقعی</h1>
+<p class="lead">از تفاوت دما و گرما تا قوانین ترمودینامیک، موتور خودرو، یخچال، نیروگاه، عایق‌کاری ساختمان و مبدل‌های حرارتی. در هر بخش ابتدا مفهوم را می‌فهمیم، بعد فرمول و مثال را بررسی می‌کنیم.</p>
+<div class="hero-tags"><span class="pill">۲۵ درس</span><span class="pill">فرمول و مثال حل‌شده</span><span class="pill">کاربرد صنعتی</span><span class="pill">۶ ماشین‌حساب</span><span class="pill">آزمون پایانی</span></div>
+</div></header>
+<main class="wrap"><div class="layout">
+<aside><h2>فهرست درس‌ها</h2>
+<div class="searchbox"><input id="searchLessons" type="search" placeholder="جست‌وجو در درس‌ها…" aria-label="جست‌وجو در درس‌ها"></div>
+<a href="#roadmap">نقشهٔ یادگیری</a><a href="#l1">۱. دما و گرما</a><a href="#l2">۲. تعادل گرمایی</a><a href="#l3">۳. مقیاس دما</a><a href="#l4">۴. انبساط گرمایی</a><a href="#l5">۵. گرمای ویژه</a><a href="#l6">۶. گرمای نهان</a><a href="#l7">۷. رسانش</a><a href="#l8">۸. همرفت</a><a href="#l9">۹. تابش گرمایی</a><a href="#l10">۱۰. گرماسنجی</a><a href="#l11">۱۱. قوانین گازها</a><a href="#l12">۱۲. گاز کامل</a><a href="#l13">۱۳. قانون اول</a><a href="#l14">۱۴. کار گاز</a><a href="#l15">۱۵. قانون دوم و آنتروپی</a><a href="#l16">۱۶. موتور گرمایی</a><a href="#l17">۱۷. یخچال و ضریب عملکرد</a><a href="#l18">۱۸. چرخهٔ کارنو</a><a href="#l19">۱۹. فرایندهای ترمودینامیکی</a><a href="#l20">۲۰. بخار و دیگ بخار</a><a href="#l21">۲۱. عایق و اتلاف انرژی</a><a href="#l22">۲۲. مبدل حرارتی</a><a href="#l23">۲۳. پمپ حرارتی</a><a href="#l24">۲۴. حسگرهای دما</a><a href="#l25">۲۵. ایمنی گرمایی</a><a href="#calculators">ماشین‌حساب‌ها</a><a href="#quiz">آزمون</a>
+</aside>
+<div class="content" id="lessonContent">
+<section class="card" id="roadmap"><h2>چطور این صفحه را بخوانی؟</h2>
+<div class="grid3"><div class="mini"><h3>اول مفهوم</h3><p>دما و گرما یک چیز نیستند. تفاوتشان را پیش از حفظ فرمول‌ها بفهم.</p></div><div class="mini"><h3>بعد فرمول</h3><p>واحدها را چک کن؛ دمای مطلق در روابط گازها باید بر حسب کلوین باشد.</p></div><div class="mini"><h3>سپس کاربرد</h3><p>هر قانون را به وسیله‌ای مثل دیگ بخار، موتور، یخچال یا عایق وصل کن.</p></div></div>
+<div class="note"><b>نمادهای پرکاربرد:</b> Q گرمای منتقل‌شده (ژول)، m جرم (کیلوگرم)، c ظرفیت گرمایی ویژه (ژول بر کیلوگرم‌کلوین)، T دمای مطلق (کلوین)، P فشار (پاسکال)، V حجم (متر مکعب)، U انرژی درونی (ژول).</div></section>
+
+<article class="lesson" id="l1" data-search="دما گرما انرژی انتقال">
+<div class="lesson-number">درس ۱ از ۲۵</div><h2>تفاوت دما و گرما</h2>
+<p><b>دما</b> نشان می‌دهد جسم از نظر گرمایی چقدر گرم یا سرد است و با وضعیت جنبش ذرات ارتباط دارد. <b>گرما</b> انرژی‌ای است که به علت اختلاف دما از یک جسم به جسم دیگر منتقل می‌شود. جسم «گرما درون خود» ذخیره نمی‌کند؛ انرژی درونی دارد و گرما نام انتقال انرژی است.</p>
+<div class="grid2"><div class="mini"><h3>دما</h3><p>با دماسنج اندازه‌گیری می‌شود؛ واحد رایج سلسیوس و واحد علمی کلوین است.</p></div><div class="mini"><h3>گرما</h3><p>انرژی منتقل‌شده است؛ واحد آن ژول است. در برخی کاربردها کالری هم استفاده می‌شود.</p></div></div>
+<div class="example"><b>مثال:</b> یک فنجان آب جوش دمایش از یک وان آب گرم بیشتر است، اما وان ممکن است انرژی درونی بسیار بیشتری داشته باشد چون مقدار آب آن زیادتر است.</div>
+</article>
+
+<article class="lesson" id="l2" data-search="تعادل گرمایی قانون صفر ترمودینامیک">
+<div class="lesson-number">درس ۲ از ۲۵</div><h2>تعادل گرمایی و قانون صفرم</h2>
+<p>اگر دو جسم با هم در تماس گرمایی باشند، انرژی معمولاً از جسم گرم‌تر به جسم سردتر منتقل می‌شود تا به تعادل برسند. در تعادل گرمایی، انتقال خالص گرما میان آن‌ها وجود ندارد.</p>
+<p>قانون صفرم می‌گوید اگر جسم A با جسم C و جسم B هم هر کدام با C در تعادل گرمایی باشند، A و B نیز با هم در تعادل‌اند. همین اصل پایهٔ اندازه‌گیری دما با دماسنج است.</p>
+<div class="example"><b>کاربرد:</b> برای اندازه‌گیری دمای محلول، دماسنج باید فرصت داشته باشد با محلول به تعادل برسد؛ خواندن فوری ممکن است دقیق نباشد.</div>
+</article>
+
+<article class="lesson" id="l3" data-search="سلسیوس کلوین فارنهایت تبدیل دما">
+<div class="lesson-number">درس ۳ از ۲۵</div><h2>مقیاس‌های دما: سلسیوس و کلوین</h2>
+<p>در روابط علمی، به‌ویژه قانون گاز کامل و چرخهٔ کارنو، از دمای مطلق کلوین استفاده می‌کنیم. صفر کلوین حد پایین دمای ترمودینامیکی است.</p>
+<div class="formula">T(K) = T(°C) + 273.15</div>
+<div class="formula">T(°F) = (9/5) T(°C) + 32</div>
+<div class="example"><b>مثال:</b> دمای ۲۷ درجهٔ سلسیوس تقریباً ۳۰۰٫۱۵ کلوین است. در بسیاری از محاسبات مدرسه‌ای از ۲۷۳ به‌جای ۲۷۳٫۱۵ استفاده می‌شود.</div>
+<div class="warning"><b>خطای رایج:</b> در قانون گازها، دمای ۲۷ درجه را مستقیماً به جای ۳۰۰ کلوین قرار نده؛ دما باید به کلوین تبدیل شود.</div>
+</article>
+
+<article class="lesson" id="l4" data-search="انبساط گرمایی طولی حجمی پل ریل">
+<div class="lesson-number">درس ۴ از ۲۵</div><h2>انبساط گرمایی</h2>
+<p>بیشتر مواد با گرم شدن منبسط و با سرد شدن منقبض می‌شوند. مقدار تغییر اندازه به جنس ماده، اندازهٔ اولیه و تغییر دما بستگی دارد.</p>
+<div class="formula">ΔL = α L₀ ΔT</div>
+<p>α ضریب انبساط طولی بر حسب 1/K، L₀ طول اولیه و ΔT تغییر دماست. برای تغییر حجم جامد همسانگرد در تقریب ساده، ضریب انبساط حجمی تقریباً سه برابر ضریب طولی است.</p>
+<div class="example"><b>مثال:</b> اگر میله‌ای ۲ متری با α=12×10⁻⁶/K به اندازهٔ ۵۰ درجه گرم شود، طول آن تقریباً ۱٫۲ میلی‌متر افزایش می‌یابد.</div>
+<div class="example"><b>کاربرد صنعتی:</b> در پل‌ها و خطوط لوله، فضای انبساط یا اتصال مناسب در نظر می‌گیرند تا تغییر دما باعث تنش و تغییر شکل ناخواسته نشود.</div>
+</article>
+
+<article class="lesson" id="l5" data-search="گرمای ویژه ظرفیت گرمایی Q mc delta T">
+<div class="lesson-number">درس ۵ از ۲۵</div><h2>گرمای ویژه و تغییر دما</h2>
+<p>گرمای ویژه می‌گوید برای افزایش دمای یک کیلوگرم از ماده به اندازهٔ یک کلوین، چه مقدار انرژی لازم است.</p>
+<div class="formula">Q = m c ΔT</div>
+<p>در این رابطه Q گرمای منتقل‌شده، m جرم، c گرمای ویژه و ΔT تغییر دماست. اگر جسم گرم شود Q در قرارداد این درس مثبت و اگر سرد شود منفی در نظر گرفته می‌شود.</p>
+<div class="example"><b>مثال:</b> گرم کردن ۲ کیلوگرم آب به اندازهٔ ۱۰°C نیازمند تقریباً Q=2×4180×10=83,600 ژول انرژی است؛ با فرض نبود اتلاف و استفاده از c≈4180 J/(kg·K).</div>
+<div class="note">گرمای ویژهٔ آب نسبتاً زیاد است؛ به همین دلیل آب در تعدیل دمای محیط و خنک‌کاری صنعتی نقش مهمی دارد.</div>
+</article>
+
+<article class="lesson" id="l6" data-search="گرمای نهان ذوب تبخیر تغییر فاز">
+<div class="lesson-number">درس ۶ از ۲۵</div><h2>گرمای نهان و تغییر حالت</h2>
+<p>هنگام ذوب یا جوشیدن یک مادهٔ خالص در فشار ثابت، انرژی می‌تواند صرف تغییر حالت شود بدون آنکه دما در تمام مدت تغییر حالت افزایش یابد.</p>
+<div class="formula">Q = m L</div>
+<p>L گرمای نهان ویژه است؛ مقدار آن برای ذوب و تبخیر متفاوت است و به ماده و شرایط بستگی دارد.</p>
+<div class="example"><b>مثال:</b> برای ذوب کامل یخ در دمای ذوب، انرژی صرف شکستن ساختار جامد می‌شود. پس از ذوب شدن کامل، افزودن گرما دمای آب را بالا می‌برد.</div>
+<div class="warning">در مسائل واقعی، تغییر فشار، ناخالصی، ظرف و اتلاف انرژی می‌تواند نتیجه را تغییر دهد.</div>
+</article>
+
+<article class="lesson" id="l7" data-search="رسانش گرمایی هدایت فلز عایق">
+<div class="lesson-number">درس ۷ از ۲۵</div><h2>رسانش گرمایی</h2>
+<p>در رسانش، انرژی گرمایی از ناحیهٔ گرم‌تر به سردتر منتقل می‌شود، بدون اینکه ماده به شکل کلی جریان پیدا کند. در فلزها، الکترون‌های آزاد در انتقال انرژی نقش مهمی دارند.</p>
+<div class="formula">Q/t ≈ k A ΔT / L</div>
+<p>k رسانندگی گرمایی، A سطح مقطع، ΔT اختلاف دما و L ضخامت لایه است. این رابطه برای دیوارهٔ تخت و انتقال تقریباً پایا و یک‌بعدی کاربرد دارد.</p>
+<figure class="physics-image"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Heat_Diagram.PNG" alt="نمودار روش‌های انتقال گرما" onerror="this.style.display='none'"><figcaption>رسانش یکی از راه‌های انتقال انرژی گرمایی است؛ همرفت و تابش نیز نقش دارند.</figcaption><a href="https://commons.wikimedia.org/wiki/File:Heat_Diagram.PNG" target="_blank" rel="noopener">منبع تصویر و مجوز در ویکی‌مدیا کامنز</a></figure>
+<div class="example"><b>کاربرد:</b> قابلمهٔ فلزی گرما را خوب منتقل می‌کند، اما دستهٔ عایق انتقال گرما به دست را کاهش می‌دهد.</div>
+</article>
+
+<article class="lesson" id="l8" data-search="همرفت سیال حرکت هوا آب">
+<div class="lesson-number">درس ۸ از ۲۵</div><h2>همرفت گرمایی</h2>
+<p>همرفت انتقال گرما به کمک حرکت توده‌ای سیال، مانند هوا یا آب، است. در همرفت طبیعی، تفاوت چگالی ناشی از دما می‌تواند سیال را به حرکت درآورد؛ در همرفت اجباری، پنکه یا پمپ جریان را ایجاد می‌کند.</p>
+<figure class="physics-image"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Kettle-convection-conduction-radiation.png" alt="رسانش و همرفت در کتری و تابش از شعله" onerror="this.style.display='none'"><figcaption>در کتری، فلز گرما را با رسانش منتقل می‌کند و آب گرم‌شونده می‌تواند با همرفت گردش کند.</figcaption><a href="https://commons.wikimedia.org/wiki/File:Kettle-convection-conduction-radiation.png" target="_blank" rel="noopener">منبع تصویر و مجوز در ویکی‌مدیا کامنز</a></figure>
+<div class="example"><b>کاربرد:</b> رادیاتور خودرو با کمک گردش مایع خنک‌کننده و جریان هوا گرمای موتور را به محیط منتقل می‌کند.</div>
+</article>
+
+<article class="lesson" id="l9" data-search="تابش گرمایی تشعشع مادون قرمز خورشید">
+<div class="lesson-number">درس ۹ از ۲۵</div><h2>تابش گرمایی</h2>
+<p>تابش گرمایی به‌وسیلهٔ امواج الکترومغناطیسی منتقل می‌شود و برای انتشار به ماده نیاز ندارد. به همین دلیل انرژی خورشید می‌تواند از خلأ فضا به زمین برسد.</p>
+<div class="grid2"><div class="mini"><h3>سطح تیره و مات</h3><p>اغلب تابش را بهتر از سطح براق و بازتابنده جذب می‌کند.</p></div><div class="mini"><h3>سطح براق</h3><p>در بسیاری از شرایط، تابش کمتری جذب می‌کند و بازتاب بیشتری دارد.</p></div></div>
+<div class="example"><b>کاربرد:</b> پوشش‌های بازتابنده در برخی عایق‌های حرارتی با کاهش تبادل تابشی، انتقال گرما را محدود می‌کنند؛ اما عملکرد کل عایق به لایه‌ها و شرایط نصب هم بستگی دارد.</div>
+</article>
+
+<article class="lesson" id="l10" data-search="گرماسنجی تعادل گرمایی مخلوط آب">
+<div class="lesson-number">درس ۱۰ از ۲۵</div><h2>گرماسنجی و مخلوط کردن اجسام</h2>
+<p>در یک سامانهٔ عایق‌شده، مجموع انرژی گرمایی مبادله‌شده بین اجسام صفر است؛ انرژی‌ای که جسم گرم از دست می‌دهد به جسم سرد و اجزای دیگر منتقل می‌شود.</p>
+<div class="formula">ΣQ = 0</div>
+<div class="example"><b>مثال ساده:</b> آب گرم و سرد را در ظرف عایق مخلوط می‌کنیم. دمای نهایی معمولاً میان دو دمای اولیه قرار می‌گیرد، اگر تغییر حالت رخ ندهد و ظرف و محیط را نادیده بگیریم.</div>
+<div class="warning">برای حل دقیق، جرم‌ها، گرمای ویژه‌ها و در صورت نیاز ظرفیت گرمایی ظرف را در نظر بگیر.</div>
+</article>
+
+<article class="lesson" id="l11" data-search="قوانین گاز بویل شارل گی لوساک">
+<div class="lesson-number">درس ۱۱ از ۲۵</div><h2>قوانین گازها</h2>
+<p>قوانین گازها نشان می‌دهند فشار P، حجم V و دمای مطلق T چگونه به هم وابسته‌اند. در این روابط مقدار گاز ثابت فرض می‌شود.</p>
+<table><thead><tr><th>شرط ثابت</th><th>رابطه</th><th>معنا</th></tr></thead><tbody><tr><td>دما ثابت</td><td>P₁V₁=P₂V₂</td><td>با کاهش حجم، فشار افزایش می‌یابد.</td></tr><tr><td>فشار ثابت</td><td>V₁/T₁=V₂/T₂</td><td>با افزایش کلوین، حجم افزایش می‌یابد.</td></tr><tr><td>حجم ثابت</td><td>P₁/T₁=P₂/T₂</td><td>با افزایش کلوین، فشار افزایش می‌یابد.</td></tr></tbody></table>
+<figure class="physics-image"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Ideal_gas_law_relationships.svg" alt="نمودار ارتباط قوانین گازها" onerror="this.style.display='none'"><figcaption>قوانین بویل، شارل و گی-لوساک حالت‌های ساده‌شده‌ای از رفتار گازها را توصیف می‌کنند.</figcaption><a href="https://commons.wikimedia.org/wiki/File:Ideal_gas_law_relationships.svg" target="_blank" rel="noopener">منبع تصویر و مجوز در ویکی‌مدیا کامنز</a></figure>
+</article>
+
+<article class="lesson" id="l12" data-search="قانون گاز کامل PV nRT">
+<div class="lesson-number">درس ۱۲ از ۲۵</div><h2>معادلهٔ گاز کامل</h2>
+<div class="formula">PV = nRT</div>
+<p>P فشار بر حسب پاسکال، V حجم بر حسب متر مکعب، n مقدار ماده بر حسب مول، R ثابت گازها (تقریباً 8.314 J/(mol·K)) و T دمای کلوین است.</p>
+<div class="example"><b>مثال:</b> در محاسبهٔ فشار یک گاز با جرم و حجم مشخص، ابتدا مول‌های گاز را از جرم مولی به‌دست می‌آوریم و سپس در رابطهٔ PV=nRT قرار می‌دهیم.</div>
+<div class="note">گاز کامل یک مدل تقریبی است؛ در فشار بسیار زیاد یا نزدیک به میعان، رفتار واقعی گاز ممکن است با مدل تفاوت داشته باشد.</div>
+</article>
+
+<article class="lesson" id="l13" data-search="قانون اول ترمودینامیک انرژی درونی">
+<div class="lesson-number">درس ۱۳ از ۲۵</div><h2>قانون اول ترمودینامیک</h2>
+<p>قانون اول، بیان پایستگی انرژی برای سامانهٔ ترمودینامیکی است. برای این صفحه قرارداد زیر را به کار می‌بریم: Q مثبت است اگر گرما به سامانه وارد شود؛ W مثبت است اگر سامانه روی محیط کار انجام دهد.</p>
+<div class="formula">ΔU = Q − W</div>
+<p>ΔU تغییر انرژی درونی است. اگر به گاز گرما بدهیم، انرژی درونی می‌تواند افزایش یابد؛ اما اگر گاز هم‌زمان کار انجام دهد، بخشی از انرژی به محیط منتقل می‌شود.</p>
+<div class="example"><b>مثال:</b> اگر ۵۰۰ ژول گرما به گاز بدهیم و گاز ۲۰۰ ژول کار انجام دهد، تغییر انرژی درونی آن برابر ۳۰۰ ژول است.</div>
+</article>
+
+<article class="lesson" id="l14" data-search="کار گاز فشار ثابت تغییر حجم">
+<div class="lesson-number">درس ۱۴ از ۲۵</div><h2>کار انجام‌شده توسط گاز</h2>
+<p>وقتی گاز منبسط می‌شود و پیستون را جابه‌جا می‌کند، می‌تواند روی محیط کار انجام دهد. برای فشار ثابت:</p>
+<div class="formula">W = P ΔV</div>
+<p>در قرارداد این صفحه، انبساط (ΔV مثبت) کار مثبت و فشرده‌سازی کار منفی دارد. این رابطه به فشار ثابت یا تقریب مناسب نیاز دارد؛ حالت کلی‌تر کار از انتگرال فشار نسبت به حجم به دست می‌آید.</p>
+<div class="example"><b>مثال:</b> گازی در فشار ثابت 100 kPa به اندازهٔ 0.002 m³ منبسط می‌شود. کار گاز برابر 100000×0.002=200 ژول است.</div>
+<div class="example"><b>کاربرد:</b> در موتورهای پیستونی، گاز داغ منبسط می‌شود و بخشی از انرژی را به کار مکانیکی تبدیل می‌کند.</div>
+</article>
+
+<article class="lesson" id="l15" data-search="قانون دوم آنتروپی برگشت ناپذیری">
+<div class="lesson-number">درس ۱۵ از ۲۵</div><h2>قانون دوم و آنتروپی</h2>
+<p>قانون دوم جهت طبیعی فرایندها را محدود می‌کند. گرما خودبه‌خود از جسم گرم به جسم سرد منتقل می‌شود، نه برعکس؛ برای انتقال گرما از سرد به گرم باید کار خارجی انجام شود، مثل یخچال.</p>
+<p>آنتروپی کمیتی ترمودینامیکی است که در توصیف پراکندگی انرژی و برگشت‌ناپذیری فرایندها نقش دارد. برای یک فرایند برگشت‌پذیر و دمای ثابت:</p>
+<div class="formula">ΔS = Qᵣₑᵥ / T</div>
+<div class="note">برای سامانهٔ منزوی، آنتروپی کل کاهش نمی‌یابد. این به معنی آن نیست که آنتروپی هر بخش به‌تنهایی همیشه افزایش پیدا کند.</div>
+</article>
+
+<article class="lesson" id="l16" data-search="موتور گرمایی بازده گرما کار">
+<div class="lesson-number">درس ۱۶ از ۲۵</div><h2>موتور گرمایی و بازده</h2>
+<p>موتور گرمایی بخشی از گرمای دریافتی از منبع گرم را به کار تبدیل می‌کند و باقی آن را به منبع سرد دفع می‌کند. هیچ موتور چرخه‌ای واقعی نمی‌تواند تمام گرمای دریافتی را به کار مفید تبدیل کند.</p>
+<div class="formula">η = Wout / Qin = 1 − Qout / Qin</div>
+<div class="example"><b>مثال:</b> اگر موتور 1000 ژول گرما دریافت کند و 300 ژول کار مفید تحویل دهد، بازده انرژی آن 30٪ است؛ بقیهٔ انرژی به صورت گرما یا دیگر اتلاف‌ها دفع می‌شود.</div>
+<div class="example"><b>کاربرد:</b> موتور خودرو، توربین بخار نیروگاه و موتورهای صنعتی نمونه‌هایی از تبدیل بخشی از انرژی به کار هستند.</div>
+</article>
+
+<article class="lesson" id="l17" data-search="یخچال ضریب عملکرد COP">
+<div class="lesson-number">درس ۱۷ از ۲۵</div><h2>یخچال و ضریب عملکرد</h2>
+<p>یخچال با صرف کار الکتریکی، گرما را از فضای سرد می‌گیرد و به محیط گرم‌تر می‌دهد. ضریب عملکرد یخچال نسبت گرمای خارج‌شده از فضای سرد به کار ورودی است.</p>
+<div class="formula">COPᵣ = Qcold / Win</div>
+<p>ضریب عملکرد می‌تواند از ۱ بیشتر باشد؛ این نقض پایستگی انرژی نیست، چون دستگاه علاوه بر انرژی الکتریکی، گرما را هم از فضای سرد جابه‌جا می‌کند.</p>
+<div class="example"><b>کاربرد:</b> یخچال خانگی، سردخانه، سیستم تهویه و خنک‌کننده‌های صنعتی با اصول مشابهی کار می‌کنند.</div>
+</article>
+
+<article class="lesson" id="l18" data-search="چرخه کارنو بازده بیشینه دما کلوین">
+<div class="lesson-number">درس ۱۸ از ۲۵</div><h2>چرخهٔ کارنو و حد بالای بازده</h2>
+<p>چرخهٔ کارنو چرخه‌ای ایده‌آل و برگشت‌پذیر است که برای دو منبع دمایی، بیشترین بازده ممکن موتور گرمایی را مشخص می‌کند. این بازده به دماهای مطلق منبع‌ها وابسته است.</p>
+<div class="formula">ηCarnot = 1 − Tc / Th</div>
+<p>Th دمای منبع گرم و Tc دمای منبع سرد است؛ هر دو باید بر حسب کلوین و با Tc کمتر از Th باشند.</p>
+<div class="example"><b>مثال:</b> اگر منبع گرم 600 K و منبع سرد 300 K باشد، بازده کارنو 50٪ است. موتور واقعی تحت همین شرایط بازدهی کمتر از این حد دارد.</div>
+</article>
+
+<article class="lesson" id="l19" data-search="فرایند همدما هم فشار هم حجم بی دررو">
+<div class="lesson-number">درس ۱۹ از ۲۵</div><h2>فرایندهای ترمودینامیکی</h2>
+<div class="grid2"><div class="mini"><h3>همدما</h3><p>دما ثابت است؛ برای گاز کامل، انرژی درونی فقط تابع دماست و در تغییر همدمای ایده‌آل ΔU=0.</p></div><div class="mini"><h3>هم‌حجم</h3><p>حجم ثابت است؛ کار مرزی گاز W=0، پس گرمای مبادله‌شده تغییر انرژی درونی را تعیین می‌کند.</p></div><div class="mini"><h3>هم‌فشار</h3><p>فشار ثابت است؛ اگر حجم تغییر کند، گاز می‌تواند کار PΔV انجام دهد.</p></div><div class="mini"><h3>بی‌دررو</h3><p>گرما با محیط مبادله نمی‌شود (Q=0)؛ اما ممکن است دما به علت کار تغییر کند.</p></div></div>
+</article>
+
+<article class="lesson" id="l20" data-search="بخار دیگ بخار توربین نیروگاه">
+<div class="lesson-number">درس ۲۰ از ۲۵</div><h2>بخار، دیگ بخار و نیروگاه</h2>
+<p>در دیگ بخار، انرژی به آب منتقل می‌شود تا به بخار تبدیل شود. بخار پرفشار در توربین منبسط می‌شود و بخشی از انرژی خود را به کار مکانیکی و سپس برق تبدیل می‌کند. چرخه‌های واقعی شامل پمپ، دیگ، توربین و چگالنده‌اند.</p>
+<div class="example"><b>کاربرد صنعتی:</b> کنترل فشار، دمای بخار، سطح آب و عملکرد شیرهای ایمنی در دیگ بخار اهمیت حیاتی دارد.</div>
+<div class="warning">دیگ بخار یک تجهیز پرفشار خطرناک است. طراحی، ساخت، بهره‌برداری و تعمیر آن باید فقط مطابق استانداردها و به دست افراد آموزش‌دیده انجام شود.</div>
+</article>
+
+<article class="lesson" id="l21" data-search="عایق حرارتی ساختمان اتلاف انرژی">
+<div class="lesson-number">درس ۲۱ از ۲۵</div><h2>عایق‌کاری و کاهش اتلاف انرژی</h2>
+<p>عایق با کاهش رسانش، همرفت یا تابش، سرعت انتقال گرما را کم می‌کند. نتیجهٔ درست به جنس عایق، ضخامت، رطوبت، شکاف‌های هوا و نحوهٔ نصب وابسته است.</p>
+<div class="example"><b>مثال‌های واقعی:</b> عایق دیوار و سقف ساختمان، روکش لوله‌های آب گرم و عایق مخزن‌های صنعتی می‌توانند مصرف انرژی را کاهش دهند.</div>
+<div class="note">افزایش ضخامت عایق معمولاً مقاومت رسانشی را بالا می‌برد؛ اما پل‌های حرارتی، درزها و نفوذ هوا می‌توانند عملکرد کل سامانه را ضعیف کنند.</div>
+</article>
+
+<article class="lesson" id="l22" data-search="مبدل حرارتی رادیاتور لوله">
+<div class="lesson-number">درس ۲۲ از ۲۵</div><h2>مبدل حرارتی</h2>
+<p>مبدل حرارتی وسیله‌ای است که انرژی گرمایی را از یک سیال به سیال دیگر منتقل می‌کند؛ معمولاً دو سیال مستقیماً با هم مخلوط نمی‌شوند.</p>
+<div class="grid2"><div class="mini"><h3>نمونه‌ها</h3><p>رادیاتور، کندانسور، اواپراتور و مبدل پوسته‌ولوله.</p></div><div class="mini"><h3>عامل‌های مهم</h3><p>سطح تبادل، اختلاف دما، دبی سیال، رسانندگی دیواره و رسوب.</p></div></div>
+<div class="example"><b>کاربرد صنعتی:</b> کارخانه‌ها برای بازیابی گرمای خروجی، کاهش مصرف سوخت یا کنترل دمای فرایند از مبدل حرارتی استفاده می‌کنند.</div>
+</article>
+
+<article class="lesson" id="l23" data-search="پمپ حرارتی گرمایش COP">
+<div class="lesson-number">درس ۲۳ از ۲۵</div><h2>پمپ حرارتی؛ گرمایش با جابه‌جایی گرما</h2>
+<p>پمپ حرارتی با مصرف کار، گرما را از یک منبع سردتر به محیطی گرم‌تر منتقل می‌کند. در حالت گرمایش، ضریب عملکرد برابر گرمای تحویل‌داده‌شده به فضای گرم بر کار ورودی است.</p>
+<div class="formula">COPₕ = Qhot / Win</div>
+<p>برای یک چرخهٔ ایده‌آل، انرژی تحویلی به سمت گرم برابر مجموع گرمای گرفته‌شده از سمت سرد و کار ورودی است: Qhot=Qcold+Win.</p>
+<div class="example"><b>کاربرد:</b> پمپ‌های حرارتی می‌توانند برای گرمایش و در بسیاری از مدل‌ها برای سرمایش ساختمان استفاده شوند. عملکرد آن‌ها به اختلاف دمای داخل و خارج و طراحی دستگاه وابسته است.</div>
+</article>
+
+<article class="lesson" id="l24" data-search="حسگر دما ترموکوپل ترمیستور صنعتی">
+<div class="lesson-number">درس ۲۴ از ۲۵</div><h2>حسگرهای دما در صنعت</h2>
+<div class="grid2"><div class="mini"><h3>ترموکوپل</h3><p>از اختلاف ولتاژ در اتصال دو فلز متفاوت برای تخمین دما استفاده می‌کند؛ برای دامنه‌های دمایی گسترده کاربرد دارد.</p></div><div class="mini"><h3>RTD</h3><p>مقاومت الکتریکی فلز با دما تغییر می‌کند؛ در بسیاری از کاربردها دقت و پایداری خوبی دارد.</p></div><div class="mini"><h3>ترمیستور</h3><p>مقاومت نیمه‌رسانا به دما حساس است؛ معمولاً در بازه‌های مشخص حساسیت بالایی دارد.</p></div><div class="mini"><h3>دماسنج فروسرخ</h3><p>تابش فروسرخ سطح را بدون تماس مستقیم تخمین می‌زند؛ جنس سطح و گسیلندگی مهم‌اند.</p></div></div>
+<div class="example"><b>کاربرد:</b> کنترل دمای کوره، موتور، مواد غذایی، خطوط تولید و سامانه‌های تهویه به حسگر و کالیبراسیون مناسب نیاز دارد.</div>
+</article>
+
+<article class="lesson" id="l25" data-search="ایمنی حرارتی سوختگی فشار بخار">
+<div class="lesson-number">درس ۲۵ از ۲۵</div><h2>ایمنی گرمایی و تجهیزات داغ</h2>
+<ul><li>بخار و مایعات داغ می‌توانند سوختگی شدید ایجاد کنند؛ از تجهیزات حفاظتی مناسب استفاده کن.</li><li>هیچ‌گاه ظرف یا سامانهٔ بسته را بدون طراحی ایمن گرم نکن؛ فشار می‌تواند به‌شدت افزایش یابد.</li><li>هنگام کار با دیگ بخار، کوره یا خطوط داغ از دستورالعمل و مجوزهای ایمنی محل کار پیروی کن.</li><li>پیش از تعمیر دستگاه، انرژی‌های ذخیره‌شده و فشار را طبق رویهٔ ایمن تخلیه و ایزوله کن.</li><li>برای آزمایش‌های آموزشی از مقادیر کم، تجهیزات سالم و نظارت مناسب استفاده کن.</li></ul>
+<div class="note">فیزیک به ما کمک می‌کند خطرها را پیش‌بینی کنیم؛ جایگزین آموزش حرفه‌ای و دستورالعمل ایمنی نیست.</div>
+</article>
+
+<section class="card" id="calculators"><h2>ماشین‌حساب‌های آموزشی ترمودینامیک</h2><p class="small">نتایج بر پایهٔ مدل‌های ساده‌اند. برای مسائل واقعی صنعتی، اتلاف‌ها و ویژگی‌های وابسته به دما را نیز باید لحاظ کرد.</p>
+<div class="grid2">
+<div class="mini"><h3>۱. تبدیل دما</h3><label for="tempC">دما بر حسب سلسیوس</label><input id="tempC" type="number" step="any" value="25"><button onclick="calcTemp()">تبدیل دما</button><div id="tempResult" class="result">نتیجه اینجا نمایش داده می‌شود.</div></div>
+<div class="mini"><h3>۲. گرما برای تغییر دما</h3><label for="mass">جرم (کیلوگرم)</label><input id="mass" type="number" min="0" step="any" value="2"><label for="specHeat">گرمای ویژه (J/kg·K)</label><input id="specHeat" type="number" min="0" step="any" value="4180"><label for="deltaTemp">تغییر دما (°C یا K)</label><input id="deltaTemp" type="number" step="any" value="10"><button onclick="calcSensibleHeat()">محاسبه Q=mcΔT</button><div id="sensibleResult" class="result">نتیجه اینجا نمایش داده می‌شود.</div></div>
+<div class="mini"><h3>۳. گرمای نهان</h3><label for="latentMass">جرم (کیلوگرم)</label><input id="latentMass" type="number" min="0" step="any" value="0.5"><label for="latentL">گرمای نهان ویژه (J/kg)</label><input id="latentL" type="number" min="0" step="any" value="334000"><button onclick="calcLatent()">محاسبه Q=mL</button><div id="latentResult" class="result">نتیجه اینجا نمایش داده می‌شود.</div></div>
+<div class="mini"><h3>۴. انبساط طولی</h3><label for="length0">طول اولیه (متر)</label><input id="length0" type="number" min="0" step="any" value="2"><label for="alpha">ضریب انبساط α (1/K)</label><input id="alpha" type="number" min="0" step="any" value="0.000012"><label for="deltaTExpand">تغییر دما (K)</label><input id="deltaTExpand" type="number" step="any" value="50"><button onclick="calcExpansion()">محاسبهٔ تغییر طول</button><div id="expansionResult" class="result">نتیجه اینجا نمایش داده می‌شود.</div></div>
+<div class="mini"><h3>۵. بازده موتور گرمایی</h3><label for="qin">گرمای دریافتی Qin (ژول)</label><input id="qin" type="number" min="0" step="any" value="1000"><label for="qout">گرمای دفع‌شده Qout (ژول)</label><input id="qout" type="number" min="0" step="any" value="700"><button onclick="calcEfficiency()">محاسبهٔ بازده</button><div id="efficiencyResult" class="result">نتیجه اینجا نمایش داده می‌شود.</div></div>
+<div class="mini"><h3>۶. فشار گاز کامل</h3><label for="moles">مقدار ماده n (مول)</label><input id="moles" type="number" min="0" step="any" value="1"><label for="gasT">دما T (کلوین)</label><input id="gasT" type="number" min="0" step="any" value="300"><label for="gasV">حجم V (متر مکعب)</label><input id="gasV" type="number" min="0" step="any" value="0.025"><button onclick="calcGas()">محاسبهٔ فشار PV=nRT</button><div id="gasResult" class="result">نتیجه اینجا نمایش داده می‌شود.</div></div>
+</div></section>
+
+<section class="card" id="quiz"><h2>آزمون پایانی</h2><p>برای هر سؤال یک پاسخ انتخاب کن و بعد پاسخ‌ها را بررسی کن.</p>
+<form id="quizForm">
+<div class="quiz-q"><b>۱. گرما چیست؟</b><label><input type="radio" name="q1" value="a"> کمیتی که همیشه در جسم ذخیره می‌شود</label><label><input type="radio" name="q1" value="b"> انرژی منتقل‌شده به علت اختلاف دما</label><label><input type="radio" name="q1" value="c"> واحد اندازه‌گیری دما</label></div>
+<div class="quiz-q"><b>۲. در قانون گاز کامل، دما باید بر حسب چه واحدی باشد؟</b><label><input type="radio" name="q2" value="a"> سلسیوس در همهٔ موارد</label><label><input type="radio" name="q2" value="b"> فارنهایت</label><label><input type="radio" name="q2" value="c"> کلوین</label></div>
+<div class="quiz-q"><b>۳. در قرارداد این صفحه، قانون اول کدام است؟</b><label><input type="radio" name="q3" value="a"> ΔU=Q−W، وقتی W کار انجام‌شده توسط سامانه است</label><label><input type="radio" name="q3" value="b"> ΔU=Q+W در هر قراردادی</label><label><input type="radio" name="q3" value="c"> انرژی همیشه نابود می‌شود</label></div>
+<div class="quiz-q"><b>۴. کدام روش انتقال گرما برای رسیدن انرژی خورشید از خلأ فضا لازم است؟</b><label><input type="radio" name="q4" value="a"> فقط رسانش</label><label><input type="radio" name="q4" value="b"> تابش</label><label><input type="radio" name="q4" value="c"> فقط همرفت</label></div>
+<div class="quiz-q"><b>۵. چرا موتور گرمایی واقعی نمی‌تواند تمام گرمای دریافتی را به کار تبدیل کند؟</b><label><input type="radio" name="q5" value="a"> چون قانون دوم ترمودینامیک چنین محدودیتی دارد</label><label><input type="radio" name="q5" value="b"> چون گرما واحد ندارد</label><label><input type="radio" name="q5" value="c"> چون دما همیشه ثابت است</label></div>
+<button type="button" onclick="gradeQuiz()">بررسی پاسخ‌ها</button><button type="reset" class="secondary" onclick="document.getElementById('quizResult').textContent='پاسخ‌ها را انتخاب کن.'">شروع دوباره</button><div class="result" id="quizResult" aria-live="polite">پاسخ‌ها را انتخاب کن.</div>
+</form></section>
+
+<section class="card"><h2>پیشنهاد برای ادامه</h2><ol><li>ابتدا مسائل Q=mcΔT و Q=mL را حل کن.</li><li>بعد قوانین گازها را با تبدیل دما به کلوین تمرین کن.</li><li>در قانون اول، قرارداد علامت Q و W را پیش از حل بنویس.</li><li>در پایان بازده موتور و ضریب عملکرد یخچال را مقایسه کن.</li></ol><div class="note"><b>یادآوری:</b> فرمول‌ها ابزار مدل‌سازی‌اند. هنگام حل مسئله، شرایطی مانند فشار ثابت، نبود اتلاف یا گاز کامل بودن را بررسی کن.</div></section>
+</div></div></main>
+<footer><div class="wrap">علم‌خانه | گرما و ترمودینامیک با مثال، تصویر و تمرین</div></footer>
+<script>
+const fmt=(x,d=5)=>Number.isFinite(x)?x.toLocaleString('fa-IR',{maximumFractionDigits:d}):'قابل محاسبه نیست';
+const val=id=>Number(document.getElementById(id).value);
+function calcTemp(){const c=val('tempC'),r=document.getElementById('tempResult');r.textContent='کلوین: '+fmt(c+273.15,3)+' K | فارنهایت: '+fmt(c*9/5+32,3)+' °F';}
+function calcSensibleHeat(){const m=val('mass'),c=val('specHeat'),dt=val('deltaTemp'),r=document.getElementById('sensibleResult');if(m<0||c<0){r.textContent='جرم و گرمای ویژه نمی‌توانند منفی باشند.';return}const q=m*c*dt;r.textContent='Q = '+fmt(q)+' ژول ('+(q>=0?'گرما به جسم داده شده است.':'جسم گرما از دست داده است.')+')';}
+function calcLatent(){const m=val('latentMass'),l=val('latentL'),r=document.getElementById('latentResult');if(m<0||l<0){r.textContent='جرم و گرمای نهان باید صفر یا مثبت باشند.';return}r.textContent='انرژی لازم برای تغییر حالت ≈ '+fmt(m*l)+' ژول';}
+function calcExpansion(){const L=val('length0'),a=val('alpha'),dt=val('deltaTExpand'),r=document.getElementById('expansionResult');if(L<0||a<0){r.textContent='طول و ضریب انبساط باید صفر یا مثبت باشند.';return}const dL=a*L*dt;r.textContent='تغییر طول ΔL ≈ '+fmt(dL,8)+' متر ('+fmt(dL*1000,5)+' میلی‌متر). علامت تغییر به علامت ΔT وابسته است.';}
+function calcEfficiency(){const qi=val('qin'),qo=val('qout'),r=document.getElementById('efficiencyResult');if(qi<=0||qo<0||qo>qi){r.textContent='برای این مدل، Qin باید مثبت و Qout بین صفر و Qin باشد.';return}const eta=(qi-qo)/qi*100;r.textContent='کار خروجی = '+fmt(qi-qo)+' ژول | بازده = '+fmt(eta,3)+'٪';}
+function calcGas(){const n=val('moles'),T=val('gasT'),V=val('gasV'),r=document.getElementById('gasResult');if(n<0||T<=0||V<=0){r.textContent='n باید صفر یا مثبت و دما و حجم باید مثبت باشند.';return}const p=n*8.314*T/V;r.textContent='فشار P ≈ '+fmt(p)+' پاسکال ('+fmt(p/1000)+' کیلوپاسکال)';}
+function gradeQuiz(){const ans={q1:'b',q2:'c',q3:'a',q4:'b',q5:'a'};let score=0,missing=0;for(const [q,a] of Object.entries(ans)){const v=document.querySelector('input[name="'+q+'"]:checked');if(!v)missing++;else if(v.value===a)score++;}document.getElementById('quizResult').textContent='امتیاز: '+score+' از ۵. '+(missing?'سؤال بی‌پاسخ: '+missing+'. ':'')+(score===5?'عالی! همهٔ پاسخ‌ها درست است.':score>=3?'خوب است؛ سؤال‌های اشتباه را مرور کن.':'درس‌ها را مرور کن و دوباره امتحان بده.');}
+document.getElementById('searchLessons').addEventListener('input',function(){const q=this.value.trim().toLocaleLowerCase('fa');document.querySelectorAll('.lesson').forEach(el=>{const hay=(el.innerText+' '+(el.dataset.search||'')).toLocaleLowerCase('fa');el.classList.toggle('hidden',q.length>0&&!hay.includes(q));});});
+</script>
+</body>
+</html>

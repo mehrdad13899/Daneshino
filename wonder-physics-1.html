@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دنیای شگفت‌انگیز فیزیک | علم‌خانه</title>
+</head>
+<body style="margin:0;background:#020b18;color:#f1f5ff;">
+
+<!-- =========================================
+     دنیای شگفت‌انگیز فیزیک | علم‌خانه
+     فایل مستقل: wonder-physics.html
+========================================= -->
+
+<section id="wonder-physics">
+
+<style>
+#wonder-physics {
+    direction: rtl;
+    font-family: Tahoma, Arial, sans-serif;
+    color: #f1f5ff;
+    background: #020b18;
+    padding: 30px 16px;
+    border-radius: 22px;
+    overflow: hidden;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+#wonder-physics * { box-sizing: border-box; }
+#wonder-physics .wp-hero {
+    position: relative; padding: 55px 25px; min-height: 290px;
+    display: flex; align-items: center; border: 1px solid #164e8a;
+    border-radius: 20px; overflow: hidden;
+    background: linear-gradient(90deg,#020b18 0%,#07152bdc 48%,#07152b50 100%),
+    url("https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=1800&q=85") center/cover;
+}
+#wonder-physics .wp-hero-content { position: relative; z-index: 1; max-width: 620px; }
+#wonder-physics .wp-label { display:inline-block;color:#67e8f9;background:#083344;padding:8px 14px;border-radius:30px;font-size:13px;margin-bottom:15px; }
+#wonder-physics .wp-hero h2 { font-size:clamp(27px,4vw,43px);line-height:1.7;color:#8be9ff;margin:0 0 12px; }
+#wonder-physics .wp-hero p { line-height:2.2;font-size:15px;color:#e2e8f0; }
+#wonder-physics .wp-button { border:1px solid #22d3ee;color:white;background:linear-gradient(120deg,#075985,#4338ca);padding:13px 23px;border-radius:12px;cursor:pointer;font-size:14px;font-family:inherit;margin-top:12px;transition:.25s; }
+#wonder-physics .wp-button:hover { transform:translateY(-3px);box-shadow:0 0 20px #06b6d455; }
+#wonder-physics .wp-heading { display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:35px 0 18px;padding-bottom:14px;border-bottom:1px solid #164e8a; }
+#wonder-physics .wp-heading h3 { color:#67e8f9;font-size:23px;margin:0; }
+#wonder-physics .wp-heading span { color:#94a3b8;font-size:12px; }
+#wonder-physics .wp-search { width:100%;padding:15px;border:1px solid #1e4975;border-radius:12px;background:#07152a;color:white;font-family:inherit;font-size:14px;outline:none;margin-bottom:18px; }
+#wonder-physics .wp-search:focus { border-color:#22d3ee;box-shadow:0 0 12px #06b6d422; }
+#wonder-physics .wp-filters { display:flex;flex-wrap:wrap;gap:9px;margin-bottom:22px; }
+#wonder-physics .wp-filter { border:1px solid #25476d;background:#0b1930;color:#cbd5e1;padding:10px 14px;border-radius:25px;font-family:inherit;cursor:pointer;font-size:12px; }
+#wonder-physics .wp-filter.active,#wonder-physics .wp-filter:hover { background:#164e63;color:#a5f3fc;border-color:#22d3ee; }
+#wonder-physics .wp-grid { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px; }
+#wonder-physics .wp-card { background:linear-gradient(145deg,#0c1c35,#06101f);border:1px solid #183b64;border-radius:16px;overflow:hidden;transition:.25s;min-width:0; }
+#wonder-physics .wp-card:hover { transform:translateY(-5px);border-color:#22d3ee;box-shadow:0 10px 30px #0005; }
+#wonder-physics .wp-card[hidden] { display:none!important; }
+#wonder-physics .wp-image { height:180px;position:relative;overflow:hidden;background:linear-gradient(135deg,#172554,#164e63); }
+#wonder-physics .wp-image img { width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s; }
+#wonder-physics .wp-card:hover .wp-image img { transform:scale(1.07); }
+#wonder-physics .wp-image::after { content:"";position:absolute;inset:45% 0 0;background:linear-gradient(transparent,#06101f);pointer-events:none; }
+#wonder-physics .wp-number { position:absolute;z-index:1;top:12px;right:12px;padding:7px 10px;border-radius:8px;background:#020617cc;border:1px solid #67e8f9;color:#a5f3fc;font-size:11px; }
+#wonder-physics .wp-card-body { padding:17px; }
+#wonder-physics .wp-category { font-size:11px;color:#c4b5fd; }
+#wonder-physics .wp-card h4 { font-size:18px;color:#e0f2fe;margin:12px 0; }
+#wonder-physics .wp-card p { color:#b7c8dc;font-size:13px;line-height:2;min-height:52px;margin:0 0 14px; }
+#wonder-physics .wp-more { display:block;width:100%;border:1px solid #0e7490;background:#082f49;color:#67e8f9;padding:11px;border-radius:9px;cursor:pointer;font-family:inherit;font-size:13px; }
+#wonder-physics .wp-more:hover { background:#164e63; }
+#wonder-physics .wp-empty { display:none;text-align:center;padding:30px;color:#94a3b8;line-height:2; }
+#wonder-physics .wp-bottom { margin-top:28px;padding:24px;border-radius:15px;border:1px solid #3730a3;background:linear-gradient(90deg,#101d44ee,#101d4499),url("https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=1200&q=75") center/cover; }
+#wonder-physics .wp-bottom h3 { color:#c4b5fd;margin-top:0; }
+#wonder-physics .wp-bottom p { line-height:2.1;color:#dbeafe;font-size:14px; }
+#wonder-physics .wp-modal { display:none;position:fixed;inset:0;z-index:99999;background:#000c;padding:18px;align-items:center;justify-content:center; }
+#wonder-physics .wp-modal.open { display:flex; }
+#wonder-physics .wp-modal-box { width:100%;max-width:650px;max-height:85vh;overflow-y:auto;background:#07152a;color:#e2e8f0;border:1px solid #22d3ee;border-radius:18px;padding:24px;box-shadow:0 0 45px #0891b244; }
+#wonder-physics .wp-modal-top { display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid #164e8a;padding-bottom:14px; }
+#wonder-physics .wp-modal-top h3 { color:#67e8f9;line-height:1.8;margin:0; }
+#wonder-physics .wp-close { background:#7f1d1d;color:white;border:none;border-radius:9px;padding:9px 13px;cursor:pointer;font-family:inherit; }
+#wonder-physics .wp-modal-content { line-height:2.2;font-size:14px; }
+#wonder-physics .wp-modal-content h4 { color:#c4b5fd;margin-top:22px; }
+#wonder-physics .wp-modal-content .wp-equation { direction:ltr;text-align:center;font-size:20px;color:#67e8f9;background:#020617;border:1px solid #164e8a;border-radius:10px;padding:14px;margin:15px 0;overflow-wrap:anywhere; }
+#wonder-physics .wp-note { padding:13px;background:#172554;border-right:3px solid #a78bfa;border-radius:8px;color:#dbeafe; }
+@media(max-width:850px) { #wonder-physics .wp-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } #wonder-physics .wp-image { height:155px; } }
+@media(max-width:520px) { #wonder-physics{padding:14px 10px} #wonder-physics .wp-hero{padding:30px 18px;min-height:300px;background-position:center} #wonder-physics .wp-grid{grid-template-columns:1fr} #wonder-physics .wp-image{height:210px} #wonder-physics .wp-card p{min-height:auto} #wonder-physics .wp-modal-box{padding:17px} }
+</style>
+
+<div class="wp-hero">
+  <div class="wp-hero-content">
+    <span class="wp-label">🌌 کاوش در مرزهای دانش</span>
+    <h2>دنیای شگفت‌انگیز فیزیک</h2>
+    <p>از راز سیاه‌چاله‌ها تا جهان کوانتومی، از سرعت نور تا آغاز جهان؛ آماده‌ای با عجیب‌ترین پدیده‌های طبیعت آشنا شوی؟</p>
+    <button class="wp-button" type="button" id="wp-start">شروع کاوش ←</button>
+  </div>
+</div>
+
+<div id="wp-topics">
+  <div class="wp-heading"><h3>🔭 موضوعات شگفت‌انگیز</h3><span>۱۰ دنیای علمی برای کشف‌کردن</span></div>
+  <input id="wp-search" class="wp-search" type="search" placeholder="🔎 مثلاً جست‌وجو کن: نور، سیاه‌چاله، زمان..." aria-label="جست‌وجو در موضوعات فیزیک">
+  <div class="wp-filters">
+    <button type="button" class="wp-filter active" data-category="all">همه موضوعات</button>
+    <button type="button" class="wp-filter" data-category="space">🌌 فضا</button>
+    <button type="button" class="wp-filter" data-category="modern">⚛️ فیزیک نوین</button>
+    <button type="button" class="wp-filter" data-category="classical">🔬 فیزیک کلاسیک</button>
+  </div>
+
+  <div class="wp-grid">
+    <article class="wp-card" data-category="modern"><div class="wp-image"><img src="https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?auto=format&fit=crop&w=800&q=80" alt="جهان و ستارگان" loading="lazy"><span class="wp-number">موضوع ۰۱</span></div><div class="wp-card-body"><span class="wp-category">⚛️ فیزیک کوانتومی</span><h4>جهان کوانتومی</h4><p>ذرات بسیار کوچک چگونه رفتار می‌کنند؟ آیا طبیعت در مقیاس اتمی با دنیای روزمره فرق دارد؟</p><button class="wp-more" type="button" data-topic="quantum">کشف دنیای کوانتومی ←</button></div></article>
+
+    <article class="wp-card" data-category="space"><div class="wp-image"><img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=800&q=80" alt="کهکشان و فضای عمیق" loading="lazy"><span class="wp-number">موضوع ۰۲</span></div><div class="wp-card-body"><span class="wp-category">🌌 کیهان‌شناسی</span><h4>سیاه‌چاله‌ها</h4><p>چرا حتی نور نمی‌تواند از درون افق رویداد یک سیاه‌چاله به بیرون فرار کند؟</p><button class="wp-more" type="button" data-topic="blackhole">ورود به دنیای سیاه‌چاله‌ها ←</button></div></article>
+
+    <article class="wp-card" data-category="modern"><div class="wp-image"><img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=800&q=80" alt="مفاهیم فیزیک" loading="lazy"><span class="wp-number">موضوع ۰۳</span></div><div class="wp-card-body"><span class="wp-category">⏳ نسبیت</span><h4>زمان و نسبیت</h4><p>آیا زمان برای همه با سرعت یکسان می‌گذرد؟ سفر در آینده از نظر فیزیک چه معنایی دارد؟</p><button class="wp-more" type="button" data-topic="time">کشف راز زمان ←</button></div></article>
+
+    <article class="wp-card" data-category="classical"><div class="wp-image"><img src="https://images.unsplash.com/photo-1517976487492-5750f3195933?auto=format&fit=crop&w=800&q=80" alt="پرتاب موشک و حرکت" loading="lazy"><span class="wp-number">موضوع ۰۴</span></div><div class="wp-card-body"><span class="wp-category">🚀 مکانیک</span><h4>جاذبه و سقوط آزاد</h4><p>چرا اجسام سقوط می‌کنند؟ آیا در نبود مقاومت هوا، اجسام سنگین‌تر زودتر می‌افتند؟</p><button class="wp-more" type="button" data-topic="gravity">بررسی جاذبه ←</button></div></article>
+
+    <article class="wp-card" data-category="classical"><div class="wp-image"><img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=800&q=80" alt="نور خورشید در طبیعت" loading="lazy"><span class="wp-number">موضوع ۰۵</span></div><div class="wp-card-body"><span class="wp-category">🌈 نور و اپتیک</span><h4>نور و رنگ‌ها</h4><p>رنگین‌کمان چگونه شکل می‌گیرد؟ چرا نور هنگام ورود به آب تغییر مسیر می‌دهد؟</p><button class="wp-more" type="button" data-topic="light">کشف راز نور ←</button></div></article>
+
+    <article class="wp-card" data-category="space"><div class="wp-image"><img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=800&q=80" alt="زمین از فضا" loading="lazy"><span class="wp-number">موضوع ۰۶</span></div><div class="wp-card-body"><span class="wp-category">🌍 منظومه شمسی</span><h4>حرکت سیاره‌ها</h4><p>چرا سیاره‌ها به دور خورشید می‌چرخند؟ مدار آن‌ها چگونه شکل می‌گیرد؟</p><button class="wp-more" type="button" data-topic="planets">سفر میان سیاره‌ها ←</button></div></article>
+
+    <article class="wp-card" data-category="classical"><div class="wp-image"><img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=800&q=80" alt="موج‌های آب" loading="lazy"><span class="wp-number">موضوع ۰۷</span></div><div class="wp-card-body"><span class="wp-category">〰️ موج و صوت</span><h4>موج‌ها و صدا</h4><p>صدا چگونه منتقل می‌شود؟ چرا صدا در خلأ منتشر نمی‌شود؟</p><button class="wp-more" type="button" data-topic="waves">شناخت موج‌ها ←</button></div></article>
+
+    <article class="wp-card" data-category="classical"><div class="wp-image"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" alt="تجهیزات الکترونیکی" loading="lazy"><span class="wp-number">موضوع ۰۸</span></div><div class="wp-card-body"><span class="wp-category">⚡ الکترومغناطیس</span><h4>برق و مغناطیس</h4><p>جریان الکتریکی چگونه میدان مغناطیسی ایجاد می‌کند و موتور برقی چگونه می‌چرخد؟</p><button class="wp-more" type="button" data-topic="electricity">کشف نیروی الکتریکی ←</button></div></article>
+
+    <article class="wp-card" data-category="modern"><div class="wp-image"><img src="https://images.unsplash.com/photo-1636466497217-26a8cbeaf0aa?auto=format&fit=crop&w=800&q=80" alt="ساختار ماده" loading="lazy"><span class="wp-number">موضوع ۰۹</span></div><div class="wp-card-body"><span class="wp-category">⚛️ فیزیک اتمی</span><h4>اتم و هسته</h4><p>ماده از چه ساخته شده است؟ درون هسته اتم چه ذراتی وجود دارند؟</p><button class="wp-more" type="button" data-topic="atom">سفر به درون اتم ←</button></div></article>
+
+    <article class="wp-card" data-category="space"><div class="wp-image"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80" alt="افق و طبیعت" loading="lazy"><span class="wp-number">موضوع ۱۰</span></div><div class="wp-card-body"><span class="wp-category">🌠 آغاز جهان</span><h4>پیدایش و تکامل جهان</h4><p>جهان چگونه گسترش پیدا می‌کند؟ دانشمندان درباره آغاز کیهان چه می‌دانند؟</p><button class="wp-more" type="button" data-topic="universe">کشف تاریخ جهان ←</button></div></article>
+  </div>
+
+  <div class="wp-empty" id="wp-empty">🔎 موضوعی پیدا نشد. عبارت دیگری را جست‌وجو کن.</div>
+</div>
+
+<div class="wp-bottom"><h3>💡 فیزیک فراتر از فرمول‌هاست!</h3><p>هر پدیده‌ای که در اطراف خود می‌بینی، از حرکت یک توپ تا نور ستارگان، می‌تواند پرسشی علمی در خود داشته باشد. با کنجکاوی شروع کن و با دانش ادامه بده.</p><button type="button" class="wp-button" id="wp-focus-search">انتخاب یک موضوع برای کاوش ←</button></div>
+
+<div class="wp-modal" id="wp-modal" role="dialog" aria-modal="true" aria-labelledby="wp-modal-title"><div class="wp-modal-box"><div class="wp-modal-top"><h3 id="wp-modal-title">موضوع فیزیک</h3><button class="wp-close" id="wp-close" type="button">✕ بستن</button></div><div class="wp-modal-content" id="wp-modal-content"></div></div></div>
+
+<script>
+(function () {
+    const root = document.getElementById("wonder-physics");
+    if (!root || root.dataset.initialized === "true") return;
+    root.dataset.initialized = "true";
+
+    const search = root.querySelector("#wp-search");
+    const cards = Array.from(root.querySelectorAll(".wp-card"));
+    const filters = root.querySelectorAll(".wp-filter");
+    const empty = root.querySelector("#wp-empty");
+    const modal = root.querySelector("#wp-modal");
+    const modalTitle = root.querySelector("#wp-modal-title");
+    const modalContent = root.querySelector("#wp-modal-content");
+    const closeButton = root.querySelector("#wp-close");
+    let activeCategory = "all";
+    let previousFocus = null;
+
+    const topics = {
+      quantum: {title:"⚛️ جهان کوانتومی",html:`<h4>جهان کوانتومی چیست؟</h4><p>مکانیک کوانتومی شاخه‌ای از فیزیک است که رفتار ماده و انرژی را در مقیاس اتم‌ها و ذرات بسیار کوچک بررسی می‌کند.</p><h4>ویژگی‌های مهم</h4><ul><li>انرژی بعضی سامانه‌ها می‌تواند مقادیر گسسته داشته باشد.</li><li>نتایج اندازه‌گیری‌ها در بسیاری از حالت‌ها احتمالاتی‌اند.</li><li>ذرات می‌توانند ویژگی‌های موجی و ذره‌ای نشان دهند.</li></ul><h4>رابطه انرژی فوتون</h4><div class="wp-equation">E = hf</div><p>E انرژی فوتون، h ثابت پلانک و f فرکانس نور است.</p><div class="wp-note">کاربرد: لیزرها، نیمه‌رساناها، LEDها و فناوری‌های مدرن از اصول کوانتومی بهره می‌برند.</div>`},
+      blackhole: {title:"🕳️ سیاه‌چاله‌ها",html:`<h4>سیاه‌چاله چیست؟</h4><p>سیاه‌چاله ناحیه‌ای از فضا-زمان است که درون افق رویداد آن، مسیرهای آینده به بیرون راه ندارند. در نتیجه، نور هم نمی‌تواند از آن خارج شود.</p><h4>افق رویداد</h4><p>مرزی است که عبور به درون آن به معنی ناتوانی در بازگشت به بیرون است؛ این مرز یک سطح مادی نیست.</p><h4>شعاع شوارتزشیلد</h4><div class="wp-equation">rₛ = 2GM / c²</div><p>این رابطه برای سیاه‌چاله ساده و غیرچرخان به کار می‌رود. M جرم، G ثابت گرانش و c سرعت نور است.</p><div class="wp-note">سیاه‌چاله‌ها همه چیز را از هر فاصله‌ای نمی‌بلعند؛ گرانش آن‌ها در فاصله یکسان، مانند گرانش هر جرم دیگری با همان جرم توصیف می‌شود.</div>`},
+      time: {title:"⏳ زمان و نسبیت",html:`<h4>آیا زمان برای همه یکسان است؟</h4><p>طبق نظریه نسبیت اینشتین، اندازه‌گیری زمان به حرکت ناظر و میدان گرانشی بستگی دارد.</p><h4>اتساع زمان در نسبیت خاص</h4><div class="wp-equation">Δt = γ Δτ</div><div class="wp-equation">γ = 1 / √(1 - v²/c²)</div><p>Δτ زمان ویژه، Δt زمان اندازه‌گیری‌شده در چارچوب مورد بررسی و v سرعت نسبی است. این رابطه برای چارچوب‌های لَخت در نسبیت خاص کاربرد دارد.</p><h4>آیا سفر در زمان ممکن است؟</h4><p>حرکت با سرعت بالا می‌تواند باعث شود زمان برای یک مسافر نسبت به ناظری دیگر کمتر بگذرد. این اثر واقعی و اندازه‌گیری‌شده است؛ اما سفر به گذشته هنوز روش اثبات‌شده‌ای ندارد.</p>`},
+      gravity: {title:"🍎 جاذبه و سقوط آزاد",html:`<h4>چرا اجسام سقوط می‌کنند؟</h4><p>نزدیک سطح زمین، گرانش به اجسام شتابی رو به پایین می‌دهد. اگر مقاومت هوا ناچیز باشد، اجسام با شتاب یکسان سقوط می‌کنند.</p><h4>قانون دوم نیوتن</h4><div class="wp-equation">F = ma</div><h4>نیروی گرانش نزدیک زمین</h4><div class="wp-equation">F = mg</div><p>m جرم جسم و g شتاب گرانش زمین است که نزدیک سطح زمین تقریباً 9.8 m/s² است.</p><h4>مثال</h4><p>برای جسمی با جرم ۲ کیلوگرم، وزن تقریبی نزدیک سطح زمین برابر است با:</p><div class="wp-equation">F = 2 × 9.8 = 19.6 N</div>`},
+      light: {title:"🌈 نور و رنگ‌ها",html:`<h4>نور چگونه رفتار می‌کند؟</h4><p>نور می‌تواند بازتاب کند، بشکند، پراش پیدا کند و در شرایط مناسب پدیده‌های تداخل نشان دهد.</p><h4>قانون شکست نور</h4><div class="wp-equation">n₁ sin θ₁ = n₂ sin θ₂</div><p>n ضریب شکست محیط و θ زاویه نسبت به خط عمود بر سطح است. این رابطه قانون اسنل نام دارد.</p><h4>رنگین‌کمان چگونه تشکیل می‌شود؟</h4><p>نور خورشید هنگام ورود به قطرات آب می‌شکند، رنگ‌های مختلف آن به اندازه‌های متفاوت منحرف می‌شوند و بازتاب داخلی نیز در شکل‌گیری رنگین‌کمان نقش دارد.</p>`},
+      planets: {title:"🪐 حرکت سیاره‌ها",html:`<h4>چرا سیاره‌ها در مدار حرکت می‌کنند؟</h4><p>گرانش خورشید مسیر حرکت سیاره‌ها را تغییر می‌دهد. سرعت جانبی سیاره همراه با گرانش باعث می‌شود معمولاً به جای سقوط مستقیم به خورشید، در مدار باقی بماند.</p><h4>قانون گرانش عمومی</h4><div class="wp-equation">F = GMm / r²</div><h4>قانون سوم کپلر</h4><div class="wp-equation">T² ∝ a³</div><p>برای سیاره‌هایی که به دور یک جرم مرکزی می‌چرخند، مربع دوره مداری با مکعب نیم‌محور بزرگ مدار متناسب است.</p>`},
+      waves: {title:"〰️ موج‌ها و صدا",html:`<h4>موج چیست؟</h4><p>موج اختلالی است که انرژی را منتقل می‌کند. موج‌های مکانیکی مانند صدا به محیط نیاز دارند، اما امواج الکترومغناطیسی در خلأ نیز منتشر می‌شوند.</p><h4>رابطه سرعت موج</h4><div class="wp-equation">v = fλ</div><p>v سرعت موج، f فرکانس و λ طول موج است.</p><h4>چرا صدا در خلأ منتشر نمی‌شود؟</h4><p>صدا برای انتقال ارتعاش به ذرات محیط نیاز دارد. در خلأ، ذرات کافی برای انتقال موج صوتی وجود ندارند.</p>`},
+      electricity: {title:"⚡ برق و مغناطیس",html:`<h4>ارتباط برق و مغناطیس</h4><p>جریان الکتریکی میدان مغناطیسی ایجاد می‌کند. تغییر میدان مغناطیسی نیز می‌تواند ولتاژ القا کند. این اصول پایه بسیاری از موتورهای برقی و مولدها هستند.</p><h4>قانون اهم</h4><div class="wp-equation">V = IR</div><p>V ولتاژ، I جریان و R مقاومت الکتریکی است. این رابطه برای رساناهای اهمی در شرایط مناسب کاربرد دارد.</p><h4>مثال</h4><p>اگر ولتاژ ۱۲ ولت و مقاومت ۶ اهم باشد:</p><div class="wp-equation">I = V / R = 12 / 6 = 2 A</div>`},
+      atom: {title:"⚛️ اتم و هسته",html:`<h4>اتم از چه ساخته شده است؟</h4><p>اتم شامل هسته‌ای متشکل از پروتون‌ها و نوترون‌ها و الکترون‌هایی است که در حالت‌های کوانتومی پیرامون هسته قرار دارند.</p><h4>عدد اتمی</h4><p>عدد اتمی برابر تعداد پروتون‌های هسته است و نوع عنصر را مشخص می‌کند.</p><h4>انرژی و جرم</h4><div class="wp-equation">E = mc²</div><p>این رابطه هم‌ارزی جرم و انرژی را بیان می‌کند. در واکنش‌های هسته‌ای، اختلاف انرژی بستگی می‌تواند به صورت انرژی آزادشده ظاهر شود.</p>`},
+      universe: {title:"🌠 پیدایش و تکامل جهان",html:`<h4>جهان چگونه تکامل یافته است؟</h4><p>شواهد رصدی نشان می‌دهند که جهان در گذشته بسیار داغ‌تر و چگال‌تر بوده و از آن زمان در حال انبساط است. مدل مهبانگ چارچوب اصلی علمی برای توصیف این تکامل است.</p><h4>شواهد مهم</h4><ul><li>انبساط جهان و انتقال به سرخ کهکشان‌ها.</li><li>تابش زمینه کیهانی.</li><li>فراوانی عناصر سبک در جهان.</li></ul><h4>آیا مهبانگ یک انفجار در فضای خالی بود؟</h4><p>خیر؛ مدل مهبانگ درباره تحول جهان در حال انبساط است، نه انفجاری معمولی در نقطه‌ای از یک فضای از پیش موجود.</p><div class="wp-note">جزئیات مربوط به نخستین لحظات جهان و ماهیت احتمالی آغاز آن همچنان موضوع پژوهش‌های علمی است.</div>`}
+    };
+
+    function updateCards() {
+      const query = search.value.trim().toLocaleLowerCase();
+      let visibleCount = 0;
+      cards.forEach(card => {
+        const matchesText = card.textContent.toLocaleLowerCase().includes(query);
+        const matchesCategory = activeCategory === "all" || card.dataset.category === activeCategory;
+        card.hidden = !(matchesText && matchesCategory);
+        if (!card.hidden) visibleCount++;
+      });
+      empty.style.display = visibleCount ? "none" : "block";
+    }
+
+    search.addEventListener("input", updateCards);
+    filters.forEach(button => button.addEventListener("click", function() {
+      activeCategory = this.dataset.category;
+      filters.forEach(item => item.classList.toggle("active", item === button));
+      updateCards();
+    }));
+
+    function openTopic(key) {
+      const topic = topics[key];
+      if (!topic) return;
+      previousFocus = document.activeElement;
+      modalTitle.textContent = topic.title;
+      modalContent.innerHTML = topic.html;
+      modal.classList.add("open");
+      document.body.style.overflow = "hidden";
+      closeButton.focus();
+    }
+    function closeModal() {
+      modal.classList.remove("open");
+      document.body.style.overflow = "";
+      if (previousFocus && previousFocus.focus) previousFocus.focus();
+    }
+
+    root.querySelectorAll("[data-topic]").forEach(button =>
+      button.addEventListener("click", function() { openTopic(this.dataset.topic); })
+    );
+    closeButton.addEventListener("click", closeModal);
+    modal.addEventListener("click", event => { if (event.target === modal) closeModal(); });
+    document.addEventListener("keydown", event => {
+      if (event.key === "Escape" && modal.classList.contains("open")) closeModal();
+    });
+    root.querySelector("#wp-start").addEventListener("click", () =>
+      root.querySelector("#wp-topics").scrollIntoView({behavior:"smooth"})
+    );
+    root.querySelector("#wp-focus-search").addEventListener("click", () => {
+      root.querySelector("#wp-topics").scrollIntoView({behavior:"smooth"});
+      search.focus();
+    });
+})();
+</script>
+
+</section>
+</body>
+</html>

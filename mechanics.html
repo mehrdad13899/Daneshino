@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="آموزش جامع مکانیک از پایه تا پیشرفته؛ حرکت، نیرو، قوانین نیوتون، انرژی، تکانه، حرکت دورانی، گرانش، تعادل و مکانیک سیالات همراه با مثال‌های صنعتی و ماشین‌حساب‌های تعاملی.">
+  <meta name="theme-color" content="#0b1224">
+  <title>آموزش جامع مکانیک | علم‌خانه</title>
+  <style>
+    :root {
+      --bg: #08111f;
+      --panel: #111d31;
+      --panel-2: #172740;
+      --text: #edf5ff;
+      --muted: #afc0d6;
+      --cyan: #48d9d0;
+      --blue: #68a8ff;
+      --gold: #ffd166;
+      --green: #7fe0a3;
+      --red: #ff9898;
+      --border: rgba(174, 205, 239, .16);
+      --shadow: 0 16px 38px rgba(0,0,0,.22);
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 92px; }
+    body {
+      margin: 0;
+      font-family: Tahoma, Arial, sans-serif;
+      line-height: 1.95;
+      color: var(--text);
+      background: radial-gradient(circle at top right, #132744 0, var(--bg) 43rem) fixed;
+    }
+    a { color: var(--cyan); text-decoration: none; }
+    a:hover { color: #a5fff7; }
+    button, input { font: inherit; }
+    button { cursor: pointer; }
+    .container { width: min(1120px, 92%); margin-inline: auto; }
+    .topbar {
+      position: sticky; top: 0; z-index: 50;
+      background: rgba(8,17,31,.92); backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+    .topbar-inner { min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 18px; }
+    .brand { display: flex; align-items: center; gap: 10px; font-size: 1.15rem; font-weight: 800; color: white; white-space: nowrap; }
+    .brand-mark { display: grid; place-items: center; width: 39px; height: 39px; border-radius: 13px; color: #07131e; background: linear-gradient(135deg, var(--cyan), var(--blue)); }
+    .nav { display: flex; gap: 16px; align-items: center; flex-wrap: wrap; font-size: .9rem; }
+    .nav a { color: var(--muted); }
+    .nav a:hover { color: white; }
+    .hero { padding: 62px 0 30px; }
+    .hero-grid { display: grid; grid-template-columns: 1.4fr .8fr; gap: 26px; align-items: stretch; }
+    .hero-copy, .hero-art { border: 1px solid var(--border); border-radius: 24px; box-shadow: var(--shadow); }
+    .hero-copy { padding: clamp(22px, 4vw, 42px); background: linear-gradient(140deg, rgba(25,48,77,.95), rgba(16,29,48,.88)); }
+    .eyebrow { display: inline-flex; align-items: center; gap: 8px; padding: 5px 12px; border: 1px solid rgba(72,217,208,.35); border-radius: 999px; color: var(--cyan); background: rgba(72,217,208,.08); font-size: .85rem; }
+    h1 { margin: 18px 0 14px; line-height: 1.5; font-size: clamp(2rem, 5vw, 3.25rem); }
+    h1 span { color: var(--cyan); }
+    .hero p { color: var(--muted); margin: 0 0 20px; }
+    .hero-actions { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px; }
+    .btn { display: inline-flex; justify-content: center; align-items: center; gap: 8px; border: 1px solid transparent; border-radius: 12px; padding: 10px 16px; font-weight: 700; }
+    .btn-primary { color: #05201f; background: var(--cyan); }
+    .btn-primary:hover { color: #05201f; filter: brightness(1.08); }
+    .btn-secondary { border-color: var(--border); background: rgba(255,255,255,.04); color: var(--text); }
+    .hero-art { padding: 25px; display: grid; place-items: center; background: linear-gradient(160deg, rgba(104,168,255,.13), rgba(72,217,208,.06)); overflow: hidden; min-height: 300px; }
+    .hero-art svg { width: min(100%, 360px); height: auto; }
+    .stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-top: 18px; }
+    .stat { padding: 13px; text-align: center; border-radius: 14px; background: rgba(255,255,255,.045); border: 1px solid var(--border); }
+    .stat strong { display: block; color: var(--cyan); font-size: 1.12rem; }
+    .stat span { color: var(--muted); font-size: .82rem; }
+    .section { padding: 28px 0; }
+    .section-heading { display: flex; align-items: end; justify-content: space-between; flex-wrap: wrap; gap: 14px; margin-bottom: 19px; }
+    .section-heading h2 { margin: 0; font-size: clamp(1.45rem, 3.2vw, 2rem); }
+    .section-heading p { margin: 4px 0 0; color: var(--muted); }
+    .grid { display: grid; gap: 16px; }
+    .grid-2 { grid-template-columns: repeat(2, minmax(0,1fr)); }
+    .grid-3 { grid-template-columns: repeat(3, minmax(0,1fr)); }
+    .card { min-width: 0; padding: 21px; border: 1px solid var(--border); border-radius: 18px; background: linear-gradient(145deg, rgba(19,33,54,.96), rgba(13,25,42,.96)); box-shadow: var(--shadow); }
+    .card h3 { margin: 0 0 10px; font-size: 1.15rem; }
+    .card p { color: var(--muted); margin: 8px 0; }
+    .icon { display: inline-grid; place-items: center; width: 42px; height: 42px; border-radius: 13px; margin-bottom: 10px; background: rgba(72,217,208,.1); color: var(--cyan); font-size: 1.3rem; }
+    .roadmap { display: grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap: 13px; }
+    .roadmap-item { padding: 18px; border-radius: 16px; border: 1px solid var(--border); background: rgba(255,255,255,.035); }
+    .roadmap-item .num { display: inline-block; color: #07131e; background: var(--cyan); font-weight: 800; border-radius: 9px; padding: 1px 10px; margin-bottom: 8px; }
+    .roadmap-item h3 { margin: 3px 0 8px; font-size: 1rem; }
+    .roadmap-item p { margin: 0; color: var(--muted); font-size: .9rem; }
+    .notice { padding: 15px 18px; border-right: 4px solid var(--gold); background: rgba(255,209,102,.08); border-radius: 12px; color: #ffedbd; }
+    .lesson { margin-bottom: 16px; scroll-margin-top: 90px; }
+    .lesson-header { display: flex; align-items: flex-start; gap: 13px; margin-bottom: 12px; }
+    .lesson-number { flex: 0 0 42px; width: 42px; height: 42px; display: grid; place-items: center; border-radius: 13px; color: #07131e; background: linear-gradient(135deg,var(--cyan),var(--blue)); font-weight: 900; }
+    .lesson-header h3 { margin: 0; font-size: 1.27rem; }
+    .lesson-header p { margin: 3px 0 0; color: var(--muted); font-size: .92rem; }
+    .lesson-body { display: grid; grid-template-columns: 1.3fr .8fr; gap: 16px; }
+    .formula { display: block; direction: ltr; text-align: center; unicode-bidi: isolate; padding: 12px 14px; border: 1px dashed rgba(72,217,208,.45); background: rgba(72,217,208,.06); border-radius: 12px; color: #9bfff4; font-family: "Courier New", monospace; font-size: 1.06rem; margin: 10px 0; overflow-wrap: anywhere; }
+    .formula small { display: block; color: var(--muted); font-family: Tahoma, Arial, sans-serif; direction: rtl; font-size: .78rem; margin-top: 5px; }
+    .subhead { color: var(--gold); font-weight: 800; margin: 10px 0 3px; }
+    ul.clean { padding-right: 21px; margin: 7px 0; }
+    ul.clean li { margin: 4px 0; }
+    .application { padding: 16px; border-radius: 14px; background: rgba(104,168,255,.07); border: 1px solid rgba(104,168,255,.2); }
+    .application h4 { margin: 0 0 7px; color: #a8cbff; }
+    .application p { margin: 5px 0; color: var(--muted); }
+    .example { padding: 14px 16px; border-right: 3px solid var(--green); background: rgba(127,224,163,.065); border-radius: 10px; margin-top: 12px; }
+    .example strong { color: var(--green); }
+    .example p { margin: 6px 0; }
+    .table-wrap { overflow-x: auto; border: 1px solid var(--border); border-radius: 13px; margin-top: 12px; }
+    table { border-collapse: collapse; width: 100%; min-width: 500px; }
+    th, td { text-align: right; padding: 11px 13px; border-bottom: 1px solid var(--border); }
+    th { background: rgba(72,217,208,.1); color: var(--cyan); }
+    tr:last-child td { border-bottom: 0; }
+    .unit-pill { display: inline-block; padding: 1px 7px; border-radius: 7px; background: rgba(255,255,255,.07); color: var(--gold); direction: ltr; }
+    .calculator { border: 1px solid rgba(72,217,208,.25); background: linear-gradient(145deg, rgba(18,43,57,.85), rgba(16,29,48,.97)); }
+    .calculator h3 { color: var(--cyan); }
+    .field { margin: 12px 0; }
+    .field label { display: block; margin-bottom: 5px; color: var(--muted); font-size: .9rem; }
+    .field input { width: 100%; min-width: 0; padding: 10px 12px; color: white; background: rgba(4,12,24,.8); border: 1px solid var(--border); border-radius: 10px; outline: none; }
+    .field input:focus { border-color: var(--cyan); box-shadow: 0 0 0 3px rgba(72,217,208,.1); }
+    .calc-btn { width: 100%; border: 0; border-radius: 10px; padding: 10px 13px; color: #05201f; background: var(--cyan); font-weight: 800; margin-top: 7px; }
+    .result { min-height: 50px; margin-top: 12px; padding: 11px 13px; border: 1px solid var(--border); border-radius: 10px; background: rgba(0,0,0,.18); color: var(--muted); overflow-wrap: anywhere; }
+    .result strong { color: var(--green); }
+    .quiz-list { display: grid; gap: 13px; }
+    details.quiz { background: rgba(255,255,255,.035); border: 1px solid var(--border); border-radius: 13px; padding: 14px 16px; }
+    details.quiz summary { cursor: pointer; font-weight: 700; }
+    details.quiz p { color: var(--muted); margin-bottom: 0; }
+    .glossary { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 10px; }
+    .term { padding: 12px 14px; border: 1px solid var(--border); border-radius: 11px; background: rgba(255,255,255,.03); }
+    .term strong { color: var(--cyan); }
+    .term span { color: var(--muted); font-size: .9rem; }
+    .search-row { display: flex; gap: 10px; margin-bottom: 17px; }
+    .search-row input { width: 100%; padding: 12px 14px; border-radius: 12px; border: 1px solid var(--border); background: var(--panel); color: var(--text); }
+    .search-row input:focus { outline: 2px solid rgba(72,217,208,.3); }
+    .topic-index { display: flex; flex-wrap: wrap; gap: 8px; }
+    .topic-index a { display: inline-block; border: 1px solid var(--border); padding: 6px 10px; border-radius: 999px; color: var(--muted); font-size: .85rem; background: rgba(255,255,255,.025); }
+    .topic-index a:hover { color: var(--cyan); border-color: rgba(72,217,208,.5); }
+    .hidden-by-search { display: none !important; }
+    .footer { border-top: 1px solid var(--border); margin-top: 30px; padding: 28px 0 40px; color: var(--muted); }
+    .footer-inner { display: flex; align-items: center; justify-content: space-between; gap: 15px; flex-wrap: wrap; }
+    .back-top { position: fixed; bottom: 18px; left: 18px; width: 44px; height: 44px; border-radius: 14px; display: grid; place-items: center; color: #06131f; background: var(--cyan); box-shadow: var(--shadow); font-weight: 900; z-index: 30; }
+    .muted { color: var(--muted); }
+    .small { font-size: .88rem; }
+    .tag { display: inline-block; font-size: .76rem; padding: 2px 8px; border-radius: 999px; color: var(--blue); background: rgba(104,168,255,.1); border: 1px solid rgba(104,168,255,.22); margin-inline-start: 5px; }
+    @media (max-width: 850px) {
+      .hero-grid, .lesson-body { grid-template-columns: 1fr; }
+      .roadmap { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .grid-3 { grid-template-columns: repeat(2,minmax(0,1fr)); }
+      .nav { gap: 10px; }
+      .hero-art { min-height: 220px; }
+    }
+    @media (max-width: 560px) {
+      .topbar-inner { align-items: flex-start; padding: 10px 0; flex-direction: column; gap: 8px; }
+      .nav { width: 100%; overflow-x: auto; flex-wrap: nowrap; white-space: nowrap; padding-bottom: 4px; }
+      .hero { padding-top: 25px; }
+      .stats, .grid-2, .grid-3, .roadmap, .glossary { grid-template-columns: 1fr; }
+      .card { padding: 17px; }
+      .section { padding: 20px 0; }
+      .hero-copy { padding: 22px; }
+      .section-heading { align-items: flex-start; }
+    }
+    @media print {
+      :root { --bg: white; --text: #111; --muted: #444; --panel: white; --border: #ccc; }
+      body { background: white; color: #111; }
+      .topbar, .hero-actions, .calculator, .back-top, .search-row { display: none !important; }
+      .card, .hero-copy, .hero-art, .roadmap-item { box-shadow: none; background: white; color: #111; break-inside: avoid; }
+      .formula { color: #075d58; }
+      a { color: #075d58; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar" id="top">
+    <div class="container topbar-inner">
+      <a class="brand" href="index.html" aria-label="صفحه اصلی علم‌خانه"><span class="brand-mark">ع</span><span>علم‌خانه <span class="muted">| مکانیک</span></span></a>
+      <nav class="nav" aria-label="منوی اصلی">
+        <a href="index.html">خانه</a>
+        <a href="physics.html">نقشه راه فیزیک</a>
+        <a href="math.html">ریاضی</a>
+        <a href="trigonometry.html">مثلثات</a>
+        <a href="chemistry.html">شیمی</a>
+        <a href="#lessons">درس‌ها</a>
+        <a href="#calculators">ماشین‌حساب‌ها</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-copy">
+          <span class="eyebrow">⚙️ مسیر یادگیری از پایه تا کاربرد صنعتی</span>
+          <h1>مکانیک؛ علمِ <span>حرکت، نیرو و تعادل</span></h1>
+          <p>در این صفحه از مفهوم‌های ابتدایی مثل مسافت و سرعت شروع می‌کنیم و قدم‌به‌قدم به قوانین نیوتون، انرژی، حرکت دورانی، گرانش و مکانیک سیالات می‌رسیم. هر مبحث شامل معنی فرمول‌ها، مثال حل‌شده، کاربرد واقعی و نکته‌های رایج است.</p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#roadmap">شروع مسیر یادگیری ←</a>
+            <a class="btn btn-secondary" href="#calculators">رفتن به ماشین‌حساب‌ها</a>
+          </div>
+          <div class="stats">
+            <div class="stat"><strong>از پایه</strong><span>بدون پیش‌نیاز سنگین</span></div>
+            <div class="stat"><strong>مثال واقعی</strong><span>زندگی و صنعت</span></div>
+            <div class="stat"><strong>تمرین عملی</strong><span>با پاسخ تشریحی</span></div>
+          </div>
+        </div>
+        <div class="hero-art" aria-label="طرح ساده جسمی در حال حرکت روی سطح شیب‌دار">
+          <svg viewBox="0 0 360 280" role="img" aria-labelledby="mechanics-svg-title">
+            <title id="mechanics-svg-title">نمایی شماتیک از جسم روی سطح شیب‌دار و بردار نیروها</title>
+            <defs><linearGradient id="boxg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#48d9d0"/><stop offset="1" stop-color="#68a8ff"/></linearGradient></defs>
+            <path d="M30 235 L325 235 L325 70 Z" fill="rgba(104,168,255,.08)" stroke="#54799e" stroke-width="2"/>
+            <path d="M45 225 L306 84" stroke="#48d9d0" stroke-width="4" stroke-linecap="round"/>
+            <g transform="translate(177 142) rotate(-28)"><rect x="-31" y="-31" width="62" height="62" rx="9" fill="url(#boxg)" stroke="#e9ffff" stroke-width="2"/><text x="0" y="7" text-anchor="middle" fill="#07131e" font-size="17" font-weight="bold">m</text></g>
+            <path d="M177 142 L229 113" stroke="#ffd166" stroke-width="3" stroke-linecap="round"/><path d="M229 113 l-13 1 l7 11 Z" fill="#ffd166"/>
+            <text x="234" y="105" fill="#ffd166" font-size="14">حرکت</text>
+            <path d="M176 147 L176 214" stroke="#ff9898" stroke-width="3" stroke-linecap="round"/><path d="M176 214 l-7 -12 l14 0 Z" fill="#ff9898"/>
+            <text x="188" y="205" fill="#ffb1b1" font-size="13">وزن</text>
+            <path d="M177 143 L139 75" stroke="#7fe0a3" stroke-width="3" stroke-linecap="round"/><path d="M139 75 l0 14 l12 -7 Z" fill="#7fe0a3"/>
+            <text x="82" y="70" fill="#7fe0a3" font-size="13">نیروی عمودی</text>
+            <circle cx="177" cy="142" r="4" fill="#fff"/>
+            <text x="34" y="258" fill="#afc0d6" font-size="12">طرح آموزشی شماتیک؛ اندازه‌ها دقیق نیستند.</text>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="roadmap">
+      <div class="container">
+        <div class="section-heading"><div><h2>نقشه راه یادگیری مکانیک</h2><p>بهتر است درس‌ها را به‌ترتیب بخوانی؛ هر مرحله ابزار فهم مرحله بعدی است.</p></div></div>
+        <div class="roadmap">
+          <article class="roadmap-item"><span class="num">مرحله ۱</span><h3>زبان فیزیک</h3><p>کمیت‌ها، یکاها، تبدیل واحد، بردارها و نمودارها.</p></article>
+          <article class="roadmap-item"><span class="num">مرحله ۲</span><h3>حرکت و نیرو</h3><p>سرعت، شتاب، پرتابه، قوانین نیوتون، اصطکاک و حرکت دایره‌ای.</p></article>
+          <article class="roadmap-item"><span class="num">مرحله ۳</span><h3>انرژی و دوران</h3><p>کار، انرژی، توان، تکانه، گشتاور، تعادل و گرانش.</p></article>
+          <article class="roadmap-item"><span class="num">مرحله ۴</span><h3>مباحث کاربردی</h3><p>کشسانی، نوسان، فشار، شناوری و جریان سیال‌ها.</p></article>
+        </div>
+        <p class="notice" style="margin-top:16px"><strong>روش پیشنهادی:</strong> اول مفهوم را با زبان خودت توضیح بده، بعد واحدها را بررسی کن، سپس مثال را بدون نگاه‌کردن دوباره حل کن. ماشین‌حساب را برای بررسی جواب به کار ببر، نه جایگزین فهم مسئله.</p>
+      </div>
+    </section>
+
+    <section class="section" id="basics">
+      <div class="container">
+        <div class="section-heading"><div><h2>پیش‌نیازهای ضروری</h2><p>چند تفاوت مهم که از اشتباه‌های رایج جلوگیری می‌کند.</p></div></div>
+        <div class="grid grid-3">
+          <article class="card"><span class="icon">📏</span><h3>کمیت و یکا</h3><p>کمیت چیزی است که اندازه می‌گیریم؛ مثل زمان، جرم یا طول. یکا روش بیان اندازه است؛ مثل ثانیه، کیلوگرم و متر.</p><span class="formula">1 km = 1000 m<br>1 h = 3600 s</span><p class="small">برای تبدیل km/h به m/s بر ۳٫۶ تقسیم کن؛ برای تبدیل m/s به km/h در ۳٫۶ ضرب کن.</p></article>
+          <article class="card"><span class="icon">➡️</span><h3>کمیت نرده‌ای و برداری</h3><p><strong>نرده‌ای:</strong> فقط اندازه دارد؛ مثل جرم، زمان، انرژی و تندی.</p><p><strong>برداری:</strong> اندازه و جهت دارد؛ مثل جابه‌جایی، سرعت برداری، شتاب و نیرو.</p><p class="small">مثلاً «۵ متر» با «۵ متر به سمت شرق» یک معنی ندارند.</p></article>
+          <article class="card"><span class="icon">📈</span><h3>خواندن نمودار</h3><p>در نمودار مکان–زمان، شیب نشان‌دهنده سرعت است. در نمودار سرعت–زمان، شیب شتاب را نشان می‌دهد و مساحت زیر نمودار، جابه‌جایی را می‌دهد.</p><span class="formula">شیب = تغییر عمودی ÷ تغییر افقی</span></article>
+        </div>
+        <div class="table-wrap">
+          <table><thead><tr><th>کمیت</th><th>نماد رایج</th><th>یکای SI</th><th>نماد یکا</th></tr></thead><tbody>
+            <tr><td>طول / جابه‌جایی</td><td>x ، d ، Δx</td><td>متر</td><td><span class="unit-pill">m</span></td></tr>
+            <tr><td>زمان</td><td>t</td><td>ثانیه</td><td><span class="unit-pill">s</span></td></tr>
+            <tr><td>جرم</td><td>m</td><td>کیلوگرم</td><td><span class="unit-pill">kg</span></td></tr>
+            <tr><td>سرعت</td><td>v</td><td>متر بر ثانیه</td><td><span class="unit-pill">m/s</span></td></tr>
+            <tr><td>شتاب</td><td>a</td><td>متر بر مجذور ثانیه</td><td><span class="unit-pill">m/s²</span></td></tr>
+            <tr><td>نیرو</td><td>F</td><td>نیوتون</td><td><span class="unit-pill">N</span></td></tr>
+            <tr><td>کار و انرژی</td><td>W ، E</td><td>ژول</td><td><span class="unit-pill">J</span></td></tr>
+            <tr><td>توان</td><td>P</td><td>وات</td><td><span class="unit-pill">W</span></td></tr>
+          </tbody></table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="lessons">
+      <div class="container">
+        <div class="section-heading"><div><h2>درس‌های مکانیک</h2><p>برای یافتن درس، نام آن را در کادر جست‌وجو بنویس.</p></div></div>
+        <div class="search-row"><input id="lessonSearch" type="search" placeholder="مثلاً: شتاب، نیوتون، اصطکاک، گرانش..." aria-label="جست‌وجو میان درس‌های مکانیک"></div>
+        <div class="topic-index" aria-label="دسترسی سریع به درس‌ها">
+          <a href="#lesson1">حرکت‌شناسی</a><a href="#lesson2">شتاب</a><a href="#lesson3">پرتابه</a><a href="#lesson4">نیوتون</a><a href="#lesson5">اصطکاک</a><a href="#lesson6">حرکت دایره‌ای</a><a href="#lesson7">کار و انرژی</a><a href="#lesson8">توان</a><a href="#lesson9">تکانه</a><a href="#lesson10">دوران</a><a href="#lesson11">گرانش</a><a href="#lesson12">تعادل</a><a href="#lesson13">کشسانی</a><a href="#lesson14">نوسان</a><a href="#lesson15">سیالات</a>
+        </div>
+
+        <article class="card lesson" id="lesson1" data-search="حرکت شناسی مسافت جابه جایی زمان سرعت تندی میانگین">
+          <div class="lesson-header"><span class="lesson-number">۱</span><div><h3>حرکت‌شناسی: مسافت، جابه‌جایی، تندی و سرعت</h3><p>برای توصیف حرکت، پیش از پرسیدن علت آن، اندازه‌گیری را یاد می‌گیریم.</p></div></div>
+          <div class="lesson-body"><div>
+            <p><strong>مسافت</strong> کل طول مسیر طی‌شده است و همیشه صفر یا مثبت است. <strong>جابه‌جایی</strong> تغییر مکان از نقطه شروع تا پایان است و جهت دارد. اگر یک دور کامل دور میدان بدوی و به همان نقطه برگردی، مسافتت مثبت است ولی جابه‌جایی‌ات صفر می‌شود.</p>
+            <span class="formula">تندی متوسط = مسافت کل ÷ زمان کل</span>
+            <span class="formula">سرعت متوسط = جابه‌جایی ÷ زمان سپری‌شده</span>
+            <p class="subhead">مثال حل‌شده</p><p>دوچرخه‌سواری در ۱۰ ثانیه ۶۰ متر در مسیر مستقیم به سمت شرق حرکت می‌کند. تندی متوسط او برابر <strong>۶ m/s</strong> است و سرعت متوسطش نیز اندازه ۶ m/s به سمت شرق دارد.</p>
+            <div class="example"><strong>کاربرد روزمره و صنعتی</strong><p>سرعت‌سنج خودرو معمولاً تندی را نشان می‌دهد؛ سامانه‌های موقعیت‌یاب برای محاسبه تغییر مکان و مسیر از داده‌های مکانی استفاده می‌کنند. در ورزش، تندی و زمان دویدن برای بررسی عملکرد مهم‌اند.</p></div>
+          </div><aside class="application"><h4>نکته‌های کلیدی</h4><ul class="clean"><li>تندی کمیت نرده‌ای و سرعت برداری است.</li><li>تندی متوسط با میانگین ساده تندی‌های لحظه‌ای همیشه برابر نیست.</li><li>واحد استاندارد تندی و سرعت: <span class="unit-pill">m/s</span></li></ul><h4>شغل‌های مرتبط</h4><p>مهندسی خودرو، تحلیل عملکرد ورزشی، نقشه‌برداری و سامانه‌های حمل‌ونقل.</p></aside></div>
+        </article>
+
+        <article class="card lesson" id="lesson2" data-search="شتاب حرکت یکنواخت معادله حرکت سرعت اولیه نهایی">
+          <div class="lesson-header"><span class="lesson-number">۲</span><div><h3>شتاب و حرکت با شتاب ثابت</h3><p>شتاب یعنی سرعت برداری در طول زمان چگونه تغییر می‌کند.</p></div></div>
+          <div class="lesson-body"><div>
+            <span class="formula">a = (v − v₀) ÷ t</span><p>در این رابطه، <strong>a</strong> شتاب، <strong>v₀</strong> سرعت اولیه، <strong>v</strong> سرعت نهایی و <strong>t</strong> مدت زمان است. اگر جهت مثبت را انتخاب کرده‌ای، علامت سرعت‌ها و شتاب را با همان جهت هماهنگ نگه دار.</p>
+            <p class="subhead">سه رابطه مهم برای شتاب ثابت</p><span class="formula">v = v₀ + at</span><span class="formula">Δx = v₀t + ½at²</span><span class="formula">v² = v₀² + 2aΔx</span>
+            <p class="small muted">این روابط وقتی قابل استفاده‌اند که شتاب ثابت باشد. در رابطه دوم، Δx جابه‌جایی است، نه لزوماً مسافت کل.</p>
+            <div class="example"><strong>مثال حل‌شده</strong><p>خودرویی از سکون با شتاب ثابت ۲ m/s² به مدت ۵ ثانیه حرکت می‌کند. سرعت نهایی: ۰ + ۲×۵ = <strong>۱۰ m/s</strong>. جابه‌جایی: ۰×۵ + ½×۲×۵² = <strong>۲۵ متر</strong>.</p></div>
+          </div><aside class="application"><h4>برداشت فیزیکی</h4><p>شتاب منفی لزوماً به معنی کندشدن نیست؛ کندشدن زمانی رخ می‌دهد که شتاب خلاف جهت سرعت باشد.</p><h4>کاربرد</h4><p>طراحی ترمز خودرو، شتاب‌گیری قطار، آسانسور و أنظمة کنترل حرکت ربات‌ها.</p><h4>یکا</h4><p><span class="unit-pill">m/s²</span> یعنی سرعت در هر ثانیه چند متر بر ثانیه تغییر می‌کند.</p></aside></div>
+        </article>
+
+        <article class="card lesson" id="lesson3" data-search="پرتابه حرکت دو بعدی پرتاب افقی زاویه پرتابه گرانش هوا">
+          <div class="lesson-header"><span class="lesson-number">۳</span><div><h3>حرکت دوبعدی و پرتابه‌ها</h3><p>حرکت افقی و عمودی را جداگانه بررسی می‌کنیم، ولی زمان برای هر دو یکی است.</p></div></div>
+          <div class="lesson-body"><div>
+            <p>در مدل ساده پرتابه، مقاومت هوا را نادیده می‌گیریم و شتاب عمودی را برابر شتاب گرانش می‌گیریم. اگر پرتاب و فرود هم‌ارتفاع باشند، روابط زیر به کار می‌آیند:</p>
+            <span class="formula">vₓ = v₀ cos θ &nbsp; | &nbsp; vᵧ = v₀ sin θ</span><span class="formula">T = 2v₀ sin θ ÷ g</span><span class="formula">H = v₀² sin²θ ÷ (2g)</span><span class="formula">R = v₀² sin(2θ) ÷ g</span>
+            <p>در این‌جا T زمان پرواز، H بیشینه ارتفاع، R برد افقی، θ زاویه پرتاب و g نزدیک سطح زمین تقریباً 9.8 m/s² است.</p>
+            <div class="example"><strong>مثال مفهومی</strong><p>توپی را افقی از میز رها می‌کنیم و هم‌زمان توپ دیگری را از همان ارتفاع بدون سرعت افقی رها می‌کنیم. در مدل بدون مقاومت هوا، هر دو به یک اندازه زمان می‌خواهند تا به زمین برسند؛ سرعت افقی، سقوط عمودی را عوض نمی‌کند.</p></div>
+          </div><aside class="application"><h4>محدودیت مدل</h4><p>مقاومت هوا، باد، چرخش توپ و اختلاف ارتفاع نقطه پرتاب و فرود می‌توانند نتیجه واقعی را تغییر دهند.</p><h4>کاربردها</h4><p>تحلیل مسیر توپ در ورزش، فواره آب، ربات‌های پرتابگر و محاسبه مسیر اجسام در مهندسی.</p><h4>ریاضی موردنیاز</h4><p>سینوس و کسینوس برای تجزیه سرعت به مؤلفه‌های افقی و عمودی.</p></aside></div>
+        </article>
+
+        <article class="card lesson" id="lesson4" data-search="قوانین نیوتون نیرو جرم شتاب کنش واکنش نیروی خالص وزن">
+          <div class="lesson-header"><span class="lesson-number">۴</span><div><h3>قوانین نیوتون و نیروی خالص</h3><p>قوانین نیوتون ارتباط میان نیرو و تغییر حرکت را توضیح می‌دهند.</p></div></div>
+          <div class="lesson-body"><div>
+            <p><strong>قانون اول:</strong> اگر نیروی خالص وارد بر جسم صفر باشد، جسم ساکن می‌ماند یا با سرعت برداری ثابت حرکت می‌کند.</p>
+            <p><strong>قانون دوم:</strong> شتاب جسم به نیروی خالص و جرم آن بستگی دارد.</p><span class="formula">ΣF = ma</span>
+            <p><strong>قانون سوم:</strong> اگر جسم A به جسم B نیرو وارد کند، جسم B هم نیرویی هم‌اندازه و در خلاف جهت به A وارد می‌کند. این دو نیرو بر دو جسم متفاوت وارد می‌شوند؛ بنابراین همدیگر را روی یک جسم خنثی نمی‌کنند.</p>
+            <span class="formula">وزن نزدیک سطح زمین: Fg = mg</span>
+            <div class="example"><strong>مثال حل‌شده</strong><p>نیروی خالص ۱۲ نیوتون به جسمی با جرم ۳ کیلوگرم وارد می‌شود. شتاب: a = ۱۲÷۳ = <strong>۴ m/s²</strong>. توجه: در قانون دوم باید نیروی خالص را به‌کار ببری، نه لزوماً یکی از نیروها را.</p></div>
+          </div><aside class="application"><h4>نمودار جسم آزاد</h4><p>برای حل مسئله، جسم را جدا رسم کن و تمام نیروهای وارد بر آن را با جهت نشان بده: وزن، نیروی عمودی سطح، کشش طناب، اصطکاک و نیروهای اعمال‌شده.</p><h4>کاربرد صنعتی</h4><p>محاسبه نیروی لازم برای حرکت آسانسور، ربات صنعتی، ماشین‌آلات و طراحی ایمن خودرو.</p><h4>یکای نیرو</h4><p><span class="unit-pill">1 N = 1 kg·m/s²</span></p></aside></div>
+        </article>
+
+        <article class="card lesson" id="lesson5" data-search="اصطکاک نیروی عمودی سطح ضریب اصطکاک سطح شیب دار">
+          <div class="lesson-header"><span class="lesson-number">۵</span><div><h3>نیروی عمودی سطح، کشش و اصطکاک</h3><p>نیروهای تماسی در بسیاری از ماشین‌ها و موقعیت‌های روزمره نقش دارند.</p></div></div>
+          <div class="lesson-body"><div>
+            <p>نیروی عمودی سطح، نیرویی است که سطح عمود بر خود به جسم وارد می‌کند. اصطکاک با لغزش یا تمایل به لغزش مخالفت می‌کند. در مدل ساده:</p>
+            <span class="formula">اصطکاک جنبشی: fₖ = μₖ N</span><span class="formula">حداکثر اصطکاک ایستایی: fₛ ≤ μₛ N</span>
+            <p>μ ضریب اصطکاک و N اندازه نیروی عمودی سطح است. اصطکاک ایستایی الزاماً همیشه برابر μₛN نیست؛ تا یک حد بیشینه، مقدار موردنیاز را می‌گیرد.</p>
+            <p class="subhead">سطح شیب‌دار بدون اصطکاک</p><span class="formula">مؤلفه موازی سطح: mg sin θ</span><span class="formula">مؤلفه عمود بر سطح: mg cos θ</span>
+            <div class="example"><strong>مثال حل‌شده</strong><p>اگر N=50 N و μₖ=0.2 باشد، اصطکاک جنبشی fₖ=0.2×50=<strong>10 N</strong> است. اگر نیروی کشش ۱۸ نیوتون در جهت حرکت باشد، نیروی خالص ۱۸−۱۰=<strong>۸ N</strong> می‌شود.</p></div>
+          </div><aside class="application"><h4>چرا مهم است؟</h4><p>اصطکاک برای راه‌رفتن، ترمزگیری و انتقال نیرو در تسمه‌ها لازم است؛ اما در یاتاقان‌ها می‌تواند موجب گرما، سایش و اتلاف انرژی شود.</p><h4>کاربرد صنعتی</h4><p>انتخاب لاستیک، روغن‌کاری دستگاه‌ها، طراحی ترمز و محاسبه ایمنی بار روی سطح شیب‌دار.</p><p class="small">در مسائل واقعی، ضریب اصطکاک ثابت و مستقل از همه شرایط نیست؛ مدل بالا تقریب آموزشی است.</p></aside></div>
+        </article>
+
+        <article class="card lesson" id="lesson6" data-search="حرکت دایره ای شتاب مرکزگرا نیروی مرکزگرا سرعت مماسی دوره تناوب">
+          <div class="lesson-header"><span class="lesson-number">۶</span><div><h3>حرکت دایره‌ای و نیروی مرکزگرا</h3><p>حتی اگر تندی ثابت باشد، تغییر جهت سرعت به معنای شتاب‌دار بودن حرکت است.</p></div></div>
+          <div class="lesson-body"><div>
+            <span class="formula">aᶜ = v² ÷ r</span><span class="formula">Fᶜ = mv² ÷ r</span><span class="formula">v = 2πr ÷ T</span>
+            <p>r شعاع مسیر، v تندی، T زمان یک دور کامل و m جرم است. نیروی مرکزگرا نیروی تازه و جداگانه‌ای نیست؛ نام نیروی خالصِ رو به مرکز در حرکت دایره‌ای است. این نقش را ممکن است اصطکاک، کشش طناب، گرانش یا ترکیبی از نیروها انجام دهد.</p>
+            <div class="example"><strong>مثال حل‌شده</strong><p>خودروی ۱۰۰۰ کیلوگرمی با تندی ۱۰ m/s در مسیر دایره‌ای به شعاع ۵۰ متر حرکت می‌کند. شتاب مرکزگرا: ۱۰۰÷۵۰=<strong>۲ m/s²</strong>. اندازه نیروی خالص رو به مرکز: ۱۰۰۰×۲=<strong>۲۰۰۰ N</strong>.</p></div>
+          </div><aside class="application"><h4>نمونه‌های واقعی</h4><p>چرخش خودرو در پیچ، سانتریفیوژ، چرخ‌وفلک، توربین و حرکت ماهواره‌ها.</p><h4>نکته ایمنی</h4><p>با افزایش سرعت، نیروی لازم به صورت مربع سرعت افزایش می‌یابد؛ دو برابر شدن سرعت در همان شعاع، چهار برابر نیروی مرکزگرا می‌خواهد.</p></aside></div>
+        </article>
+
+        <article class="card lesson" id="lesson7" data-search="کار مکانیکی انرژی جنبشی پتانسیل پایستگی انرژی فنر">
+          <div class="lesson-header"><span class="lesson-number">۷</span><div><h3>کار مکانیکی و انرژی</h3><p>کار، انتقال انرژی توسط نیرو در طول جابه‌جایی است.</p></div></div>
+          <div class="lesson-body"><div>
+            <span class="formula">W = F d cos θ</span><span class="formula">انرژی جنبشی: K = ½mv²</span><span class="formula">انرژی پتانسیل گرانشی: Ug = mgh</span><span class="formula">انرژی پتانسیل فنر: Us = ½kx²</span>
+            <p>در فرمول کار، θ زاویه بین جهت نیرو و جابه‌جایی است. اگر نیرو هم‌جهت جابه‌جایی باشد کار مثبت، اگر خلاف جهت باشد منفی و اگر عمود باشد کار آن نیرو صفر است. انرژی جنبشی به جرم و مربع سرعت وابسته است.</p>
+            <p><strong>پایستگی انرژی مکانیکی:</strong> وقتی فقط نیروهای پایستار (مثل گرانش ایده‌آل یا نیروی فنر) کار انجام دهند، مجموع K و U ثابت می‌ماند. وجود اصطکاک معمولاً بخشی از انرژی مکانیکی را به انرژی گرمایی تبدیل می‌کند.</p>
+            <div class="example"><strong>مثال حل‌شده</strong><p>جسمی با جرم ۲ کیلوگرم با سرعت ۳ m/s حرکت می‌کند. انرژی جنبشی آن: ½×۲×۳²=<strong>۹ ژول</strong>. اگر سرعت دو برابر شود، انرژی جنبشی چهار برابر می‌شود.</p></div>
+          </div><aside class="application"><h4>کاربردها</h4><p>ترمز احیاکننده خودروهای برقی، طراحی ترن هوایی، بالا بردن بار با جرثقیل، ضربه‌گیرها و ذخیره انرژی در فنر.</p><h4>واحد انرژی</h4><p><span class="unit-pill">J = N·m</span></p><p class="small">در انرژی پتانسیل mgh، ارتفاع h نسبت به سطح مرجع انتخاب‌شده سنجیده می‌شود.</p></aside></div>
+        </article>
+
+        <article class="card lesson" id="lesson8" data-search="توان مکانیکی نرخ انجام کار توان نیرو سرعت موتور بازده">
+          <div class="lesson-header"><span class="lesson-number">۸</span><div><h3>توان و بازده</h3><p>انرژی مقدار کار انجام‌شده را نشان می‌دهد؛ توان می‌گوید این کار با چه سرعتی انجام شده است.</p></div></div>
+          <div class="lesson-body"><div>
+            <span class="formula">P = W ÷ t</span><span class="formula">اگر نیرو و سرعت هم‌جهت باشند: P = Fv</span><span class="formula">بازده = (انرژی مفید خروجی ÷ انرژی ورودی) × 100%</span>
+            <p>توان متوسط برابر کار انجام‌شده تقسیم بر زمان است. رابطه P=Fv برای توان لحظه‌ای هنگامی به این شکل ساده درمی‌آید که نیرو و سرعت هم‌جهت باشند؛ در حالت کلی باید مؤلفه نیرو در راستای سرعت را در نظر گرفت.</p>
+            <div class="example"><strong>مثال حل‌شده</strong><p>موتوری ۶۰۰ ژول کار را در ۳ ثانیه انجام می‌دهد؛ توان متوسط = ۶۰۰÷۳=<strong>۲۰۰ وات</strong>. اگر انرژی ورودی ۱۰۰۰ ژول و انرژی مفید خروجی ۷۵۰ ژول باشد، بازده ۷۵٪ است.</p></div>
+          </div><aside class="application"><h4>کاربرد در صنعت</h4><p>انتخاب موتور و پمپ، مقایسه توان خودروها، تعیین ظرفیت آسانسور و بررسی مصرف انرژی تجهیزات.</p><h4>نکته</h4><p>توان بیشتر الزاماً به معنی انجام کار بیشتر نیست؛ یک کار یکسان می‌تواند در زمان کم یا زیاد انجام شود.</p><p>یکای توان: <span class="unit-pill">W = J/s</span></p></aside></div>
+        </article>
+
+        <article class="card lesson" id="lesson9" data-search="تکانه اندازه حرکت ضربه برخورد پایستگی تکانه تصادف">
+          <div class="lesson-header"><span class="lesson-number">۹</span><div><h3>تکانه، ضربه و برخورد</h3><p>تکانه حرکت جسم را با جرم و سرعت آن توصیف می‌کند.</p></div></div>
+          <div class="lesson-body"><div>
+            <span class="formula">تکانه: p = mv</span><span class="formula">ضربه: J = FΔt = Δp</span>
+            <p>رابطه ضربه با نیرو برای نیروی ثابت نوشته شده است؛ اگر نیرو در زمان تغییر کند، ضربه برابر مساحت زیر نمودار نیرو–زمان است. در یک سامانه منزوی، تکانه کل پایسته می‌ماند.</p>
+            <p><strong>برخورد کشسان:</strong> تکانه و انرژی جنبشی کل پایسته‌اند. <strong>برخورد ناکشسان:</strong> تکانه کل پایسته است، اما بخشی از انرژی جنبشی به گرما، صدا یا تغییر شکل تبدیل می‌شود. اگر دو جسم پس از برخورد به هم بچسبند، برخورد کاملاً ناکشسان است.</p>
+            <div class="example"><strong>مثال حل‌شده</strong><p>توپی به جرم ۰٫۲ kg با سرعت ۱۰ m/s حرکت می‌کند. تکانه آن ۰٫۲×۱۰=<strong>۲ kg·m/s</strong> است. اگر تکانه در ۰٫۱ ثانیه از ۲ به صفر برسد، اندازه نیروی متوسط برابر ۲÷۰٫۱=<strong>۲۰ N</strong> خواهد بود.</p></div>
+          </div><aside class="application"><h4>کاربردهای واقعی</h4><p>طراحی کیسه هوا و کمربند ایمنی، کلاه ایمنی، ورزش‌های برخوردی و تحلیل برخورد اجسام.</p><p>افزایش مدت زمان توقف برای یک تغییر تکانه مشخص، نیروی متوسط را کاهش می‌دهد.</p></aside></div>
+        </article>
+
+        <article class="card lesson" id="lesson10" data-search="حرکت دورانی گشتاور لختی دورانی سرعت زاویه ای انرژی چرخشی">
+          <div class="lesson-header"><span class="lesson-number">۱۰</span><div><h3>گشتاور و حرکت دورانی</h3><p>گشتاور بیان می‌کند یک نیرو چقدر می‌تواند جسم را حول محور بچرخاند.</p></div></div>
+          <div class="lesson-body"><div>
+            <span class="formula">τ = rF sin θ</span><span class="formula">گشتاور خالص: Στ = Iα</span><span class="formula">انرژی جنبشی دورانی: Kᵣ = ½Iω²</span>
+            <p>r فاصله از محور تا محل اعمال نیرو، θ زاویه بین بردار فاصله و نیرو، I لختی دورانی، α شتاب زاویه‌ای و ω سرعت زاویه‌ای است. لختی دورانی به جرم جسم و نحوه توزیع آن نسبت به محور بستگی دارد.</p>
+            <div class="example"><strong>مثال حل‌شده</strong><p>به انتهای آچار ۰٫۲ متری نیروی عمود ۳۰ نیوتون وارد می‌شود. گشتاور = ۰٫۲×۳۰=<strong>۶ N·m</strong>. اگر نیرو در راستای آچار اعمال شود، گشتاور ایده‌آل صفر است.</p></div>
+            <p class="subhead">نمونه‌های لختی دورانی</p><span class="formula">حلقه نازک: I = MR²</span><span class="formula">دیسک توپر: I = ½MR²</span><span class="formula">کره توپر: I = ⅖MR²</span>
+          </div><aside class="application"><h4>کاربردها</h4><p>آچار و پیچ، چرخ خودرو، فلایویل، توربین، موتور، ربات و بالانس‌کردن قطعات دوار.</p><h4>نکته کاربردی</h4><p>دسته بلندتر آچار، با همان نیرو و زاویه، گشتاور بیشتری ایجاد می‌کند.</p><p class="small">فرمول‌های لختی بالا برای شکل‌های ایده‌آل و محورهای مشخص‌شده معتبرند.</p></aside></div>
+        </article>
+
+        <article class="card lesson" id="lesson11" data-search="گرانش قانون جهانی نیوتون وزن مدار ماهواره سرعت فرار انرژی پتانسیل گرانشی">
+          <div class="lesson-header"><span class="lesson-number">۱۱</span><div><h3>گرانش و حرکت مداری</h3><p>هر دو جرم یکدیگر را جذب می‌کنند؛ این نیرو در مقیاس نجومی نیز مهم است.</p></div></div>
+          <div class="lesson-body"><div>
+            <span class="formula">F = Gm₁m₂ ÷ r²</span><span class="formula">g = GM ÷ r²</span><span class="formula">U = −GMm ÷ r</span>
+            <p>G ثابت جهانی گرانش، m₁ و m₂ جرم‌ها و r فاصله میان مرکزهای آن‌هاست. نزدیک سطح زمین معمولاً از g≈9.8 m/s² استفاده می‌کنیم. وزن Fg=mg است، ولی جرم با مکان تغییر نمی‌کند؛ وزن می‌تواند با تغییر g عوض شود.</p>
+            <p>برای مدار دایره‌ای ساده، گرانش می‌تواند نیروی مرکزگرا را فراهم کند. جسم مداری در واقع پیوسته در حال سقوط آزاد به دور جرم مرکزی است.</p>
+            <span class="formula">سرعت مداری دایره‌ای: v = √(GM ÷ r)</span><span class="formula">سرعت فرار ایده‌آل: vₑ = √(2GM ÷ R)</span>
+            <div class="example"><strong>مثال</strong><p>جرم جسمی ۵ kg روی سطح زمین، با g≈9.8، وزن تقریبی ۵×۹٫۸=<strong>۴۹ N</strong> دارد. در محیطی با گرانش کمتر وزن آن کمتر می‌شود، اما جرمش همچنان ۵ kg است.</p></div>
+          </div><aside class="application"><h4>کاربردهای واقعی</h4><p>پرتاب ماهواره، پیش‌بینی مدارها، محاسبات نجومی و طراحی مسیر فضاپیما.</p><p class="small">سرعت فرار بالا برای جسم کروی ایده‌آل و بدون مقاومت هوا و بدون نیروی پیشران پس از آغاز حرکت است؛ سرعت لازم از سطح زمین واقعی به شرایط پرتاب وابستگی‌های بیشتری دارد.</p></aside></div>
+        </article>
+
+        <article class="card lesson" id="lesson12" data-search="تعادل ایستایی گشتاور مرکز جرم اهرم نیروهای متعادل">
+          <div class="lesson-header"><span class="lesson-number">۱۲</span><div><h3>تعادل، اهرم و مرکز جرم</h3><p>جسم صلب برای تعادل کامل نباید شتاب خطی یا شتاب زاویه‌ای داشته باشد.</p></div></div>
+          <div class="lesson-body"><div>
+            <span class="formula">تعادل انتقالی: ΣF = 0</span><span class="formula">تعادل دورانی: Στ = 0</span>
+            <p>برای بررسی تعادل جسم، هم جمع نیروها و هم جمع گشتاورها را بررسی می‌کنیم. صفر بودن برآیند نیروها به‌تنهایی برای جلوگیری از چرخش کافی نیست.</p>
+            <span class="formula">در اهرم ایده‌آل: F₁d₁ = F₂d₂</span>
+            <p>d فاصله عمودی خط اثر نیرو تا محور است. مرکز جرم نقطه‌ای است که حرکت انتقالی جسم را می‌توان در بسیاری از محاسبات ساده به حرکت آن نقطه نسبت داد.</p>
+            <div class="example"><strong>مثال حل‌شده</strong><p>نیروی ۱۰ نیوتونی در فاصله ۰٫۵ متری محور، گشتاور ۵ نیوتون‌متر ایجاد می‌کند. برای تعادل، نیروی ۵ نیوتونی باید در فاصله عمودی ۱ متر از محور و در جهت چرخشی مخالف اعمال شود.</p></div>
+          </div><aside class="application"><h4>کاربرد صنعتی</h4><p>طراحی پل و سازه، جرثقیل، بالابر، ترازو، آچار، بازوهای رباتیک و بررسی واژگونی ماشین‌آلات.</p><h4>شرط پایداری</h4><p>پایین بودن مرکز جرم و مناسب بودن سطح اتکا می‌تواند پایداری را افزایش دهد، اما شرایط واقعی به هندسه و نیروهای خارجی نیز وابسته است.</p></aside></div>
+        </article>
+
+        <article class="card lesson" id="lesson13" data-search="کشسانی قانون هوک فنر تنش کرنش مدول یانگ">
+          <div class="lesson-header"><span class="lesson-number">۱۳</span><div><h3>کشسانی و قانون هوک</h3><p>مواد در برابر نیرو تغییر شکل می‌دهند؛ رفتار آن‌ها به جنس و اندازه تغییر شکل وابسته است.</p></div></div>
+          <div class="lesson-body"><div>
+            <span class="formula">قانون هوک: F = kx</span><span class="formula">تنش = F ÷ A</span><span class="formula">کرنش = ΔL ÷ L₀</span><span class="formula">مدول یانگ: Y = تنش ÷ کرنش</span>
+            <p>در قانون هوک، k ثابت فنر، x اندازه تغییر طول از حالت تعادل و F اندازه نیروی لازم در مدل خطی است. برای فنر، نیروی بازگرداننده در خلاف جهت تغییر مکان است. قانون هوک تا محدوده‌ای از تغییر شکل معتبر است و برای هر ماده و هر نیرویی بی‌نهایت ادامه ندارد.</p>
+            <div class="example"><strong>مثال</strong><p>برای فنری با k=100 N/m که ۰٫۰۵ متر کشیده شده، اندازه نیروی لازم در مدل هوکی برابر ۱۰۰×۰٫۰۵=<strong>۵ N</strong> است.</p></div>
+          </div><aside class="application"><h4>کاربردها</h4><p>سیستم تعلیق خودرو، فنرهای صنعتی، حسگرهای نیرو، طراحی سازه‌ها، کابل‌ها و آزمون استحکام مواد.</p><p class="small">تنش و فشار از نظر واحد هر دو می‌توانند پاسکال باشند، اما مفهوم فیزیکی و کاربردشان متفاوت است.</p></aside></div>
+        </article>
+
+        <article class="card lesson" id="lesson14" data-search="نوسان حرکت هماهنگ ساده فنر آونگ دوره تناوب فرکانس">
+          <div class="lesson-header"><span class="lesson-number">۱۴</span><div><h3>نوسان و حرکت هماهنگ ساده</h3><p>نوسان، رفت‌وبرگشت تکرارشونده حول وضعیت تعادل است.</p></div></div>
+          <div class="lesson-body"><div>
+            <span class="formula">دوره تناوب: T = 1 ÷ f</span><span class="formula">فنر ایده‌آل: T = 2π√(m ÷ k)</span><span class="formula">آونگ ساده: T ≈ 2π√(L ÷ g)</span>
+            <p>T زمان یک نوسان کامل، f تعداد نوسان‌ها در ثانیه، m جرم، k ثابت فنر و L طول آونگ است. رابطه آونگ در نوسان‌های کوچک تقریب مناسبی است؛ با دامنه زیاد دقت آن کم می‌شود.</p>
+            <div class="example"><strong>مثال مفهومی</strong><p>اگر جسمی در هر ثانیه ۲ نوسان کامل انجام دهد، فرکانس آن ۲ هرتز و دوره تناوبش ۱÷۲=<strong>۰٫۵ ثانیه</strong> است.</p></div>
+          </div><aside class="application"><h4>کاربردها</h4><p>ساعت‌های پاندولی، لرزه‌سنج، سیستم تعلیق خودرو، مهندسی زلزله، مدارهای حسگر و بررسی ارتعاش ماشین‌آلات.</p><p class="small">در سامانه واقعی، اصطکاک و مقاومت هوا می‌توانند دامنه نوسان را به‌تدریج کم کنند؛ به این پدیده میرایی می‌گویند.</p></aside></div>
+        </article>
+
+        <article class="card lesson" id="lesson15" data-search="مکانیک سیالات فشار مایع چگالی شناوری ارشمیدس پیوستگی برنولی">
+          <div class="lesson-header"><span class="lesson-number">۱۵</span><div><h3>مکانیک سیالات: فشار، شناوری و جریان</h3><p>سیال شامل مایعات و گازهاست؛ این بخش برای پمپ‌ها، لوله‌ها و طراحی شناورها کاربرد دارد.</p></div></div>
+          <div class="lesson-body"><div>
+            <span class="formula">فشار: p = F ÷ A</span><span class="formula">فشار هیدروستاتیکی: Δp = ρgh</span><span class="formula">نیروی شناوری: Fb = ρfluid g Vdisplaced</span>
+            <p>فشار نیرو بر واحد سطح است. در رابطه فشار مایع، ρ چگالی سیال، h عمق و g شتاب گرانش است. فرمول ρgh تغییر فشار نسبت به سطح را می‌دهد؛ فشار مطلق ممکن است شامل فشار سطح نیز باشد.</p>
+            <p><strong>اصل ارشمیدس:</strong> نیروی شناوری برابر وزن سیالی است که جسم جابه‌جا می‌کند. جسم در شرایط ساده وقتی شناور می‌ماند که نیروی شناوری و وزن آن متعادل باشند.</p>
+            <span class="formula">معادله پیوستگی برای سیال تراکم‌ناپذیر: A₁v₁ = A₂v₂</span>
+            <span class="formula">برنولی (شرایط ایده‌آل): p + ½ρv² + ρgh = ثابت</span>
+            <div class="example"><strong>مثال حل‌شده</strong><p>فشار ناشی از آب در عمق ۲ متری، با چگالی تقریبی ۱۰۰۰ kg/m³ و g≈9.8، برابر ۱۰۰۰×۹٫۸×۲=<strong>۱۹۶۰۰ Pa</strong> بیشتر از فشار سطح است.</p></div>
+          </div><aside class="application"><h4>کاربردهای صنعتی</h4><p>طراحی مخزن، سد، غواصی، پمپ، سامانه‌های هیدرولیک، لوله‌کشی، کشتی، هواپیما و اندازه‌گیری جریان.</p><p class="small">معادله برنولی نسخه‌ای ساده برای جریان پایا و ایده‌آل است؛ در جریان واقعی، اصطکاک و اتلاف انرژی باید در نظر گرفته شوند.</p></aside></div>
+        </article>
+
+      </div>
+    </section>
+
+    <section class="section" id="calculators">
+      <div class="container">
+        <div class="section-heading"><div><h2>ماشین‌حساب‌های تعاملی مکانیک</h2><p>عددها را با یکاهای نوشته‌شده وارد کن. ماشین‌حساب‌ها برای تمرین‌اند و اعتبار مدل فیزیکی مسئله همچنان مهم است.</p></div></div>
+        <div class="grid grid-3">
+          <article class="card calculator"><span class="icon">🏃</span><h3>۱. سرعت متوسط</h3><p class="small">مسافت بر حسب متر، زمان بر حسب ثانیه.</p><div class="field"><label for="distance">مسافت (m)</label><input id="distance" type="number" min="0" step="any" value="150"></div><div class="field"><label for="time">زمان (s)</label><input id="time" type="number" min="0.000001" step="any" value="12"></div><button class="calc-btn" id="speedBtn">محاسبه سرعت</button><div class="result" id="speedResult" aria-live="polite">نتیجه اینجا نمایش داده می‌شود.</div></article>
+          <article class="card calculator"><span class="icon">🧲</span><h3>۲. قانون دوم نیوتون</h3><p class="small">نیروی خالص = جرم × شتاب.</p><div class="field"><label for="massForce">جرم (kg)</label><input id="massForce" type="number" min="0" step="any" value="1200"></div><div class="field"><label for="acceleration">شتاب (m/s²)</label><input id="acceleration" type="number" step="any" value="2"></div><button class="calc-btn" id="forceBtn">محاسبه نیروی خالص</button><div class="result" id="forceResult" aria-live="polite">نتیجه اینجا نمایش داده می‌شود.</div></article>
+          <article class="card calculator"><span class="icon">⚡</span><h3>۳. انرژی جنبشی</h3><p class="small">سرعت بر حسب m/s وارد شود.</p><div class="field"><label for="massEnergy">جرم (kg)</label><input id="massEnergy" type="number" min="0" step="any" value="1000"></div><div class="field"><label for="velocityEnergy">تندی (m/s)</label><input id="velocityEnergy" type="number" min="0" step="any" value="20"></div><button class="calc-btn" id="energyBtn">محاسبه انرژی</button><div class="result" id="energyResult" aria-live="polite">نتیجه اینجا نمایش داده می‌شود.</div></article>
+          <article class="card calculator"><span class="icon">🔧</span><h3>۴. کار و توان</h3><p class="small">برای سادگی، نیرو و جابه‌جایی در یک راستا یا با زاویه مشخص در نظر گرفته می‌شوند.</p><div class="field"><label for="workForce">نیرو (N)</label><input id="workForce" type="number" min="0" step="any" value="50"></div><div class="field"><label for="workDistance">جابه‌جایی (m)</label><input id="workDistance" type="number" min="0" step="any" value="8"></div><div class="field"><label for="workAngle">زاویه نیرو با جابه‌جایی (درجه)</label><input id="workAngle" type="number" step="any" value="0"></div><div class="field"><label for="workTime">زمان انجام کار (s)</label><input id="workTime" type="number" min="0.000001" step="any" value="4"></div><button class="calc-btn" id="workBtn">محاسبه کار و توان متوسط</button><div class="result" id="workResult" aria-live="polite">نتیجه اینجا نمایش داده می‌شود.</div></article>
+          <article class="card calculator"><span class="icon">🏀</span><h3>۵. تکانه</h3><p class="small">جرم بر حسب kg و سرعت بر حسب m/s.</p><div class="field"><label for="massMomentum">جرم (kg)</label><input id="massMomentum" type="number" min="0" step="any" value="0.15"></div><div class="field"><label for="velocityMomentum">سرعت (m/s)</label><input id="velocityMomentum" type="number" step="any" value="20"></div><button class="calc-btn" id="momentumBtn">محاسبه تکانه</button><div class="result" id="momentumResult" aria-live="polite">نتیجه اینجا نمایش داده می‌شود.</div></article>
+          <article class="card calculator"><span class="icon">🔄</span><h3>۶. نیروی مرکزگرا</h3><p class="small">جرم، تندی و شعاع مسیر را وارد کن.</p><div class="field"><label for="massCircle">جرم (kg)</label><input id="massCircle" type="number" min="0" step="any" value="1000"></div><div class="field"><label for="velocityCircle">تندی (m/s)</label><input id="velocityCircle" type="number" min="0" step="any" value="10"></div><div class="field"><label for="radiusCircle">شعاع (m)</label><input id="radiusCircle" type="number" min="0.000001" step="any" value="50"></div><button class="calc-btn" id="circleBtn">محاسبه شتاب و نیرو</button><div class="result" id="circleResult" aria-live="polite">نتیجه اینجا نمایش داده می‌شود.</div></article>
+        </div>
+        <p class="notice" style="margin-top:16px"><strong>یادآوری:</strong> نتیجه عددی فقط وقتی درست تفسیر می‌شود که فرض‌های مسئله را رعایت کنی؛ مثلاً قانون دوم نیوتون به نیروی خالص نیاز دارد و مدل پرتابه ساده مقاومت هوا را نادیده می‌گیرد.</p>
+      </div>
+    </section>
+
+    <section class="section" id="practice">
+      <div class="container">
+        <div class="section-heading"><div><h2>تمرین‌های خودآزمایی</h2><p>پیش از بازکردن پاسخ، چند دقیقه خودت فکر کن و واحد جواب را هم بنویس.</p></div></div>
+        <div class="quiz-list">
+          <details class="quiz"><summary>تمرین ۱ — خودرویی ۱۸۰ متر را در ۱۲ ثانیه می‌پیماید. تندی متوسط آن چند m/s و چند km/h است؟</summary><p><strong>پاسخ:</strong> ۱۸۰÷۱۲=۱۵ m/s. تبدیل به km/h: ۱۵×۳٫۶=<strong>۵۴ km/h</strong>.</p></details>
+          <details class="quiz"><summary>تمرین ۲ — نیروی خالص ۳۰ نیوتون به جسم ۶ کیلوگرمی وارد می‌شود. شتاب چیست؟</summary><p><strong>پاسخ:</strong> از ΣF=ma داریم a=F÷m=۳۰÷۶=<strong>۵ m/s²</strong>.</p></details>
+          <details class="quiz"><summary>تمرین ۳ — جسم ۴ کیلوگرمی با سرعت ۵ m/s چه انرژی جنبشی دارد؟</summary><p><strong>پاسخ:</strong> K=½mv²=½×۴×۲۵=<strong>۵۰ J</strong>.</p></details>
+          <details class="quiz"><summary>تمرین ۴ — به جسمی ۲۰ نیوتون نیرو در جهت حرکت وارد می‌شود و جسم ۳ متر جابه‌جا می‌شود. کار نیرو چقدر است؟</summary><p><strong>پاسخ:</strong> زاویه صفر و cos0=1 است؛ پس W=۲۰×۳×۱=<strong>۶۰ J</strong>.</p></details>
+          <details class="quiz"><summary>تمرین ۵ — چرا نیروی کنش و واکنش همدیگر را خنثی نمی‌کنند؟</summary><p><strong>پاسخ:</strong> چون به دو جسم متفاوت وارد می‌شوند. برای بررسی حرکت هر جسم، فقط نیروهای وارد بر همان جسم را جمع می‌کنیم.</p></details>
+          <details class="quiz"><summary>تمرین ۶ — اگر تندی جسمی در حرکت دایره‌ای دو برابر شود و شعاع ثابت بماند، نیروی مرکزگرا چند برابر می‌شود؟</summary><p><strong>پاسخ:</strong> چون Fᶜ=mv²÷r و سرعت به توان دو وابسته است، نیرو <strong>۴ برابر</strong> می‌شود.</p></details>
+          <details class="quiz"><summary>تمرین ۷ — موتور ۲۴۰۰ ژول کار را در ۸ ثانیه انجام می‌دهد. توان متوسط آن چقدر است؟</summary><p><strong>پاسخ:</strong> P=W÷t=۲۴۰۰÷۸=<strong>۳۰۰ W</strong>.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="mistakes">
+      <div class="container">
+        <div class="section-heading"><div><h2>اشتباه‌های رایج که باید مراقبشان باشی</h2><p>این فهرست را پیش از حل مسئله مرور کن.</p></div></div>
+        <div class="grid grid-2">
+          <article class="card"><h3>۱. جابه‌جا گرفتن فرمول‌ها</h3><p>در انرژی جنبشی سرعت به توان دو است؛ در نیروی خالص نیوتون، شتاب در جرم ضرب می‌شود؛ در توان متوسط، کار بر زمان تقسیم می‌شود.</p></article>
+          <article class="card"><h3>۲. فراموش‌کردن تبدیل واحد</h3><p>قبل از محاسبه، یکاها را یکسان کن. برای نمونه، اگر فاصله بر حسب متر و زمان بر حسب ثانیه است، سرعت بر حسب m/s به دست می‌آید.</p></article>
+          <article class="card"><h3>۳. استفاده از یک نیروی تنها به‌جای نیروی خالص</h3><p>اگر اصطکاک و کشش هم وجود دارند، ابتدا همه نیروها را با توجه به جهت جمع کن؛ سپس از ΣF=ma استفاده کن.</p></article>
+          <article class="card"><h3>۴. نادیده‌گرفتن جهت</h3><p>سرعت، شتاب و نیرو برداری‌اند. یک جهت را مثبت انتخاب و تا انتهای مسئله قرارداد علامت‌ها را حفظ کن.</p></article>
+          <article class="card"><h3>۵. استفاده بی‌شرط از فرمول</h3><p>روابط شتاب ثابت، پرتابه بدون مقاومت هوا، برنولی و قانون هوک هرکدام فرض‌هایی دارند. قبل از انتخاب فرمول، شرایط مسئله را بررسی کن.</p></article>
+          <article class="card"><h3>۶. نوشتن جواب بدون واحد</h3><p>جواب ۲۰ می‌تواند ۲۰ متر، ۲۰ ثانیه یا ۲۰ نیوتون باشد. عدد و یکا را با هم بنویس و بررسی کن که از نظر فیزیکی معقول باشد.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="glossary">
+      <div class="container">
+        <div class="section-heading"><div><h2>واژه‌نامه سریع مکانیک</h2><p>نمادها بسته به کتاب ممکن است کمی متفاوت باشند؛ معنی و یکا را از متن مسئله تشخیص بده.</p></div></div>
+        <div class="glossary">
+          <div class="term"><strong>Δ (دلتا)</strong><br><span>تغییر یک کمیت؛ مثلاً Δv یعنی تغییر سرعت.</span></div>
+          <div class="term"><strong>Σ (سیگما)</strong><br><span>مجموع؛ ΣF یعنی مجموع برداری نیروها.</span></div>
+          <div class="term"><strong>g</strong><br><span>شتاب گرانش نزدیک سطح زمین تقریباً 9.8 m/s².</span></div>
+          <div class="term"><strong>ρ (رو)</strong><br><span>چگالی؛ جرم بر حجم، با یکای kg/m³.</span></div>
+          <div class="term"><strong>μ (مو)</strong><br><span>ضریب اصطکاک؛ در مدل ساده بدون یکا.</span></div>
+          <div class="term"><strong>τ (تاو)</strong><br><span>گشتاور نیرو؛ یکای N·m.</span></div>
+          <div class="term"><strong>ω (اُمگا)</strong><br><span>سرعت زاویه‌ای؛ معمولاً rad/s.</span></div>
+          <div class="term"><strong>α (آلفا)</strong><br><span>شتاب زاویه‌ای؛ معمولاً rad/s².</span></div>
+          <div class="term"><strong>I</strong><br><span>لختی دورانی؛ یکای kg·m².</span></div>
+          <div class="term"><strong>f</strong><br><span>فرکانس؛ تعداد چرخه در ثانیه، یکای Hz.</span></div>
+          <div class="term"><strong>k</strong><br><span>ثابت فنر در قانون هوک، یکای N/m.</span></div>
+          <div class="term"><strong>G</strong><br><span>ثابت جهانی گرانش؛ با g که شتاب گرانش است فرق دارد.</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="careers">
+      <div class="container">
+        <div class="section-heading"><div><h2>مکانیک کجا به کار می‌آید؟</h2><p>دانستن فیزیک پایه به فهم بهتر رشته‌های مهندسی و فناوری کمک می‌کند.</p></div></div>
+        <div class="grid grid-3">
+          <article class="card"><span class="icon">🚗</span><h3>مهندسی مکانیک و خودرو</h3><p>نیرو، انرژی، حرکت دورانی، اصطکاک، ارتعاشات و انتقال توان برای طراحی و تحلیل خودرو و ماشین‌آلات اهمیت دارند.</p></article>
+          <article class="card"><span class="icon">🤖</span><h3>رباتیک و مکاترونیک</h3><p>برای محاسبه نیروهای مفصل‌ها، حرکت بازوها، تعادل و کنترل موقعیت، از مدل‌های مکانیکی استفاده می‌شود.</p></article>
+          <article class="card"><span class="icon">🏗️</span><h3>عمران و سازه</h3><p>تعادل، گشتاور، مرکز جرم و خواص مکانیکی مواد در تحلیل تیر، پل، ساختمان و ایمنی سازه‌ها کاربرد دارند.</p></article>
+          <article class="card"><span class="icon">✈️</span><h3>هوافضا</h3><p>حرکت پرتابه، گرانش، مدار، نیروها و مکانیک سیالات در تحلیل پرواز و حرکت ماهواره‌ها نقش دارند.</p></article>
+          <article class="card"><span class="icon">💧</span><h3>انرژی و فرایند</h3><p>جریان سیال، فشار، پمپ‌ها، توربین‌ها و انتقال توان در نیروگاه‌ها و سامانه‌های صنعتی استفاده می‌شوند.</p></article>
+          <article class="card"><span class="icon">🏥</span><h3>مهندسی پزشکی و ورزش</h3><p>بیومکانیک برای بررسی راه‌رفتن، نیروهای وارد بر مفصل، طراحی اندام مصنوعی و تحلیل حرکت ورزشی به کار می‌رود.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="study-plan">
+      <div class="container">
+        <div class="section-heading"><div><h2>برنامه پیشنهادی مطالعه</h2><p>هر جلسه کوتاه اما پیوسته باشد، بهتر از حفظ‌کردن یک‌باره فرمول‌های زیاد است.</p></div></div>
+        <div class="grid grid-2">
+          <article class="card"><h3>جلسه ۱ تا ۳: حرکت</h3><ul class="clean"><li>تعریف مسافت، جابه‌جایی، سرعت و شتاب.</li><li>حل ۵ مسئله با تبدیل واحد.</li><li>رسم نمودار ساده مکان–زمان و سرعت–زمان.</li></ul></article>
+          <article class="card"><h3>جلسه ۴ تا ۶: نیرو</h3><ul class="clean"><li>رسم نمودار جسم آزاد.</li><li>تمرین نیروی خالص، وزن و اصطکاک.</li><li>حل نمونه‌های قانون دوم نیوتون.</li></ul></article>
+          <article class="card"><h3>جلسه ۷ تا ۹: انرژی و تکانه</h3><ul class="clean"><li>تشخیص انرژی جنبشی و پتانسیل.</li><li>مقایسه کار و توان.</li><li>تمرین ضربه و پایستگی تکانه.</li></ul></article>
+          <article class="card"><h3>جلسه ۱۰ به بعد: مباحث پیشرفته‌تر</h3><ul class="clean"><li>گشتاور و تعادل را با شکل یاد بگیر.</li><li>سپس گرانش، نوسان و سیالات را مطالعه کن.</li><li>برای هر مبحث یک کاربرد واقعی پیدا کن.</li></ul></article>
+        </div>
+        <p class="notice" style="margin-top:16px"><strong>قانون طلایی حل مسئله:</strong> داده‌ها و مجهول را بنویس ← شکل بکش ← یکاها را یکسان کن ← قانون مناسب را انتخاب کن ← محاسبه کن ← واحد و معقول‌بودن پاسخ را بررسی کن.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div><strong>علم‌خانه</strong><p class="small">یادگیری علم با فهمیدن، مثال‌زدن و تمرین‌کردن.</p></div>
+      <div class="topic-index"><a href="index.html">صفحه اصلی</a><a href="physics.html">نقشه راه فیزیک</a><a href="#top">بازگشت به بالا ↑</a></div>
+    </div>
+    <div class="container small">یادداشت آموزشی: این صفحه برای یادگیری مفاهیم پایه و حل تمرین است؛ طراحی تجهیزات واقعی، ایمنی صنعتی و محاسبات مهندسی به بررسی استانداردها، شرایط واقعی و تخصص کافی نیاز دارد.</div>
+  </footer>
+  <a class="back-top" href="#top" aria-label="بازگشت به بالای صفحه">↑</a>
+
+  <script>
+    'use strict';
+    const byId = (id) => document.getElementById(id);
+    const numberFrom = (id) => {
+      const el = byId(id);
+      if (!el) return NaN;
+      const value = el.value.trim();
+      if (value === '') return NaN;
+      return Number(value);
+    };
+    const fmt = (value, digits = 4) => {
+      if (!Number.isFinite(value)) return 'عدد نامعتبر';
+      return value.toLocaleString('fa-IR', { maximumFractionDigits: digits });
+    };
+    const showError = (resultId, message) => {
+      byId(resultId).textContent = message;
+    };
+    const positiveOrZero = (value) => Number.isFinite(value) && value >= 0;
+    const positive = (value) => Number.isFinite(value) && value > 0;
+
+    byId('speedBtn').addEventListener('click', () => {
+      const d = numberFrom('distance');
+      const t = numberFrom('time');
+      if (!positiveOrZero(d) || !positive(t)) return showError('speedResult', 'مسافت باید صفر یا مثبت و زمان باید بزرگ‌تر از صفر باشد.');
+      const v = d / t;
+      byId('speedResult').innerHTML = `تندی متوسط: <strong>${fmt(v)} m/s</strong><br>معادل: <strong>${fmt(v * 3.6)} km/h</strong>`;
+    });
+    byId('forceBtn').addEventListener('click', () => {
+      const m = numberFrom('massForce');
+      const a = numberFrom('acceleration');
+      if (!positiveOrZero(m) || !Number.isFinite(a)) return showError('forceResult', 'جرم باید صفر یا مثبت و شتاب باید یک عدد معتبر باشد.');
+      const f = m * a;
+      byId('forceResult').innerHTML = `نیروی خالص در جهت انتخاب‌شده: <strong>${fmt(f)} N</strong><br>محاسبه: ${fmt(m)} × (${fmt(a)})`;
+    });
+    byId('energyBtn').addEventListener('click', () => {
+      const m = numberFrom('massEnergy');
+      const v = numberFrom('velocityEnergy');
+      if (!positiveOrZero(m) || !positiveOrZero(v)) return showError('energyResult', 'جرم و تندی باید صفر یا مثبت باشند.');
+      const k = 0.5 * m * v * v;
+      byId('energyResult').innerHTML = `انرژی جنبشی: <strong>${fmt(k)} J</strong><br>فرمول: ½ × m × v²`;
+    });
+    byId('workBtn').addEventListener('click', () => {
+      const f = numberFrom('workForce');
+      const d = numberFrom('workDistance');
+      const angle = numberFrom('workAngle');
+      const t = numberFrom('workTime');
+      if (!positiveOrZero(f) || !positiveOrZero(d) || !Number.isFinite(angle) || !positive(t)) return showError('workResult', 'نیرو و جابه‌جایی باید صفر یا مثبت، زاویه معتبر و زمان بزرگ‌تر از صفر باشد.');
+      const w = f * d * Math.cos(angle * Math.PI / 180);
+      const p = w / t;
+      byId('workResult').innerHTML = `کار نیرو: <strong>${fmt(w)} J</strong><br>توان متوسط همان نیرو: <strong>${fmt(p)} W</strong>`;
+    });
+    byId('momentumBtn').addEventListener('click', () => {
+      const m = numberFrom('massMomentum');
+      const v = numberFrom('velocityMomentum');
+      if (!positiveOrZero(m) || !Number.isFinite(v)) return showError('momentumResult', 'جرم باید صفر یا مثبت و سرعت باید یک عدد معتبر باشد.');
+      const p = m * v;
+      byId('momentumResult').innerHTML = `تکانه در راستای انتخاب‌شده: <strong>${fmt(p)} kg·m/s</strong>`;
+    });
+    byId('circleBtn').addEventListener('click', () => {
+      const m = numberFrom('massCircle');
+      const v = numberFrom('velocityCircle');
+      const r = numberFrom('radiusCircle');
+      if (!positiveOrZero(m) || !positiveOrZero(v) || !positive(r)) return showError('circleResult', 'جرم و تندی باید صفر یا مثبت و شعاع بزرگ‌تر از صفر باشد.');
+      const a = v * v / r;
+      const f = m * a;
+      byId('circleResult').innerHTML = `شتاب مرکزگرا: <strong>${fmt(a)} m/s²</strong><br>نیروی خالص رو به مرکز: <strong>${fmt(f)} N</strong>`;
+    });
+
+    const searchBox = byId('lessonSearch');
+    const lessons = Array.from(document.querySelectorAll('.lesson[data-search]'));
+    searchBox.addEventListener('input', () => {
+      const query = searchBox.value.trim().toLocaleLowerCase('fa');
+      lessons.forEach((lesson) => {
+        const searchable = (lesson.dataset.search + ' ' + lesson.innerText).toLocaleLowerCase('fa');
+        lesson.classList.toggle('hidden-by-search', query.length > 0 && !searchable.includes(query));
+      });
+    });
+
+    // نمایش نتیجه اولیه ماشین‌حساب‌ها تا مشخص باشد هر ابزار چه خروجی‌ای می‌دهد.
+    byId('speedBtn').click();
+    byId('forceBtn').click();
+    byId('energyBtn').click();
+    byId('workBtn').click();
+    byId('momentumBtn').click();
+    byId('circleBtn').click();
+  </script>
+</body>
+</html>

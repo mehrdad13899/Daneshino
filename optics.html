@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="آموزش نور و اپتیک از مبانی نور تا بازتاب، شکست، عدسی‌ها، آینه‌ها و کاربردهای صنعتی در علم‌خانه">
+<title>نور و اپتیک | علم‌خانه</title>
+<style>
+:root{--bg:#071321;--panel:#102238;--panel2:#142b43;--line:#294660;--text:#edf5ff;--muted:#b5c8dc;--cyan:#5ee7e0;--blue:#7db8ff;--yellow:#ffd166;--green:#75e0a0;--red:#ff9292}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:linear-gradient(180deg,#071321,#0b1b2d 50%,#071321);color:var(--text);font-family:Tahoma,Arial,sans-serif;line-height:1.95}
+a{color:var(--cyan)}
+header{padding:28px 16px 34px;background:radial-gradient(ellipse at top,#16466a 0%,#0b1d31 60%,#071321 100%);border-bottom:1px solid var(--line)}
+.wrap{max-width:1100px;margin:auto;padding:0 16px}
+.topnav{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:24px}
+.topnav a,.pill{display:inline-block;padding:7px 12px;border:1px solid #34536e;border-radius:999px;text-decoration:none;color:var(--text);font-size:13px;background:#0c2034}
+h1{font-size:clamp(28px,5vw,44px);line-height:1.5;margin:0 0 10px}
+h2{font-size:clamp(21px,3vw,29px);margin-top:0}
+h3{font-size:19px;color:var(--cyan);margin-bottom:8px}
+p{margin:8px 0 14px}
+.lead{color:var(--muted);max-width:820px;font-size:17px}
+.hero-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:18px}
+main{padding:26px 0 60px}
+.layout{display:grid;grid-template-columns:260px minmax(0,1fr);gap:22px;align-items:start}
+aside{position:sticky;top:12px;background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:16px;max-height:calc(100vh - 24px);overflow:auto}
+aside h2{font-size:18px}
+aside a{display:block;text-decoration:none;padding:6px 8px;border-radius:8px;color:var(--muted);font-size:14px}
+aside a:hover{background:var(--panel2);color:var(--text)}
+.content{min-width:0}
+.card,.lesson{background:linear-gradient(145deg,var(--panel),#0d1d30);border:1px solid var(--line);border-radius:18px;padding:22px;margin-bottom:18px;box-shadow:0 8px 24px #00000018}
+.lesson{scroll-margin-top:16px}
+.lesson-number{font-size:12px;color:var(--cyan);letter-spacing:.3px}
+.formula{direction:ltr;text-align:center;font-family:Arial,sans-serif;font-size:clamp(18px,3vw,25px);font-weight:bold;color:#fff;background:#081726;border:1px dashed #4d789b;border-radius:12px;padding:14px;margin:14px 0}
+.note,.example,.warning,.answer{padding:12px 14px;border-radius:10px;margin:13px 0}
+.note{background:#0b3040;border-right:4px solid var(--cyan)}
+.example{background:#132d27;border-right:4px solid var(--green)}
+.warning{background:#39251c;border-right:4px solid var(--yellow)}
+.answer{background:#1d2741;border-right:4px solid var(--blue)}
+.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.mini{background:#0a1a2a;border:1px solid var(--line);border-radius:12px;padding:14px}
+.physics-image{margin:18px 0;padding:12px;background:#091827;border:1px solid var(--line);border-radius:14px}
+.physics-image img{display:block;width:100%;max-height:390px;object-fit:contain;background:#fff;border-radius:8px;min-height:100px}
+.physics-image figcaption{font-size:13px;color:var(--muted);text-align:center;margin-top:9px}
+.physics-image a{font-size:12px}
+table{border-collapse:collapse;width:100%;margin:12px 0;font-size:14px}
+th,td{border:1px solid var(--line);padding:9px;text-align:right}
+th{background:#18324b}
+td{background:#0c1d2e}
+ul,ol{padding-right:24px}
+li{margin:5px 0}
+label{display:block;margin:8px 0 4px;color:var(--muted);font-size:14px}
+input,select{width:100%;padding:11px;border-radius:9px;border:1px solid #45647f;background:#071726;color:var(--text);font:inherit}
+button{cursor:pointer;border:0;border-radius:10px;background:var(--cyan);color:#06202b;font:inherit;font-weight:bold;padding:10px 16px;margin-top:12px}
+button.secondary{background:#203c57;color:var(--text);border:1px solid #45647f}
+.result{margin-top:12px;padding:12px;border-radius:10px;background:#071726;border:1px solid var(--line);min-height:45px}
+.quiz-q{padding:14px 0;border-bottom:1px solid var(--line)}
+.quiz-q label{display:flex;gap:8px;align-items:flex-start;color:var(--text)}
+.quiz-q input{width:auto;margin-top:8px}
+footer{text-align:center;padding:24px;color:var(--muted);border-top:1px solid var(--line)}
+.small{font-size:13px;color:var(--muted)}
+.searchbox{margin:12px 0 16px}
+.hidden{display:none!important}
+@media(max-width:800px){.layout{grid-template-columns:1fr}aside{position:static;max-height:none}.grid2,.grid3{grid-template-columns:1fr}.card,.lesson{padding:17px}header{padding-top:20px}}
+</style>
+</head>
+<body>
+<header>
+ <div class="wrap">
+  <nav class="topnav" aria-label="ناوبری">
+   <a href="index.html">صفحهٔ اصلی</a><a href="physics.html">فیزیک</a><a href="mechanics.html">مکانیک</a><a href="math.html">ریاضی</a><a href="chemistry.html">شیمی</a>
+  </nav>
+  <h1>نور و اپتیک؛ از آینه تا لیزر</h1>
+  <p class="lead">در این مسیر یاد می‌گیری نور چگونه حرکت می‌کند، چرا در آینه تصویر می‌بینیم، چرا نی در آب شکسته به نظر می‌رسد، عدسی دوربین چگونه تصویر می‌سازد و فناوری‌هایی مثل فیبر نوری و لیزر چه‌طور کار می‌کنند.</p>
+  <div class="hero-tags"><span class="pill">مفهوم + فرمول</span><span class="pill">مثال حل‌شده</span><span class="pill">کاربرد صنعتی</span><span class="pill">ماشین‌حساب</span><span class="pill">آزمون پایانی</span></div>
+ </div>
+</header>
+<main class="wrap">
+<div class="layout">
+<aside>
+<h2>فهرست درس‌ها</h2>
+<div class="searchbox"><input id="searchLessons" type="search" placeholder="جست‌وجو در درس‌ها…" aria-label="جست‌وجو در درس‌ها"></div>
+<a href="#roadmap">نقشهٔ یادگیری</a>
+<a href="#l1">۱. نور چیست؟</a><a href="#l2">۲. سرعت نور</a><a href="#l3">۳. پرتو و سایه</a><a href="#l4">۴. بازتاب نور</a><a href="#l5">۵. آینهٔ تخت</a><a href="#l6">۶. آینه‌های کروی</a><a href="#l7">۷. شکست نور</a><a href="#l8">۸. ضریب شکست</a><a href="#l9">۹. قانون اسنل</a><a href="#l10">۱۰. بازتاب کلی داخلی</a><a href="#l11">۱۱. منشور و رنگ‌ها</a><a href="#l12">۱۲. عدسی‌ها</a><a href="#l13">۱۳. معادلهٔ عدسی</a><a href="#l14">۱۴. بزرگ‌نمایی</a><a href="#l15">۱۵. چشم و عینک</a><a href="#l16">۱۶. دوربین و تلسکوپ</a><a href="#l17">۱۷. موج و طول موج</a><a href="#l18">۱۸. تداخل و پراش</a><a href="#l19">۱۹. قطبش</a><a href="#l20">۲۰. لیزر</a><a href="#l21">۲۱. فیبر نوری</a><a href="#l22">۲۲. طیف الکترومغناطیسی</a><a href="#l23">۲۳. نور و انرژی</a><a href="#l24">۲۴. حسگرهای نوری</a><a href="#l25">۲۵. ایمنی نور</a><a href="#calculators">ماشین‌حساب‌ها</a><a href="#quiz">آزمون</a>
+</aside>
+<div class="content" id="lessonContent">
+<section class="card" id="roadmap">
+<h2>چطور این بخش را بخوانی؟</h2>
+<div class="grid3"><div class="mini"><h3>گام اول: تصویر ذهنی</h3><p>ابتدا بفهم چه اتفاقی می‌افتد؛ بعد سراغ فرمول برو.</p></div><div class="mini"><h3>گام دوم: واحدها</h3><p>واحد کمیت‌ها را بنویس و فقط عددها را در فرمول جای‌گذاری نکن.</p></div><div class="mini"><h3>گام سوم: کاربرد</h3><p>هر مفهوم را به وسیله‌ای واقعی مثل عینک، دوربین یا حسگر وصل کن.</p></div></div>
+<div class="note"><b>پیش‌نیاز:</b> برای شروع، دانستن کسرها، تناسب، توان دوم و حل معادلهٔ ساده کافی است. در مسائل شکست نور، ماشین‌حساب علمی مفید خواهد بود.</div>
+</section>
+
+<article class="lesson" id="l1" data-search="نور چیست منبع نور جسم روشن بازتاب">
+<div class="lesson-number">درس ۱ از ۲۵</div><h2>نور چیست؟</h2>
+<p>نور نوعی تابش الکترومغناطیسی است که چشم انسان بخشی از آن را می‌بیند. نور برای انتشار به هوا یا مادهٔ دیگری نیاز ندارد و در خلأ نیز حرکت می‌کند. خورشید و لامپ نور تولید می‌کنند؛ ماه و کتاب معمولاً نور را بازتاب می‌دهند.</p>
+<div class="grid2"><div class="mini"><h3>منبع نور</h3><p>مانند خورشید، شعله و LED؛ انرژی دیگری به نور تبدیل می‌شود.</p></div><div class="mini"><h3>جسم بازتابنده</h3><p>مانند ماه، دیوار و کاغذ؛ نور منبع را به سمت چشم می‌فرستد.</p></div></div>
+<div class="example"><b>مثال روزمره:</b> در اتاق تاریک کتاب را نمی‌بینی، چون نور کافی از کتاب به چشم تو نمی‌رسد. با روشن کردن چراغ، نور چراغ از کتاب بازتاب می‌شود و به چشم می‌رسد.</div>
+</article>
+
+<article class="lesson" id="l2" data-search="سرعت نور خلأ فاصله زمان">
+<div class="lesson-number">درس ۲ از ۲۵</div><h2>سرعت نور</h2>
+<p>سرعت نور در خلأ تقریباً ۳۰۰ هزار کیلومتر بر ثانیه است. نور در مواد شفاف مانند آب و شیشه آهسته‌تر پیش می‌رود؛ مقدار دقیق به جنس ماده و طول موج نور بستگی دارد.</p>
+<div class="formula">c ≈ 3 × 10⁸ m/s</div>
+<div class="formula">v = d / t</div>
+<p>در این رابطه، <b>v</b> سرعت، <b>d</b> فاصله و <b>t</b> زمان است. سرعت نور را با سرعت خودرو اشتباه نگیریم: نور در یک ثانیه می‌تواند حدود ۷٫۵ بار دور زمین را بپیماید (تقریباً).</p>
+<div class="example"><b>مثال:</b> نور خورشید حدود ۱۵۰ میلیون کیلومتر را طی می‌کند. با تقسیم فاصله بر سرعت نور، زمان رسیدن آن را تقریباً ۸ دقیقه و ۲۰ ثانیه به دست می‌آوریم.</div>
+</article>
+
+<article class="lesson" id="l3" data-search="پرتو نور سایه نیم سایه انتشار مستقیم">
+<div class="lesson-number">درس ۳ از ۲۵</div><h2>پرتو نور، سایه و انتشار مستقیم</h2>
+<p>در یک محیط شفاف و یکنواخت، نور را معمولاً در خط راست مدل می‌کنیم. جسم کدر بخشی از نور را سد می‌کند و پشت آن ناحیه‌ای کم‌نور به نام سایه شکل می‌گیرد. اگر منبع نور گسترده باشد، ممکن است نیم‌سایه هم ایجاد شود.</p>
+<figure class="physics-image"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Shadow_casting.svg" alt="نمونه‌ای از تشکیل سایه" onerror="this.style.display='none'"><figcaption>تشکیل سایه به مسیر نور، اندازهٔ منبع و جایگاه جسم بستگی دارد.</figcaption><a href="https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=shadow%20casting%20light" target="_blank" rel="noopener">جست‌وجوی منبع تصویر در ویکی‌مدیا کامنز</a></figure>
+<div class="example"><b>کاربرد:</b> در طراحی نورپردازی کارخانه، جای چراغ‌ها را طوری انتخاب می‌کنند که قطعهٔ کار یا دست اپراتور سایهٔ خطرناک روی محل برش ایجاد نکند.</div>
+</article>
+
+<article class="lesson" id="l4" data-search="بازتاب نور زاویه تابش زاویه بازتاب">
+<div class="lesson-number">درس ۴ از ۲۵</div><h2>قانون بازتاب نور</h2>
+<p>وقتی نور به سطح برخورد می‌کند، بخشی از آن ممکن است برگردد. در بازتاب منظم از سطح صاف، زاویهٔ تابش با زاویهٔ بازتاب برابر است. هر دو زاویه از خط عمود بر سطح اندازه‌گیری می‌شوند، نه از خود سطح.</p>
+<div class="formula">زاویهٔ تابش = زاویهٔ بازتاب</div>
+<figure class="physics-image"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Reflection_angles.svg" alt="قانون بازتاب نور و خط عمود" onerror="this.style.display='none'"><figcaption>زاویه‌ها نسبت به خط عمود اندازه‌گیری می‌شوند.</figcaption><a href="https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=law%20of%20reflection%20ray%20diagram" target="_blank" rel="noopener">مشاهدهٔ تصاویر مشابه در ویکی‌مدیا کامنز</a></figure>
+<div class="example"><b>مثال:</b> اگر پرتو با زاویهٔ ۳۵ درجه نسبت به خط عمود بتابد، در بازتاب منظم با زاویهٔ ۳۵ درجه نسبت به همان خط بازمی‌گردد.</div>
+<div class="warning"><b>اشتباه رایج:</b> زاویهٔ ۳۵ درجه نسبت به سطح، برابر زاویهٔ ۵۵ درجه نسبت به خط عمود است.</div>
+</article>
+
+<article class="lesson" id="l5" data-search="آینه تخت تصویر مجازی فاصله">
+<div class="lesson-number">درس ۵ از ۲۵</div><h2>آینهٔ تخت و تصویر</h2>
+<p>تصویر در آینهٔ تخت مجازی، مستقیم و هم‌اندازهٔ جسم است. فاصلهٔ تصویر تا آینه با فاصلهٔ جسم تا آینه برابر است. تصویر مجازی یعنی پرتوها واقعاً در محل تصویر جمع نمی‌شوند؛ فقط امتداد آن‌ها از آن نقطه می‌گذرد.</p>
+<div class="formula">فاصلهٔ تصویر از آینه = فاصلهٔ جسم از آینه</div>
+<div class="example"><b>مثال:</b> اگر ۱٫۵ متر جلوی آینه بایستی، تصویرت تقریباً ۱٫۵ متر پشت آینه قرار دارد. فاصلهٔ تو تا تصویر ۳ متر است.</div>
+<div class="note">عبارت «چپ و راست جابه‌جا می‌شوند» توصیف ساده‌ای است؛ آینه در واقع جهت جلو و عقب را نسبت به سطح آینه وارونه می‌کند.</div>
+</article>
+
+<article class="lesson" id="l6" data-search="آینه کروی مقعر محدب کانون">
+<div class="lesson-number">درس ۶ از ۲۵</div><h2>آینه‌های کروی: مقعر و محدب</h2>
+<div class="grid2"><div class="mini"><h3>آینهٔ مقعر</h3><p>سطح بازتابنده به سمت داخل خمیده است. می‌تواند بسته به فاصلهٔ جسم، تصویر واقعی یا مجازی بسازد.</p></div><div class="mini"><h3>آینهٔ محدب</h3><p>سطح بازتابنده به سمت بیرون خمیده است. معمولاً تصویر مجازی، مستقیم و کوچک‌تر می‌سازد و میدان دید را افزایش می‌دهد.</p></div></div>
+<div class="formula">f = R / 2</div>
+<p>برای آینهٔ کروی با تقریب پاراکسیال، فاصلهٔ کانونی <b>f</b> نصف شعاع انحنا <b>R</b> است.</p>
+<div class="example"><b>کاربرد صنعتی:</b> آینه‌های محدب در گوشهٔ انبارها و آینه‌های دید جانبی برای افزایش میدان دید به کار می‌روند. آینه‌های مقعر در برخی بازتابنده‌ها و ابزارهای نوری کاربرد دارند.</div>
+</article>
+
+<article class="lesson" id="l7" data-search="شکست نور آب شیشه تغییر جهت">
+<div class="lesson-number">درس ۷ از ۲۵</div><h2>شکست نور؛ چرا نی در آب شکسته دیده می‌شود؟</h2>
+<p>وقتی نور از یک محیط به محیط دیگر می‌رود و سرعت انتشارش تغییر می‌کند، معمولاً جهت آن نیز تغییر می‌کند؛ این پدیده شکست نور نام دارد. اگر نور عمود بر مرز دو محیط بتابد، جهتش تغییر نمی‌کند، هرچند سرعتش تغییر می‌کند.</p>
+<figure class="physics-image"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Refraction.svg" alt="شکست نور هنگام ورود به محیط دیگر" onerror="this.style.display='none'"><figcaption>در ورود از هوا به شیشه، پرتو معمولاً به خط عمود نزدیک می‌شود.</figcaption><a href="https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=refraction%20light%20ray%20diagram" target="_blank" rel="noopener">تصاویر شکست نور در ویکی‌مدیا کامنز</a></figure>
+<div class="example"><b>مثال:</b> پرتو نور از هوا وارد شیشه می‌شود. چون سرعت نور در شیشه کمتر است، پرتو در حالت مایل به خط عمود نزدیک می‌شود. همین تغییر مسیر باعث می‌شود کف استخر کم‌عمق‌تر از واقعیت به نظر برسد.</div>
+</article>
+
+<article class="lesson" id="l8" data-search="ضریب شکست سرعت نور ماده n">
+<div class="lesson-number">درس ۸ از ۲۵</div><h2>ضریب شکست چیست؟</h2>
+<p>ضریب شکست نشان می‌دهد سرعت نور در خلأ چند برابر سرعت آن در ماده است. این کمیت معمولاً بدون واحد است.</p>
+<div class="formula">n = c / v</div>
+<p><b>n</b> ضریب شکست، <b>c</b> سرعت نور در خلأ و <b>v</b> سرعت نور در ماده است. هرچه n بزرگ‌تر باشد، سرعت نور در آن ماده کمتر است.</p>
+<div class="example"><b>مثال:</b> اگر ضریب شکست ماده‌ای ۱٫۵ باشد، سرعت نور در آن برابر است با:</div>
+<div class="formula">v = c / n = (3 × 10⁸) / 1.5 = 2 × 10⁸ m/s</div>
+<div class="warning"><b>دقت کن:</b> هنگام عبور نور از مرز دو محیط، فرکانس نور ثابت می‌ماند؛ سرعت و طول موج می‌توانند تغییر کنند.</div>
+</article>
+
+<article class="lesson" id="l9" data-search="قانون اسنل سینوس زاویه شکست">
+<div class="lesson-number">درس ۹ از ۲۵</div><h2>قانون اسنل</h2>
+<p>قانون اسنل رابطهٔ زاویهٔ تابش و شکست را به ضریب شکست دو محیط وصل می‌کند. زاویه‌ها نسبت به خط عمود بر مرز اندازه‌گیری می‌شوند.</p>
+<div class="formula">n₁ sin(θ₁) = n₂ sin(θ₂)</div>
+<div class="example"><b>مثال حل‌شده:</b> نور از هوا (n₁≈1) با زاویهٔ ۳۰ درجه وارد شیشه‌ای با ضریب شکست ۱٫۵ می‌شود.</div>
+<div class="formula">sin(θ₂) = (1 × sin 30°) / 1.5 = 0.333</div>
+<p>پس زاویهٔ شکست تقریباً ۱۹٫۵ درجه است؛ پرتو به خط عمود نزدیک شده است.</p>
+<div class="note">اگر پرتو از محیط با ضریب شکست بیشتر به محیط با ضریب شکست کمتر برود، ممکن است از خط عمود دور شود.</div>
+</article>
+
+<article class="lesson" id="l10" data-search="بازتاب کلی داخلی زاویه بحرانی فیبر">
+<div class="lesson-number">درس ۱۰ از ۲۵</div><h2>بازتاب کلی داخلی و زاویهٔ بحرانی</h2>
+<p>وقتی نور از محیط با ضریب شکست بیشتر به محیط با ضریب شکست کمتر می‌رود، زاویهٔ شکست بزرگ‌تر می‌شود. اگر زاویهٔ تابش از زاویهٔ بحرانی بیشتر شود، نور به محیط دوم نمی‌شکند و درون محیط اول بازتاب می‌شود؛ این پدیده بازتاب کلی داخلی است.</p>
+<div class="formula">sin(θc) = n₂ / n₁  (n₁ &gt; n₂)</div>
+<p>زاویهٔ بحرانی θc زاویه‌ای است که در آن زاویهٔ شکست ۹۰ درجه می‌شود.</p>
+<div class="example"><b>کاربرد:</b> فیبر نوری نور را با بازتاب کلی داخلی درون هسته نگه می‌دارد و امکان انتقال داده را با تلفات کم فراهم می‌کند.</div>
+</article>
+
+<article class="lesson" id="l11" data-search="منشور تجزیه نور رنگ طیف">
+<div class="lesson-number">درس ۱۱ از ۲۵</div><h2>منشور، رنگ‌ها و تجزیهٔ نور</h2>
+<p>نور سفید ترکیبی از طول موج‌های گوناگون است. ضریب شکست بسیاری از مواد به طول موج وابسته است؛ بنابراین رنگ‌های مختلف هنگام عبور از منشور به مقدار متفاوتی منحرف می‌شوند و از هم جدا می‌شوند.</p>
+<div class="grid2"><div class="mini"><h3>طول موج کوتاه‌تر</h3><p>نور بنفش معمولاً در شیشه بیشتر از نور قرمز منحرف می‌شود.</p></div><div class="mini"><h3>طول موج بلندتر</h3><p>نور قرمز معمولاً کمتر از نور بنفش منحرف می‌شود.</p></div></div>
+<div class="example"><b>کاربرد:</b> طیف‌سنج‌ها نور را به طول موج‌های تشکیل‌دهنده‌اش تفکیک می‌کنند تا مواد شیمیایی، ستاره‌ها یا کیفیت یک منبع نوری بررسی شود.</div>
+</article>
+
+<article class="lesson" id="l12" data-search="عدسی همگرا واگرا محدب مقعر">
+<div class="lesson-number">درس ۱۲ از ۲۵</div><h2>عدسی‌های همگرا و واگرا</h2>
+<div class="grid2"><div class="mini"><h3>عدسی همگرا</h3><p>در مدل ساده، پرتوهای موازی را پس از عبور به هم نزدیک می‌کند. عدسی محدب معمولاً نمونهٔ آشنای آن است.</p></div><div class="mini"><h3>عدسی واگرا</h3><p>پرتوهای موازی را پس از عبور از هم دور می‌کند. عدسی مقعر معمولاً نمونهٔ آشنای آن است.</p></div></div>
+<figure class="physics-image"><img loading="lazy" src="https://commons.wikimedia.org/wiki/Special:FilePath/Converging_lens.svg" alt="نمودار عدسی همگرا" onerror="this.style.display='none'"><figcaption>عدسی همگرا پرتوهای موازی محور را به کانون نزدیک می‌کند.</figcaption><a href="https://commons.wikimedia.org/wiki/Special:MediaSearch?type=image&search=converging%20lens%20ray%20diagram" target="_blank" rel="noopener">تصاویر عدسی در ویکی‌مدیا کامنز</a></figure>
+<div class="example"><b>کاربرد:</b> عدسی‌های دوربین و ذره‌بین معمولاً از ترکیب عدسی‌های همگرا و واگرا ساخته می‌شوند تا تصویر واضح‌تری بسازند و خطاهای نوری را کاهش دهند.</div>
+</article>
+
+<article class="lesson" id="l13" data-search="معادله عدسی فاصله کانونی جسم تصویر">
+<div class="lesson-number">درس ۱۳ از ۲۵</div><h2>معادلهٔ عدسی نازک</h2>
+<p>در مدل عدسی نازک، فاصلهٔ جسم، فاصلهٔ تصویر و فاصلهٔ کانونی با یک رابطه مرتبط‌اند. در این درس از قرارداد رایج استفاده می‌کنیم: فاصلهٔ جسم برای جسم واقعی مثبت، و فاصلهٔ کانونی عدسی همگرا مثبت است.</p>
+<div class="formula">1/f = 1/do + 1/di</div>
+<p><b>f</b> فاصلهٔ کانونی، <b>do</b> فاصلهٔ جسم از عدسی و <b>di</b> فاصلهٔ تصویر از عدسی است. با جابه‌جایی جمله‌ها می‌توان هر کمیت مجهول را پیدا کرد.</p>
+<div class="example"><b>مثال:</b> عدسی همگرا با فاصلهٔ کانونی ۱۰ سانتی‌متر، جسمی را در فاصلهٔ ۳۰ سانتی‌متری دارد.</div>
+<div class="formula">1/di = 1/10 − 1/30 = 1/15 → di = 15 cm</div>
+<div class="warning">این معادله برای مدل عدسی نازک و شرایط تقریبی مناسب است؛ در سامانه‌های چندعدسی یا عدسی ضخیم محاسبات دقیق‌تر لازم است.</div>
+</article>
+
+<article class="lesson" id="l14" data-search="بزرگنمایی عدسی تصویر وارونه">
+<div class="lesson-number">درس ۱۴ از ۲۵</div><h2>بزرگ‌نمایی تصویر</h2>
+<p>بزرگ‌نمایی خطی نسبت اندازهٔ تصویر به اندازهٔ جسم را بیان می‌کند. علامت منفی در قرارداد رایج می‌تواند نشان‌دهندهٔ وارونه بودن تصویر باشد.</p>
+<div class="formula">m = hi / ho = −di / do</div>
+<p><b>hi</b> ارتفاع تصویر و <b>ho</b> ارتفاع جسم است.</p>
+<div class="example"><b>مثال:</b> اگر بزرگ‌نمایی m برابر −2 باشد، اندازهٔ تصویر دو برابر جسم است و تصویر وارونه است.</div>
+</article>
+
+<article class="lesson" id="l15" data-search="چشم انسان نزدیک بینی دوربینی عینک">
+<div class="lesson-number">درس ۱۵ از ۲۵</div><h2>چشم، نزدیک‌بینی و دوربینی</h2>
+<p>چشم مانند یک سامانهٔ نوری عمل می‌کند: قرنیه و عدسی نور را متمرکز می‌کنند و تصویر روی شبکیه تشکیل می‌شود. برای دید واضح، تصویر باید تقریباً روی شبکیه بیفتد.</p>
+<div class="grid2"><div class="mini"><h3>نزدیک‌بینی</h3><p>تصویر اجسام دور معمولاً پیش از شبکیه تشکیل می‌شود؛ عدسی واگرا می‌تواند به اصلاح آن کمک کند.</p></div><div class="mini"><h3>دوربینی</h3><p>در مدل ساده، تمرکز تصویر به پشت شبکیه تمایل دارد؛ عدسی همگرا می‌تواند به اصلاح آن کمک کند.</p></div></div>
+<div class="note">این توضیح آموزشی است، نه تشخیص پزشکی. انتخاب نمرهٔ عینک باید بر اساس معاینهٔ متخصص انجام شود.</div>
+</article>
+
+<article class="lesson" id="l16" data-search="دوربین تلسکوپ میکروسکوپ تصویر">
+<div class="lesson-number">درس ۱۶ از ۲۵</div><h2>دوربین، میکروسکوپ و تلسکوپ</h2>
+<p>دوربین با کمک عدسی‌ها نور را روی حسگر متمرکز می‌کند. میکروسکوپ برای دیدن جزئیات کوچک و تلسکوپ برای جمع‌آوری نور از اجرام دور طراحی می‌شوند. کیفیت تصویر فقط به بزرگ‌نمایی وابسته نیست؛ وضوح، نور، خطاهای عدسی و کیفیت حسگر هم مهم‌اند.</p>
+<div class="example"><b>کاربرد صنعتی:</b> دوربین‌های بازرسی، میکروسکوپ‌های کنترل کیفیت و سامانه‌های بینایی ماشین می‌توانند ترک‌های ریز، اندازهٔ قطعه یا خطاهای مونتاژ را تشخیص دهند.</div>
+</article>
+
+<article class="lesson" id="l17" data-search="موج نور طول موج فرکانس">
+<div class="lesson-number">درس ۱۷ از ۲۵</div><h2>نور به‌عنوان موج: طول موج و فرکانس</h2>
+<p>نور ویژگی‌های موجی دارد. طول موج فاصلهٔ دو نقطهٔ هم‌فاز پیاپی است و فرکانس تعداد نوسان‌ها در هر ثانیه است.</p>
+<div class="formula">v = f λ</div>
+<p>در خلأ، v برابر c است. وقتی نور وارد ماده می‌شود، فرکانس در مرز ثابت می‌ماند، اما سرعت و طول موج تغییر می‌کنند.</p>
+<div class="example"><b>مثال:</b> اگر فرکانس موجی ۶۰۰ تراهرتز و سرعتش در خلأ ۳×۱۰⁸ متر بر ثانیه باشد، طول موج آن تقریباً ۵۰۰ نانومتر است.</div>
+</article>
+
+<article class="lesson" id="l18" data-search="تداخل پراش نور شکاف">
+<div class="lesson-number">درس ۱۸ از ۲۵</div><h2>تداخل و پراش نور</h2>
+<p><b>تداخل</b> زمانی رخ می‌دهد که موج‌های نور روی هم قرار بگیرند؛ بسته به اختلاف فاز، شدت می‌تواند بیشتر یا کمتر شود. <b>پراش</b> خمیده و پخش شدن موج در اطراف لبه‌ها یا هنگام عبور از شکاف است و وقتی اندازهٔ شکاف با طول موج قابل مقایسه باشد، برجسته‌تر می‌شود.</p>
+<div class="example"><b>کاربرد:</b> تداخل در پوشش‌های ضدبازتاب، اندازه‌گیری دقیق جابه‌جایی و ابزارهای نوری؛ پراش در تحلیل ساختارهای ریز و محدودیت وضوح ابزارها اهمیت دارد.</div>
+</article>
+
+<article class="lesson" id="l19" data-search="قطبش نور فیلتر عینک">
+<div class="lesson-number">درس ۱۹ از ۲۵</div><h2>قطبش نور</h2>
+<p>نور موج الکترومغناطیسی عرضی است. در نور قطبیده، جهت نوسان میدان الکتریکی نظم مشخصی دارد. فیلتر قطبنده می‌تواند بخشی از نور را بر اساس جهت قطبش عبور دهد.</p>
+<div class="example"><b>کاربرد:</b> عینک‌های آفتابی قطبنده بازتاب‌های مزاحم از سطح افقی مثل آب و جاده را کاهش می‌دهند. در نمایشگرها و تصویربرداری نیز قطبش کاربرد دارد.</div>
+</article>
+
+<article class="lesson" id="l20" data-search="لیزر نور همدوس صنعتی برش">
+<div class="lesson-number">درس ۲۰ از ۲۵</div><h2>لیزر چگونه کار می‌کند؟</h2>
+<p>لیزر با تقویت نور از طریق گسیل القایی کار می‌کند. بسیاری از لیزرها پرتوهایی با جهت‌مندی بالا، پهنای طیفی باریک و همدوسی زیاد تولید می‌کنند؛ ویژگی‌های دقیق به نوع لیزر بستگی دارد.</p>
+<div class="grid2"><div class="mini"><h3>کاربرد پزشکی و علمی</h3><p>اندازه‌گیری، برخی روش‌های درمانی و پژوهش‌های آزمایشگاهی.</p></div><div class="mini"><h3>کاربرد صنعتی</h3><p>برش و حکاکی، جوشکاری دقیق، اسکن و اندازه‌گیری فاصله.</p></div></div>
+<div class="warning"><b>ایمنی:</b> هرگز به پرتو لیزر یا بازتاب آینه‌ای آن نگاه نکن. لیزرهای پرتوان می‌توانند به چشم و پوست آسیب جدی بزنند.</div>
+</article>
+
+<article class="lesson" id="l21" data-search="فیبر نوری اینترنت بازتاب کلی">
+<div class="lesson-number">درس ۲۱ از ۲۵</div><h2>فیبر نوری و اینترنت</h2>
+<p>فیبر نوری رشته‌ای شفاف با هسته و روکش است. با انتخاب ضریب شکست مناسب، نور در هسته هدایت می‌شود. داده‌ها با تغییرات کنترل‌شدهٔ سیگنال نوری منتقل و در مقصد آشکارسازی می‌شوند.</p>
+<div class="example"><b>چرا مهم است؟</b> فیبر نوری پهنای باند بالا و تلفات کم در مسافت‌های طولانی دارد و نسبت به بسیاری از کابل‌های مسی کمتر تحت تأثیر تداخل الکترومغناطیسی است.</div>
+</article>
+
+<article class="lesson" id="l22" data-search="طیف الکترومغناطیسی رادیویی فروسرخ فرابنفش">
+<div class="lesson-number">درس ۲۲ از ۲۵</div><h2>طیف الکترومغناطیسی</h2>
+<p>نور مرئی تنها بخش کوچکی از طیف الکترومغناطیسی است. امواج رادیویی، مایکروویو، فروسرخ، نور مرئی، فرابنفش، پرتو ایکس و گاما همگی تابش الکترومغناطیسی‌اند؛ طول موج و انرژی آن‌ها متفاوت است.</p>
+<table><thead><tr><th>ناحیه</th><th>نمونهٔ کاربرد</th><th>نکته</th></tr></thead><tbody><tr><td>رادیویی</td><td>ارتباطات</td><td>طول موج نسبتاً بلند</td></tr><tr><td>فروسرخ</td><td>کنترل از راه دور و تصویربرداری حرارتی</td><td>با تابش گرمایی ارتباط دارد</td></tr><tr><td>مرئی</td><td>بینایی و روشنایی</td><td>بخش قابل دیدن برای چشم</td></tr><tr><td>فرابنفش</td><td>برخی روش‌های ضدعفونی و بازرسی</td><td>می‌تواند به پوست و چشم آسیب بزند</td></tr><tr><td>پرتو ایکس</td><td>تصویربرداری پزشکی و صنعتی</td><td>تابش یون‌ساز</td></tr></tbody></table>
+</article>
+
+<article class="lesson" id="l23" data-search="نور انرژی فوتون شدت">
+<div class="lesson-number">درس ۲۳ از ۲۵</div><h2>نور و انرژی</h2>
+<p>در توصیف کوانتومی، نور از بسته‌های انرژی به نام فوتون نیز توصیف می‌شود. انرژی هر فوتون با فرکانس متناسب است؛ پس فوتون با فرکانس بالاتر انرژی بیشتری دارد.</p>
+<div class="formula">E = h f</div>
+<p>در این رابطه، <b>E</b> انرژی فوتون، <b>h</b> ثابت پلانک و <b>f</b> فرکانس است. شدت نور با انرژی هر فوتون یکی نیست؛ شدت به مقدار انرژی رسیده در واحد زمان و سطح نیز وابسته است.</p>
+<div class="example"><b>کاربرد:</b> در حسگرهای نوری و پنل‌های خورشیدی، جذب فوتون می‌تواند الکترون‌ها را برانگیخته کند و به تولید سیگنال الکتریکی یا جریان کمک کند.</div>
+</article>
+
+<article class="lesson" id="l24" data-search="حسگر نوری فوتودیود فتوسل بینایی ماشین">
+<div class="lesson-number">درس ۲۴ از ۲۵</div><h2>حسگرهای نوری در صنعت</h2>
+<p>حسگر نوری تغییر شدت نور را به سیگنال قابل اندازه‌گیری تبدیل می‌کند. انواع مختلفی مانند فوتودیود، فوتوترانزیستور و حسگرهای تصویر وجود دارد.</p>
+<div class="grid2"><div class="mini"><h3>شمارش محصول</h3><p>قطع شدن پرتو می‌تواند عبور یک جعبه از خط تولید را ثبت کند.</p></div><div class="mini"><h3>کنترل کیفیت</h3><p>دوربین و نورپردازی مناسب، خراش یا تفاوت رنگ قطعه را تشخیص می‌دهند.</p></div><div class="mini"><h3>ایمنی دستگاه</h3><p>پردهٔ نوری می‌تواند ورود دست به ناحیهٔ خطر را تشخیص دهد؛ سامانه باید مطابق استاندارد و با طراحی ایمن نصب شود.</p></div><div class="mini"><h3>اندازه‌گیری فاصله</h3><p>سامانه‌های نوری با روش‌هایی مانند زمان پرواز یا مثلث‌بندی فاصله را تخمین می‌زنند.</p></div></div>
+</article>
+
+<article class="lesson" id="l25" data-search="ایمنی نور لیزر فرابنفش چشم">
+<div class="lesson-number">درس ۲۵ از ۲۵</div><h2>ایمنی در برابر نور و تابش</h2>
+<ul><li>به خورشید یا منابع نوری بسیار شدید مستقیم نگاه نکن.</li><li>با لیزر بازی نکن و پرتو را به سمت چشم دیگران یا سطوح بازتابنده هدایت نکن.</li><li>فرابنفش می‌تواند به چشم و پوست آسیب بزند؛ از محافظ مناسب و دستورالعمل دستگاه استفاده کن.</li><li>پرتو ایکس و گاما یون‌سازند و به کنترل تخصصی، حفاظ و مقررات ایمنی نیاز دارند.</li><li>برای هر دستگاه صنعتی، برچسب هشدار و راهنمای سازنده را جدی بگیر.</li></ul>
+<div class="note">دانش نوری هم ابزار ساخت فناوری است و هم مسئولیت ایمنی به همراه دارد.</div>
+</article>
+
+<section class="card" id="calculators">
+<h2>ماشین‌حساب‌های آموزشی نور و اپتیک</h2>
+<p class="small">این ماشین‌حساب‌ها برای تمرین‌اند و از مدل‌های ساده استفاده می‌کنند. زاویه‌ها را به درجه وارد کن.</p>
+<div class="grid2">
+<div class="mini"><h3>۱. سرعت نور در ماده</h3><label for="nValue">ضریب شکست n</label><input id="nValue" type="number" min="1" step="any" value="1.5"><button onclick="calcLightSpeed()">محاسبهٔ سرعت</button><div class="result" id="speedResult" aria-live="polite">نتیجه اینجا نمایش داده می‌شود.</div></div>
+<div class="mini"><h3>۲. قانون اسنل</h3><label for="n1">ضریب شکست محیط اول n₁</label><input id="n1" type="number" min="0.0001" step="any" value="1"><label for="n2">ضریب شکست محیط دوم n₂</label><input id="n2" type="number" min="0.0001" step="any" value="1.5"><label for="angle1">زاویهٔ تابش (درجه)</label><input id="angle1" type="number" min="0" max="90" step="any" value="30"><button onclick="calcSnell()">محاسبهٔ زاویهٔ شکست</button><div class="result" id="snellResult" aria-live="polite">نتیجه اینجا نمایش داده می‌شود.</div></div>
+<div class="mini"><h3>۳. معادلهٔ عدسی نازک</h3><label for="focal">فاصلهٔ کانونی f (سانتی‌متر)</label><input id="focal" type="number" step="any" value="10"><label for="objectDistance">فاصلهٔ جسم do (سانتی‌متر)</label><input id="objectDistance" type="number" min="0.001" step="any" value="30"><button onclick="calcLens()">محاسبهٔ فاصلهٔ تصویر</button><div class="result" id="lensResult" aria-live="polite">نتیجه اینجا نمایش داده می‌شود.</div></div>
+<div class="mini"><h3>۴. طول موج نور</h3><label for="frequency">فرکانس (تراهرتز)</label><input id="frequency" type="number" min="0.001" step="any" value="600"><button onclick="calcWavelength()">محاسبهٔ طول موج در خلأ</button><div class="result" id="waveResult" aria-live="polite">نتیجه اینجا نمایش داده می‌شود.</div></div>
+<div class="mini"><h3>۵. زاویهٔ بحرانی</h3><label for="criticalN1">ضریب شکست محیط اول (بزرگ‌تر)</label><input id="criticalN1" type="number" min="0.0001" step="any" value="1.5"><label for="criticalN2">ضریب شکست محیط دوم (کوچک‌تر)</label><input id="criticalN2" type="number" min="0.0001" step="any" value="1"><button onclick="calcCritical()">محاسبهٔ زاویهٔ بحرانی</button><div class="result" id="criticalResult" aria-live="polite">نتیجه اینجا نمایش داده می‌شود.</div></div>
+<div class="mini"><h3>۶. زمان رسیدن نور</h3><label for="distanceKm">فاصله (کیلومتر)</label><input id="distanceKm" type="number" min="0" step="any" value="150000000"><button onclick="calcTravelTime()">محاسبهٔ زمان</button><div class="result" id="timeResult" aria-live="polite">نتیجه اینجا نمایش داده می‌شود.</div></div>
+</div>
+</section>
+
+<section class="card" id="quiz">
+<h2>آزمون پایانی</h2><p>پاسخ هر سؤال را انتخاب کن و سپس روی «بررسی پاسخ‌ها» بزن.</p>
+<form id="quizForm">
+<div class="quiz-q"><b>۱. زاویهٔ بازتاب نسبت به خط عمود چگونه است؟</b><label><input type="radio" name="q1" value="a"> نصف زاویهٔ تابش است</label><label><input type="radio" name="q1" value="b"> با زاویهٔ تابش برابر است</label><label><input type="radio" name="q1" value="c"> همیشه ۹۰ درجه است</label></div>
+<div class="quiz-q"><b>۲. ضریب شکست n برابر کدام است؟</b><label><input type="radio" name="q2" value="a"> سرعت نور در ماده تقسیم بر سرعت نور در خلأ</label><label><input type="radio" name="q2" value="b"> فاصله تقسیم بر زمان</label><label><input type="radio" name="q2" value="c"> سرعت نور در خلأ تقسیم بر سرعت نور در ماده</label></div>
+<div class="quiz-q"><b>۳. هنگام عبور نور از هوا به شیشه، در حالت مایل معمولاً چه رخ می‌دهد؟</b><label><input type="radio" name="q3" value="a"> پرتو به خط عمود نزدیک می‌شود</label><label><input type="radio" name="q3" value="b"> فرکانس حتماً صفر می‌شود</label><label><input type="radio" name="q3" value="c"> نور دیگر انرژی ندارد</label></div>
+<div class="quiz-q"><b>۴. کدام پدیده اساس هدایت نور در فیبر نوری است؟</b><label><input type="radio" name="q4" value="a"> تبخیر</label><label><input type="radio" name="q4" value="b"> بازتاب کلی داخلی</label><label><input type="radio" name="q4" value="c"> اصطکاک</label></div>
+<div class="quiz-q"><b>۵. انرژی یک فوتون با کدام کمیت متناسب است؟</b><label><input type="radio" name="q5" value="a"> فرکانس</label><label><input type="radio" name="q5" value="b"> جرم جسمی که آن را می‌بیند</label><label><input type="radio" name="q5" value="c"> فاصلهٔ جسم از زمین</label></div>
+<button type="button" onclick="gradeQuiz()">بررسی پاسخ‌ها</button><button type="reset" class="secondary" onclick="document.getElementById('quizResult').textContent='پاسخ‌ها را انتخاب کن.'">شروع دوباره</button>
+<div class="result" id="quizResult" aria-live="polite">پاسخ‌ها را انتخاب کن.</div>
+</form>
+</section>
+
+<section class="card">
+<h2>نقشهٔ ادامهٔ یادگیری</h2>
+<ol><li>قانون بازتاب و قانون اسنل را با چند زاویه تمرین کن.</li><li>مسائل عدسی را با رسم شکل و تعیین علامت‌ها حل کن.</li><li>برای هر مفهوم یک نمونهٔ واقعی پیدا کن؛ مثل آینهٔ خودرو، عینک یا حسگر نوری.</li><li>پس از تسلط بر این صفحه، سراغ گرما و ترمودینامیک برو.</li></ol>
+<div class="note"><b>یادآوری:</b> این صفحه برای یادگیری مفهومی طراحی شده است. برای طراحی دستگاه‌های صنعتی واقعی، علاوه بر فیزیک پایه باید استانداردها، تلرانس‌ها، مواد و الزامات ایمنی را هم بررسی کرد.</div>
+</section>
+</div>
+</div>
+</main>
+<footer><div class="wrap">علم‌خانه | یادگیری علم با مثال، تصویر و تمرین</div></footer>
+<script>
+const fmt = (x, digits=5) => Number.isFinite(x) ? x.toLocaleString('fa-IR',{maximumFractionDigits:digits}) : 'قابل محاسبه نیست';
+function num(id){return Number(document.getElementById(id).value)}
+function calcLightSpeed(){
+ const n=num('nValue'),out=document.getElementById('speedResult');
+ if(!(n>0)){out.textContent='ضریب شکست باید عددی مثبت باشد.';return}
+ out.textContent='سرعت نور ≈ '+fmt(3e8/n)+' متر بر ثانیه';
+}
+function calcSnell(){
+ const a=num('n1'),b=num('n2'),deg=num('angle1'),out=document.getElementById('snellResult');
+ if(!(a>0&&b>0)||deg<0||deg>90){out.textContent='ضرایب شکست باید مثبت و زاویه بین ۰ تا ۹۰ درجه باشد.';return}
+ const s=a/b*Math.sin(deg*Math.PI/180);
+ if(s>1){out.textContent='در این حالت پرتو شکستهٔ معمولی وجود ندارد؛ اگر شرایط محیطی مناسب باشد، بازتاب کلی داخلی رخ می‌دهد.';return}
+ out.textContent='زاویهٔ شکست ≈ '+fmt(Math.asin(Math.max(-1,Math.min(1,s)))*180/Math.PI)+' درجه';
+}
+function calcLens(){
+ const f=num('focal'),do_=num('objectDistance'),out=document.getElementById('lensResult');
+ if(f===0||do_<=0){out.textContent='فاصلهٔ کانونی نباید صفر و فاصلهٔ جسم باید مثبت باشد.';return}
+ const inv=1/f-1/do_;
+ if(Math.abs(inv)<1e-12){out.textContent='تصویر در فاصلهٔ بسیار دور تشکیل می‌شود (تقریباً بی‌نهایت).';return}
+ const di=1/inv;
+ out.textContent='فاصلهٔ تصویر di ≈ '+fmt(di)+' سانتی‌متر. علامت مثبت معمولاً تصویر واقعی و علامت منفی تصویر مجازی را نشان می‌دهد.';
+}
+function calcWavelength(){
+ const f=num('frequency'),out=document.getElementById('waveResult');
+ if(f<=0){out.textContent='فرکانس باید مثبت باشد.';return}
+ const lambda=3e8/(f*1e12);
+ out.textContent='طول موج ≈ '+fmt(lambda*1e9,3)+' نانومتر';
+}
+function calcCritical(){
+ const a=num('criticalN1'),b=num('criticalN2'),out=document.getElementById('criticalResult');
+ if(!(a>b&&b>0)){out.textContent='ضریب شکست محیط اول باید از محیط دوم بیشتر باشد و هر دو مثبت باشند.';return}
+ out.textContent='زاویهٔ بحرانی ≈ '+fmt(Math.asin(b/a)*180/Math.PI)+' درجه';
+}
+function calcTravelTime(){
+ const d=num('distanceKm'),out=document.getElementById('timeResult');
+ if(d<0){out.textContent='فاصله نمی‌تواند منفی باشد.';return}
+ const t=d*1000/3e8;
+ out.textContent='زمان ≈ '+fmt(t)+' ثانیه ('+fmt(t/60)+' دقیقه)';
+}
+function gradeQuiz(){
+ const answers={q1:'b',q2:'c',q3:'a',q4:'b',q5:'a'};
+ let score=0,missing=0;
+ for(const [q,a] of Object.entries(answers)){
+  const picked=document.querySelector('input[name="'+q+'"]:checked');
+  if(!picked)missing++;
+  else if(picked.value===a)score++;
+ }
+ document.getElementById('quizResult').textContent='امتیاز: '+score+' از ۵. '+(missing?'تعداد سؤال‌های بی‌پاسخ: '+missing+'. ':'')+(score===5?'عالی! همهٔ پاسخ‌ها درست است.':score>=3?'خوب است؛ سؤال‌های اشتباه را دوباره مرور کن.':'درس‌ها را مرور کن و دوباره امتحان بده.');
+}
+document.getElementById('searchLessons').addEventListener('input',function(){
+ const q=this.value.trim().toLocaleLowerCase('fa');
+ document.querySelectorAll('.lesson').forEach(el=>{
+  const hay=(el.innerText+' '+(el.dataset.search||'')).toLocaleLowerCase('fa');
+  el.classList.toggle('hidden',q.length>0&&!hay.includes(q));
+ });
+});
+</script>
+</body>
+</html>

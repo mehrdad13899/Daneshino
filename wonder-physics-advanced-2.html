@@ -1,0 +1,652 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>دنیای شگفت‌انگیز فیزیک | علم‌خانه</title>
+</head>
+<body style="margin:0;background:#020b18;color:#f1f5ff;">
+
+<!-- =========================================
+     دنیای شگفت‌انگیز فیزیک | علم‌خانه
+     فایل مستقل: wonder-physics.html
+========================================= -->
+
+<section id="wonder-physics">
+
+<style>
+#wonder-physics {
+    direction: rtl;
+    font-family: Tahoma, Arial, sans-serif;
+    color: #f1f5ff;
+    background: #020b18;
+    padding: 30px 16px;
+    border-radius: 22px;
+    overflow: hidden;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+#wonder-physics * { box-sizing: border-box; }
+#wonder-physics .wp-hero {
+    position: relative; padding: 55px 25px; min-height: 290px;
+    display: flex; align-items: center; border: 1px solid #164e8a;
+    border-radius: 20px; overflow: hidden;
+    background: linear-gradient(90deg,#020b18 0%,#07152bdc 48%,#07152b50 100%),
+    url("https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=1800&q=85") center/cover;
+}
+#wonder-physics .wp-hero-content { position: relative; z-index: 1; max-width: 620px; }
+#wonder-physics .wp-label { display:inline-block;color:#67e8f9;background:#083344;padding:8px 14px;border-radius:30px;font-size:13px;margin-bottom:15px; }
+#wonder-physics .wp-hero h2 { font-size:clamp(27px,4vw,43px);line-height:1.7;color:#8be9ff;margin:0 0 12px; }
+#wonder-physics .wp-hero p { line-height:2.2;font-size:15px;color:#e2e8f0; }
+#wonder-physics .wp-button { border:1px solid #22d3ee;color:white;background:linear-gradient(120deg,#075985,#4338ca);padding:13px 23px;border-radius:12px;cursor:pointer;font-size:14px;font-family:inherit;margin-top:12px;transition:.25s; }
+#wonder-physics .wp-button:hover { transform:translateY(-3px);box-shadow:0 0 20px #06b6d455; }
+#wonder-physics .wp-heading { display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;margin:35px 0 18px;padding-bottom:14px;border-bottom:1px solid #164e8a; }
+#wonder-physics .wp-heading h3 { color:#67e8f9;font-size:23px;margin:0; }
+#wonder-physics .wp-heading span { color:#94a3b8;font-size:12px; }
+#wonder-physics .wp-search { width:100%;padding:15px;border:1px solid #1e4975;border-radius:12px;background:#07152a;color:white;font-family:inherit;font-size:14px;outline:none;margin-bottom:18px; }
+#wonder-physics .wp-search:focus { border-color:#22d3ee;box-shadow:0 0 12px #06b6d422; }
+#wonder-physics .wp-filters { display:flex;flex-wrap:wrap;gap:9px;margin-bottom:22px; }
+#wonder-physics .wp-filter { border:1px solid #25476d;background:#0b1930;color:#cbd5e1;padding:10px 14px;border-radius:25px;font-family:inherit;cursor:pointer;font-size:12px; }
+#wonder-physics .wp-filter.active,#wonder-physics .wp-filter:hover { background:#164e63;color:#a5f3fc;border-color:#22d3ee; }
+#wonder-physics .wp-grid { display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px; }
+#wonder-physics .wp-card { background:linear-gradient(145deg,#0c1c35,#06101f);border:1px solid #183b64;border-radius:16px;overflow:hidden;transition:.25s;min-width:0; }
+#wonder-physics .wp-card:hover { transform:translateY(-5px);border-color:#22d3ee;box-shadow:0 10px 30px #0005; }
+#wonder-physics .wp-card[hidden] { display:none!important; }
+#wonder-physics .wp-image { height:180px;position:relative;overflow:hidden;background:linear-gradient(135deg,#172554,#164e63); }
+#wonder-physics .wp-image img { width:100%;height:100%;object-fit:cover;display:block;transition:transform .5s; }
+#wonder-physics .wp-card:hover .wp-image img { transform:scale(1.07); }
+#wonder-physics .wp-image::after { content:"";position:absolute;inset:45% 0 0;background:linear-gradient(transparent,#06101f);pointer-events:none; }
+#wonder-physics .wp-number { position:absolute;z-index:1;top:12px;right:12px;padding:7px 10px;border-radius:8px;background:#020617cc;border:1px solid #67e8f9;color:#a5f3fc;font-size:11px; }
+#wonder-physics .wp-card-body { padding:17px; }
+#wonder-physics .wp-category { font-size:11px;color:#c4b5fd; }
+#wonder-physics .wp-card h4 { font-size:18px;color:#e0f2fe;margin:12px 0; }
+#wonder-physics .wp-card p { color:#b7c8dc;font-size:13px;line-height:2;min-height:52px;margin:0 0 14px; }
+#wonder-physics .wp-more { display:block;width:100%;border:1px solid #0e7490;background:#082f49;color:#67e8f9;padding:11px;border-radius:9px;cursor:pointer;font-family:inherit;font-size:13px; }
+#wonder-physics .wp-more:hover { background:#164e63; }
+#wonder-physics .wp-empty { display:none;text-align:center;padding:30px;color:#94a3b8;line-height:2; }
+#wonder-physics .wp-bottom { margin-top:28px;padding:24px;border-radius:15px;border:1px solid #3730a3;background:linear-gradient(90deg,#101d44ee,#101d4499),url("https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=1200&q=75") center/cover; }
+#wonder-physics .wp-bottom h3 { color:#c4b5fd;margin-top:0; }
+#wonder-physics .wp-bottom p { line-height:2.1;color:#dbeafe;font-size:14px; }
+#wonder-physics .wp-modal { display:none;position:fixed;inset:0;z-index:99999;background:#000c;padding:18px;align-items:center;justify-content:center; }
+#wonder-physics .wp-modal.open { display:flex; }
+#wonder-physics .wp-modal-box { width:100%;max-width:650px;max-height:85vh;overflow-y:auto;background:#07152a;color:#e2e8f0;border:1px solid #22d3ee;border-radius:18px;padding:24px;box-shadow:0 0 45px #0891b244; }
+#wonder-physics .wp-modal-top { display:flex;justify-content:space-between;align-items:center;gap:12px;border-bottom:1px solid #164e8a;padding-bottom:14px; }
+#wonder-physics .wp-modal-top h3 { color:#67e8f9;line-height:1.8;margin:0; }
+#wonder-physics .wp-close { background:#7f1d1d;color:white;border:none;border-radius:9px;padding:9px 13px;cursor:pointer;font-family:inherit; }
+#wonder-physics .wp-modal-content { line-height:2.2;font-size:14px; }
+#wonder-physics .wp-modal-content h4 { color:#c4b5fd;margin-top:22px; }
+#wonder-physics .wp-modal-content .wp-equation { direction:ltr;text-align:center;font-size:20px;color:#67e8f9;background:#020617;border:1px solid #164e8a;border-radius:10px;padding:14px;margin:15px 0;overflow-wrap:anywhere; }
+#wonder-physics .wp-note { padding:13px;background:#172554;border-right:3px solid #a78bfa;border-radius:8px;color:#dbeafe; }
+@media(max-width:850px) { #wonder-physics .wp-grid { grid-template-columns:repeat(2,minmax(0,1fr)); } #wonder-physics .wp-image { height:155px; } }
+@media(max-width:520px) { #wonder-physics{padding:14px 10px} #wonder-physics .wp-hero{padding:30px 18px;min-height:300px;background-position:center} #wonder-physics .wp-grid{grid-template-columns:1fr} #wonder-physics .wp-image{height:210px} #wonder-physics .wp-card p{min-height:auto} #wonder-physics .wp-modal-box{padding:17px} }
+
+/* یادگیری عمیق و آزمون تعاملی */
+#wonder-physics .wp-dashboard{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;margin:0 0 23px}
+#wonder-physics .wp-stat{display:flex;align-items:center;gap:12px;padding:15px;background:linear-gradient(130deg,#0d2443,#111638);border:1px solid #274b79;border-radius:14px;min-width:0}
+#wonder-physics .wp-stat-icon{font-size:25px}
+#wonder-physics .wp-stat strong{display:block;color:#a5f3fc;font-size:18px;line-height:1.7}
+#wonder-physics .wp-stat small{display:block;color:#a9bdd4;font-size:11px;line-height:1.8}
+#wonder-physics .wp-topic-status{display:inline-block;margin-top:10px;padding:5px 8px;border:1px solid #166534;background:#052e1b;color:#86efac;border-radius:8px;font-size:11px}
+#wonder-physics .wp-modal-box{max-width:900px}
+#wonder-physics .wp-modal-content{font-size:14px;line-height:2.25}
+#wonder-physics .wp-lesson-intro{font-size:15px;color:#dbeafe;background:linear-gradient(120deg,#102745,#1e1b4b);border:1px solid #3b4e91;border-radius:14px;padding:18px;margin:18px 0}
+#wonder-physics .wp-lesson-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin:17px 0}
+#wonder-physics .wp-lesson-block{background:#0a1930;border:1px solid #1a3b60;border-radius:13px;padding:15px;min-width:0}
+#wonder-physics .wp-lesson-block h4{margin:0 0 7px;color:#67e8f9;font-size:15px}
+#wonder-physics .wp-lesson-block p{margin:7px 0;color:#d2deee}
+#wonder-physics .wp-modal-content ul{padding-right:22px}
+#wonder-physics .wp-modal-content li{padding:2px 0}
+#wonder-physics .wp-equation{direction:ltr;text-align:center;font-family:Arial,sans-serif;letter-spacing:.3px}
+#wonder-physics .wp-lesson-foot{border-right:4px solid #f59e0b;background:#33230d;color:#fde68a;border-radius:10px;padding:13px 15px;margin:16px 0}
+#wonder-physics .wp-quiz-wrap{margin-top:28px;padding:18px;background:linear-gradient(155deg,#0a1b32,#121537);border:1px solid #36518a;border-radius:18px}
+#wonder-physics .wp-quiz-head{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;border-bottom:1px solid #263e68;padding-bottom:14px;margin-bottom:14px}
+#wonder-physics .wp-quiz-head h3{margin:0;color:#c4b5fd;font-size:20px;line-height:1.8}
+#wonder-physics .wp-quiz-head p{margin:4px 0 0;color:#b9c8dd;font-size:12px;line-height:1.9}
+#wonder-physics .wp-quiz-chip{padding:8px 11px;border-radius:10px;background:#052e32;border:1px solid #0e7490;color:#a5f3fc;font-size:12px;white-space:nowrap}
+#wonder-physics .wp-quiz-intro{color:#d5e3f5;line-height:2.1}
+#wonder-physics .wp-quiz-start{border:0;background:linear-gradient(110deg,#0e7490,#6d28d9);color:#fff;border-radius:11px;padding:12px 19px;cursor:pointer;font:inherit;font-size:13px;box-shadow:0 8px 20px #02061766}
+#wonder-physics .wp-quiz-start:hover{filter:brightness(1.12);transform:translateY(-1px)}
+#wonder-physics .wp-quiz-topline{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;color:#cbd5e1;font-size:12px;margin-bottom:12px}
+#wonder-physics .wp-progress{height:8px;background:#1e293b;border-radius:20px;overflow:hidden;margin:8px 0 18px}
+#wonder-physics .wp-progress span{height:100%;display:block;width:0;background:linear-gradient(90deg,#22d3ee,#a78bfa);transition:width .25s}
+#wonder-physics .wp-question{font-size:19px;line-height:2;color:#f8fafc;margin:15px 0}
+#wonder-physics .wp-options{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}
+#wonder-physics .wp-option{display:flex;align-items:flex-start;gap:10px;text-align:right;direction:rtl;background:#0b1d35;border:1px solid #2a4567;color:#e2e8f0;border-radius:12px;padding:13px;cursor:pointer;font:inherit;line-height:1.9;min-width:0;transition:.2s}
+#wonder-physics .wp-option:hover:not(:disabled){border-color:#67e8f9;background:#0d2d45}
+#wonder-physics .wp-option:disabled{cursor:default;opacity:1}
+#wonder-physics .wp-option .wp-opt-letter{display:inline-flex;align-items:center;justify-content:center;flex:0 0 27px;width:27px;height:27px;border-radius:8px;background:#263b5b;color:#bae6fd;font-size:12px}
+#wonder-physics .wp-option.correct{border-color:#22c55e;background:#052e1b;color:#bbf7d0}
+#wonder-physics .wp-option.wrong{border-color:#f87171;background:#3b111c;color:#fecaca}
+#wonder-physics .wp-feedback{margin-top:16px;padding:14px;border-radius:12px;line-height:2.1;display:none}
+#wonder-physics .wp-feedback.good{display:block;background:#052e1b;border:1px solid #15803d;color:#bbf7d0}
+#wonder-physics .wp-feedback.bad{display:block;background:#35131b;border:1px solid #b91c1c;color:#fecaca}
+#wonder-physics .wp-feedback strong{display:block;margin-bottom:5px}
+#wonder-physics .wp-quiz-next{margin-top:14px;border:1px solid #6366f1;background:#312e81;color:#fff;padding:11px 17px;border-radius:10px;cursor:pointer;font:inherit}
+#wonder-physics .wp-quiz-next:hover{background:#4338ca}
+#wonder-physics .wp-result-hero{padding:22px;text-align:center;border-radius:14px;background:radial-gradient(circle at top,#243b70,#0b1830 74%);border:1px solid #4358a2}
+#wonder-physics .wp-result-emoji{font-size:42px}
+#wonder-physics .wp-result-hero h4{font-size:24px;color:#a5f3fc;margin:6px 0}
+#wonder-physics .wp-result-hero p{color:#dbeafe;line-height:2;margin:6px 0}
+#wonder-physics .wp-result-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:9px;margin:15px 0}
+#wonder-physics .wp-result-stat{padding:13px 8px;text-align:center;background:#0a1930;border:1px solid #23436a;border-radius:12px}
+#wonder-physics .wp-result-stat strong{display:block;color:#a5f3fc;font-size:20px;line-height:1.7}
+#wonder-physics .wp-result-stat span{color:#adbed3;font-size:11px;line-height:1.8}
+#wonder-physics .wp-review{padding:14px;margin:10px 0;background:#0a1930;border:1px solid #243f64;border-radius:12px;line-height:2}
+#wonder-physics .wp-review h5{font-size:14px;color:#e0e7ff;margin:0 0 8px}
+#wonder-physics .wp-review .wp-review-right{color:#86efac}
+#wonder-physics .wp-review .wp-review-wrong{color:#fca5a5}
+#wonder-physics .wp-quiz-actions{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}
+#wonder-physics .wp-quiz-actions button{border-radius:10px;padding:11px 15px;cursor:pointer;font:inherit}
+#wonder-physics .wp-secondary{background:#172554;color:#dbeafe;border:1px solid #4338ca}
+#wonder-physics .wp-results-title{margin:21px 0 8px;color:#c4b5fd}
+@media(max-width:650px){
+ #wonder-physics .wp-dashboard{grid-template-columns:1fr;gap:8px}
+ #wonder-physics .wp-stat{padding:11px 13px}
+ #wonder-physics .wp-lesson-grid{grid-template-columns:1fr}
+ #wonder-physics .wp-options{grid-template-columns:1fr}
+ #wonder-physics .wp-result-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+ #wonder-physics .wp-quiz-wrap{padding:13px}
+ #wonder-physics .wp-question{font-size:17px}
+ #wonder-physics .wp-modal-box{max-height:91vh;padding:15px}
+}
+
+</style>
+
+<div class="wp-hero">
+  <div class="wp-hero-content">
+    <span class="wp-label">🌌 کاوش در مرزهای دانش</span>
+    <h2>دنیای شگفت‌انگیز فیزیک</h2>
+    <p>از راز سیاه‌چاله‌ها تا جهان کوانتومی، از سرعت نور تا آغاز جهان؛ آماده‌ای با عجیب‌ترین پدیده‌های طبیعت آشنا شوی؟</p>
+    <button class="wp-button" type="button" id="wp-start">شروع کاوش ←</button>
+  </div>
+</div>
+
+<div id="wp-topics">
+  <div class="wp-heading"><h3>🔭 موضوعات شگفت‌انگیز</h3><span>۱۰ دنیای علمی برای کشف‌کردن</span></div>
+  <div class="wp-dashboard" id="wp-dashboard">
+    <div class="wp-stat"><span class="wp-stat-icon">📚</span><div><strong id="wp-done-count">۰ از ۱۰</strong><small>موضوع‌های آزمون‌داده‌شده</small></div></div>
+    <div class="wp-stat"><span class="wp-stat-icon">🎯</span><div><strong id="wp-total-correct">۰</strong><small>پاسخ درست در همه آزمون‌ها</small></div></div>
+    <div class="wp-stat"><span class="wp-stat-icon">⏱️</span><div><strong id="wp-total-time">۰۰:۰۰</strong><small>زمان صرف‌شده برای پاسخ‌ها</small></div></div>
+  </div>
+  <input id="wp-search" class="wp-search" type="search" placeholder="🔎 مثلاً جست‌وجو کن: نور، سیاه‌چاله، زمان..." aria-label="جست‌وجو در موضوعات فیزیک">
+  <div class="wp-filters">
+    <button type="button" class="wp-filter active" data-category="all">همه موضوعات</button>
+    <button type="button" class="wp-filter" data-category="space">🌌 فضا</button>
+    <button type="button" class="wp-filter" data-category="modern">⚛️ فیزیک نوین</button>
+    <button type="button" class="wp-filter" data-category="classical">🔬 فیزیک کلاسیک</button>
+  </div>
+
+  <div class="wp-grid">
+    <article class="wp-card" data-category="modern"><div class="wp-image"><img src="https://images.unsplash.com/photo-1534796636912-3b95b3ab5986?auto=format&fit=crop&w=800&q=80" alt="جهان و ستارگان" loading="lazy"><span class="wp-number">موضوع ۰۱</span></div><div class="wp-card-body"><span class="wp-category">⚛️ فیزیک کوانتومی</span><h4>جهان کوانتومی</h4><p>ذرات بسیار کوچک چگونه رفتار می‌کنند؟ آیا طبیعت در مقیاس اتمی با دنیای روزمره فرق دارد؟</p><button class="wp-more" type="button" data-topic="quantum">کشف دنیای کوانتومی ←</button></div></article>
+
+    <article class="wp-card" data-category="space"><div class="wp-image"><img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=800&q=80" alt="کهکشان و فضای عمیق" loading="lazy"><span class="wp-number">موضوع ۰۲</span></div><div class="wp-card-body"><span class="wp-category">🌌 کیهان‌شناسی</span><h4>سیاه‌چاله‌ها</h4><p>چرا حتی نور نمی‌تواند از درون افق رویداد یک سیاه‌چاله به بیرون فرار کند؟</p><button class="wp-more" type="button" data-topic="blackhole">ورود به دنیای سیاه‌چاله‌ها ←</button></div></article>
+
+    <article class="wp-card" data-category="modern"><div class="wp-image"><img src="https://images.unsplash.com/photo-1635070041078-e363dbe005cb?auto=format&fit=crop&w=800&q=80" alt="مفاهیم فیزیک" loading="lazy"><span class="wp-number">موضوع ۰۳</span></div><div class="wp-card-body"><span class="wp-category">⏳ نسبیت</span><h4>زمان و نسبیت</h4><p>آیا زمان برای همه با سرعت یکسان می‌گذرد؟ سفر در آینده از نظر فیزیک چه معنایی دارد؟</p><button class="wp-more" type="button" data-topic="time">کشف راز زمان ←</button></div></article>
+
+    <article class="wp-card" data-category="classical"><div class="wp-image"><img src="https://images.unsplash.com/photo-1517976487492-5750f3195933?auto=format&fit=crop&w=800&q=80" alt="پرتاب موشک و حرکت" loading="lazy"><span class="wp-number">موضوع ۰۴</span></div><div class="wp-card-body"><span class="wp-category">🚀 مکانیک</span><h4>جاذبه و سقوط آزاد</h4><p>چرا اجسام سقوط می‌کنند؟ آیا در نبود مقاومت هوا، اجسام سنگین‌تر زودتر می‌افتند؟</p><button class="wp-more" type="button" data-topic="gravity">بررسی جاذبه ←</button></div></article>
+
+    <article class="wp-card" data-category="classical"><div class="wp-image"><img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=800&q=80" alt="نور خورشید در طبیعت" loading="lazy"><span class="wp-number">موضوع ۰۵</span></div><div class="wp-card-body"><span class="wp-category">🌈 نور و اپتیک</span><h4>نور و رنگ‌ها</h4><p>رنگین‌کمان چگونه شکل می‌گیرد؟ چرا نور هنگام ورود به آب تغییر مسیر می‌دهد؟</p><button class="wp-more" type="button" data-topic="light">کشف راز نور ←</button></div></article>
+
+    <article class="wp-card" data-category="space"><div class="wp-image"><img src="https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=800&q=80" alt="زمین از فضا" loading="lazy"><span class="wp-number">موضوع ۰۶</span></div><div class="wp-card-body"><span class="wp-category">🌍 منظومه شمسی</span><h4>حرکت سیاره‌ها</h4><p>چرا سیاره‌ها به دور خورشید می‌چرخند؟ مدار آن‌ها چگونه شکل می‌گیرد؟</p><button class="wp-more" type="button" data-topic="planets">سفر میان سیاره‌ها ←</button></div></article>
+
+    <article class="wp-card" data-category="classical"><div class="wp-image"><img src="https://images.unsplash.com/photo-1518837695005-2083093ee35b?auto=format&fit=crop&w=800&q=80" alt="موج‌های آب" loading="lazy"><span class="wp-number">موضوع ۰۷</span></div><div class="wp-card-body"><span class="wp-category">〰️ موج و صوت</span><h4>موج‌ها و صدا</h4><p>صدا چگونه منتقل می‌شود؟ چرا صدا در خلأ منتشر نمی‌شود؟</p><button class="wp-more" type="button" data-topic="waves">شناخت موج‌ها ←</button></div></article>
+
+    <article class="wp-card" data-category="classical"><div class="wp-image"><img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=800&q=80" alt="تجهیزات الکترونیکی" loading="lazy"><span class="wp-number">موضوع ۰۸</span></div><div class="wp-card-body"><span class="wp-category">⚡ الکترومغناطیس</span><h4>برق و مغناطیس</h4><p>جریان الکتریکی چگونه میدان مغناطیسی ایجاد می‌کند و موتور برقی چگونه می‌چرخد؟</p><button class="wp-more" type="button" data-topic="electricity">کشف نیروی الکتریکی ←</button></div></article>
+
+    <article class="wp-card" data-category="modern"><div class="wp-image"><img src="https://images.unsplash.com/photo-1636466497217-26a8cbeaf0aa?auto=format&fit=crop&w=800&q=80" alt="ساختار ماده" loading="lazy"><span class="wp-number">موضوع ۰۹</span></div><div class="wp-card-body"><span class="wp-category">⚛️ فیزیک اتمی</span><h4>اتم و هسته</h4><p>ماده از چه ساخته شده است؟ درون هسته اتم چه ذراتی وجود دارند؟</p><button class="wp-more" type="button" data-topic="atom">سفر به درون اتم ←</button></div></article>
+
+    <article class="wp-card" data-category="space"><div class="wp-image"><img src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=800&q=80" alt="افق و طبیعت" loading="lazy"><span class="wp-number">موضوع ۱۰</span></div><div class="wp-card-body"><span class="wp-category">🌠 آغاز جهان</span><h4>پیدایش و تکامل جهان</h4><p>جهان چگونه گسترش پیدا می‌کند؟ دانشمندان درباره آغاز کیهان چه می‌دانند؟</p><button class="wp-more" type="button" data-topic="universe">کشف تاریخ جهان ←</button></div></article>
+  </div>
+
+  <div class="wp-empty" id="wp-empty">🔎 موضوعی پیدا نشد. عبارت دیگری را جست‌وجو کن.</div>
+</div>
+
+<div class="wp-bottom"><h3>💡 فیزیک فراتر از فرمول‌هاست!</h3><p>هر پدیده‌ای که در اطراف خود می‌بینی، از حرکت یک توپ تا نور ستارگان، می‌تواند پرسشی علمی در خود داشته باشد. هر یک از ۱۰ درس را بخوان، آزمون ۵ سؤالی‌اش را انجام بده و کارنامه و زمان پاسخ‌گویی‌ات را ببین.</p><button type="button" class="wp-button" id="wp-focus-search">انتخاب یک موضوع برای کاوش ←</button></div>
+
+<div class="wp-modal" id="wp-modal" role="dialog" aria-modal="true" aria-labelledby="wp-modal-title"><div class="wp-modal-box"><div class="wp-modal-top"><h3 id="wp-modal-title">موضوع فیزیک</h3><button class="wp-close" id="wp-close" type="button">✕ بستن</button></div><div class="wp-modal-content" id="wp-modal-content"></div></div></div>
+
+<script>
+(function () {
+  const root = document.getElementById("wonder-physics");
+  if (!root || root.dataset.initialized === "true") return;
+  root.dataset.initialized = "true";
+
+  const search = root.querySelector("#wp-search");
+  const cards = Array.from(root.querySelectorAll(".wp-card"));
+  const filters = root.querySelectorAll(".wp-filter");
+  const empty = root.querySelector("#wp-empty");
+  const modal = root.querySelector("#wp-modal");
+  const modalTitle = root.querySelector("#wp-modal-title");
+  const modalContent = root.querySelector("#wp-modal-content");
+  const closeButton = root.querySelector("#wp-close");
+  let activeCategory = "all";
+  let previousFocus = null;
+  let tickHandle = null;
+  let current = null;
+  const completed = {};
+
+  const topics = {
+    quantum: {
+      title:"⚛️ جهان کوانتومی",
+      intro:"در مقیاس اتم‌ها و ذرات زیراتمی، طبیعت گاهی با تصورهای روزمره ما فرق دارد. مکانیک کوانتومی نظریه‌ای دقیق است که با احتمال، انرژی‌های گسسته و ویژگی‌های موجی و ذره‌ای سروکار دارد.",
+      sections:[
+        ["۱. اندازهٔ بسیار کوچک، قوانین شگفت‌انگیز","اتم بسیار کوچک‌تر از چیزی است که چشم بتواند ببیند. برای توصیف الکترون‌ها و فوتون‌ها، فیزیک‌دانان از مدل‌هایی استفاده می‌کنند که با مدل حرکت توپ یا خودرو فرق دارند. کوانتومی بودن به این معنا نیست که هر اتفاق عجیب و خیالی ممکن است؛ پیش‌بینی‌های این نظریه ریاضی و قابل آزمایش‌اند."],
+        ["۲. انرژی می‌تواند پله‌پله باشد","واژهٔ «کوانتیده» به این معناست که بعضی کمیت‌ها فقط مقادیر مشخصی می‌گیرند؛ مانند پله‌های نردبان، نه هر ارتفاع دلخواه. الکترون در اتم فقط می‌تواند در حالت‌های انرژی مجاز قرار گیرد و با جذب یا گسیل انرژی، بین حالت‌ها جابه‌جا شود."],
+        ["۳. نور و رابطهٔ فوتون","نور هم ویژگی‌های موجی دارد و هم در بعضی آزمایش‌ها مانند بسته‌های انرژی، یعنی فوتون‌ها، رفتار می‌کند. انرژی هر فوتون با فرکانس نور افزایش می‌یابد. رابطهٔ سادهٔ آن چنین است:","E = hf","در این رابطه E انرژی فوتون، h ثابت پلانک و f فرکانس است. نور بنفش فرکانس بیشتری از نور قرمز دارد؛ بنابراین فوتون‌های بنفش انرژی بیشتری دارند."],
+        ["۴. موج یا ذره؟","در آزمایش دو شکاف، ذراتی مانند الکترون می‌توانند الگویی از تداخل ایجاد کنند؛ حتی اگر ذرات یکی‌یکی فرستاده شوند. نتیجه این نیست که یک الکترون دقیقاً یک توپ کوچک معمولی یا یک موج آب است؛ رفتار کوانتومی با هر دو تصویر ساده فرق دارد و باید با قواعد کوانتومی توصیف شود."],
+        ["۵. اصل عدم قطعیت","اصل عدم قطعیت هایزنبرگ می‌گوید برای بعضی جفت کمیت‌ها، مانند مکان و تکانه، نمی‌توان هر دو را هم‌زمان با دقت نامحدود تعیین کرد. این فقط ضعف ابزار اندازه‌گیری نیست؛ محدودیتی بنیادی در توصیف کوانتومی است. این اصل نمی‌گوید که دانشمندان هیچ‌چیز را دربارهٔ ذره نمی‌توانند بدانند."],
+        ["۶. برهم‌نهی و اندازه‌گیری","یک سامانهٔ کوانتومی می‌تواند پیش از اندازه‌گیری در برهم‌نهی حالت‌ها توصیف شود. هنگام اندازه‌گیری، نتیجه‌ای مشخص ثبت می‌شود و احتمال نتیجه‌ها را حالت کوانتومی تعیین می‌کند. این موضوع با عبارت سادهٔ «ذره هم‌زمان هر کاری دلش بخواهد می‌کند» یکی نیست؛ آزمایش‌ها قواعد آماری مشخصی نشان می‌دهند."],
+        ["۷. کجا به کار ما می‌آید؟","ترانزیستورهای تلفن و رایانه، LED، لیزر، سلول‌های خورشیدی و بسیاری از ابزارهای تصویربرداری به فهم کوانتومی ماده و نور وابسته‌اند. رایانهٔ کوانتومی نیز موضوع پژوهش فعالی است، اما قرار نیست هر مسئله‌ای را خودکار سریع‌تر از رایانه‌های معمولی حل کند." ]
+      ],
+      formula:"E = hf",
+      note:"اشتباه رایج: مکانیک کوانتومی به این معنا نیست که «فکر انسان واقعیت را جادویی تغییر می‌دهد». نتایج به سامانه، آزمایش و روش اندازه‌گیری وابسته‌اند.",
+      quiz:[
+        {q:"مکانیک کوانتومی بیشتر کدام بخش طبیعت را بررسی می‌کند؟",o:["حرکت قاره‌ها","ماده و انرژی در مقیاس بسیار کوچک","فقط حرکت سیاره‌ها","فقط آب‌وهوا"],a:1,e:"این شاخه رفتار اتم‌ها، الکترون‌ها، فوتون‌ها و دیگر سامانه‌های بسیار کوچک را توصیف می‌کند."},
+        {q:"در رابطهٔ E = hf، اگر فرکانس بیشتر شود و h ثابت بماند، انرژی فوتون چه می‌شود؟",o:["کمتر می‌شود","تغییر نمی‌کند","بیشتر می‌شود","حتماً صفر می‌شود"],a:2,e:"انرژی با فرکانس نسبت مستقیم دارد؛ دو برابر شدن فرکانس، انرژی فوتون را دو برابر می‌کند."},
+        {q:"کدام مثال از فناوری‌های وابسته به اصول کوانتومی است؟",o:["LED و ترانزیستور","فقط چرخ‌دستی","خط‌کش چوبی به‌تنهایی","طناب معمولی"],a:0,e:"رفتار الکترون‌ها در مواد و برهم‌کنش نور و ماده پایهٔ فناوری‌هایی مثل LED و ترانزیستور است."},
+        {q:"اصل عدم قطعیت دربارهٔ چیست؟",o:["خطای تایپی در دفتر","محدودیت بنیادی دقت هم‌زمان برخی جفت کمیت‌ها","این‌که هیچ آزمایشی نتیجه ندارد","این‌که همهٔ ذرات سنگین‌اند"],a:1,e:"برای نمونه، مکان و تکانه را نمی‌توان در یک حالت کوانتومی هر دو با دقت نامحدود تعیین کرد."},
+        {q:"کدام جمله دربارهٔ نور دقیق‌تر است؟",o:["نور فقط موج آب است","نور فقط از توپ‌های ریز کلاسیک ساخته شده","نور ویژگی‌های موجی و کوانتومی نشان می‌دهد","نور در خلأ حرکت نمی‌کند"],a:2,e:"آزمایش‌های مختلف جنبه‌های موجی یا ذره‌ای نور را نشان می‌دهند؛ مدل کوانتومی این رفتارها را توضیح می‌دهد."}
+      ]
+    },
+    blackhole: {
+      title:"🕳️ سیاه‌چاله‌ها",
+      intro:"سیاه‌چاله ناحیه‌ای از فضاست که درون مرزی به نام افق رویداد، راهی برای بازگشت نور و پیام به بیرون وجود ندارد. سیاه‌چاله‌ها را بیشتر از روی اثرشان بر ماده، نور و ستاره‌های اطراف مطالعه می‌کنیم.",
+      sections:[
+        ["۱. سیاه‌چاله چگونه شکل می‌گیرد؟","یکی از راه‌های شکل‌گیری سیاه‌چاله، فروریزش هستهٔ یک ستارهٔ پرجرم در پایان زندگی آن است. سیاه‌چاله‌ها جرم‌های گوناگونی دارند؛ گروهی چند برابر خورشید جرم دارند و سیاه‌چاله‌های کلان‌جرم در مرکز بسیاری از کهکشان‌ها قرار گرفته‌اند. همهٔ ستاره‌ها به سیاه‌چاله تبدیل نمی‌شوند؛ جرم و سرگذشت ستاره تعیین‌کننده است."],
+        ["۲. افق رویداد چیست؟","افق رویداد مرزی است که اگر چیزی از آن به درون عبور کند، دیگر نمی‌تواند به بیرون خبر بفرستد. این مرز مانند پوستهٔ جامد یک سیاره نیست. سیاهی سیاه‌چاله به این مربوط است که از درون این مرز نور به ما نمی‌رسد."],
+        ["۳. آیا سیاه‌چاله همه‌چیز را می‌بلعد؟","خیر. سیاه‌چاله مانند جاروبرقی کیهانی نیست که از هر فاصله‌ای همه‌چیز را بکشد. اگر خورشید به‌طور فرضی با سیاه‌چاله‌ای هم‌جرم جایگزین می‌شد، زمین در فاصلهٔ کنونی تقریباً همان مدار گرانشی را دنبال می‌کرد؛ البته نور و گرمای خورشید از بین می‌رفت و زمین بسیار سرد می‌شد. خطر به فاصله و جرم بستگی دارد."],
+        ["۴. قرص برافزایشی؛ مادهٔ داغ اطراف","گاز و غبار نزدیک بعضی سیاه‌چاله‌ها می‌توانند در قرصی چرخان جمع شوند. اصطکاک و فرایندهای پرانرژی، ماده را بسیار داغ می‌کنند و آن را در طول‌موج‌های گوناگون، از جمله پرتو ایکس، درخشان می‌سازند. پس تصویری که از سیاه‌چاله می‌بینیم، معمولاً نور خودِ داخل افق رویداد نیست؛ نور و اثر مادهٔ اطراف است."],
+        ["۵. چگونه آن‌ها را پیدا می‌کنیم؟","دانشمندان حرکت ستاره‌ها را در اطراف جرم نامرئی، تابش مادهٔ داغ، خم‌شدن نور بر اثر گرانش و امواج گرانشی حاصل از ادغام اجرام پرجرم بررسی می‌کنند. به این روش‌ها می‌توان وجود و بعضی ویژگی‌های سیاه‌چاله را استنباط کرد، حتی اگر خود افق رویداد نور نتاباند."],
+        ["۶. کشیده‌شدن اسپاگتی‌مانند","نزدیک بعضی سیاه‌چاله‌ها، گرانش در سمت نزدیک‌تر بدن می‌تواند به‌طور محسوسی قوی‌تر از سمت دورتر باشد. این اختلاف نیرو، که نیروی کشندی نام دارد، ممکن است جسم را در راستای طولی بکشد؛ به این پدیده گاهی «اسپاگتی‌شدن» می‌گویند. شدت آن به جرم و اندازهٔ سیاه‌چاله و فاصله بستگی دارد."],
+        ["۷. آیا همه‌چیز را درباره‌شان می‌دانیم؟","رفتار بیرونی سیاه‌چاله‌ها با نسبیت عام توصیف می‌شود و شواهد رصدی زیادی برای وجود آن‌ها داریم. با این حال، پرسش‌هایی دربارهٔ درون افق رویداد و سازگارکردن گرانش با فیزیک کوانتومی هنوز باز است. در علم باید میان یافته‌های محکم و پرسش‌های حل‌نشده تفاوت گذاشت." ]
+      ],
+      formula:"rₛ = 2GM / c²",
+      note:"اشتباه رایج: سیاه‌چاله‌ها نور اطراف را از همه‌جا به شکلی جادویی نمی‌مکند. جاذبهٔ آن‌ها به جرم و فاصله بستگی دارد؛ افق رویداد مرز اصلی بازگشت‌ناپذیری است.",
+      quiz:[
+        {q:"افق رویداد در تعریف ساده چه چیزی است؟",o:["سطح جامد سیاه‌چاله","مرزی که از درون آن راه فرستادن پیام به بیرون وجود ندارد","یک سیارهٔ بسیار تاریک","حلقه‌ای از یخ"],a:1,e:"افق رویداد مرز بازگشت‌ناپذیری است؛ از درون آن حتی نور نمی‌تواند به بیرون برسد."},
+        {q:"دانشمندان چگونه سیاه‌چاله‌ها را شناسایی می‌کنند؟",o:["فقط با دیدن نور خارج‌شده از داخل آن","با اثر گرانش بر ستاره‌ها و نور و بررسی مادهٔ اطراف","با شنیدن صدای آن‌ها در فضا","با عکس‌گرفتن معمولی از سطح جامد"],a:1,e:"خود سیاه‌چاله تاریک است، اما اثرهای گرانشی و تابش محیط اطراف آن قابل مشاهده‌اند."},
+        {q:"کدام جمله دربارهٔ سیاه‌چاله دقیق‌تر است؟",o:["از هر فاصله‌ای همه‌چیز را می‌بلعد","جاذبه‌اش به جرم و فاصله بستگی دارد","همهٔ ستاره‌ها سیاه‌چاله می‌شوند","هیچ ماده‌ای اطراف آن نمی‌تواند بدرخشد"],a:1,e:"سیاه‌چاله جاذبه دارد، اما مانند هر جرم دیگری اثر گرانشی آن با فاصله تغییر می‌کند."},
+        {q:"قرص برافزایشی چیست؟",o:["لایهٔ جامد سطح سیاه‌چاله","گاز و مادهٔ داغِ در حال چرخش در اطراف آن","مدار زمین","نوعی موج صوتی"],a:1,e:"مواد چرخان اطراف برخی سیاه‌چاله‌ها بسیار داغ می‌شوند و تابش تولید می‌کنند."},
+        {q:"علت کشیده‌شدن کشندی می‌تواند چه باشد؟",o:["اختلاف نیروی گرانش در دو سوی جسم","نبود کامل گرانش","صدای بلند","رنگ سیاه جسم"],a:0,e:"گرانش در سمت نزدیک‌تر و دورتر می‌تواند متفاوت باشد و جسم را بکشد."}
+      ]
+    },
+    time: {
+      title:"⏳ زمان و نسبیت",
+      intro:"نسبیت اینشتین نشان می‌دهد که زمان و فضا برای همهٔ ناظران به یک شکل اندازه‌گیری نمی‌شوند. این تفاوت در زندگی روزمره کوچک است، اما در سرعت‌های بسیار زیاد یا میدان‌های گرانشی قوی اهمیت پیدا می‌کند.",
+      sections:[
+        ["۱. نسبیت خاص","نسبیت خاص حرکت ناظران را در چارچوب‌هایی بررسی می‌کند که نسبت به هم با سرعت ثابت حرکت می‌کنند. دو ایدهٔ اصلی آن این است که قوانین فیزیک برای چنین ناظرانی یکسان‌اند و سرعت نور در خلأ برای همهٔ آن‌ها یک مقدار دارد. برای سازگاری این اصول، اندازه‌گیری‌های زمان و فاصله باید با حرکت ناظر تغییر کنند."],
+        ["۲. اتساع زمان","ساعتی که با سرعت بسیار زیاد نسبت به ناظر حرکت می‌کند، از دید آن ناظر در مقایسه با ساعت ساکن کندتر می‌تپد. این اثر «اتساع زمان» نام دارد و فقط یک توهم دیداری نیست؛ با ساعت‌های دقیق و ذرات سریع آزمایش شده است. نزدیک سرعت‌های معمولی، تفاوت آن بسیار ناچیز است."],
+        ["۳. نسبیت عام و گرانش","در نسبیت عام، گرانش فقط به صورت نیروی معمولی توضیح داده نمی‌شود؛ جرم و انرژی هندسهٔ فضا-زمان را تغییر می‌دهند. ساعت نزدیک یک جرم بزرگ، در مقایسه با ساعت دورتر، معمولاً آهسته‌تر می‌گذرد. برای محاسبات دقیق، مانند ماهواره‌ها، باید چنین اثرهایی را در نظر گرفت."],
+        ["۴. مثال ساده از فرمول نسبیت خاص","برای حرکت یکنواخت، رابطهٔ اتساع زمان را می‌توان به شکل ساده نوشت:","Δt = γ Δτ   ،   γ = 1 / √(1 − v²/c²)","در این رابطه v سرعت نسبی و c سرعت نور است. هرچه v به c نزدیک‌تر شود، γ بزرگ‌تر می‌شود. این رابطه را نباید برای هر وضعیت شتاب‌دار و گرانشی بدون بررسی به کار برد."],
+        ["۵. آیا سفر به آینده ممکن است؟","در معنای فیزیکی، کسی که مسیر و سرعتی را طی می‌کند که زمان کمتری برایش می‌گذرد، ممکن است دوباره به زمین برسد و ببیند زمان بیشتری روی زمین گذشته است. این نوع «رفتن به آینده» از پیامدهای نسبیت است. رفتن به گذشته و تغییر رویدادهای گذشته، روش عملی اثبات‌شده‌ای ندارد."],
+        ["۶. فناوری روزمره: GPS","ماهواره‌های سامانهٔ موقعیت‌یاب، ساعت‌های بسیار دقیق حمل می‌کنند. به دلیل حرکت ماهواره‌ها و گرانش در ارتفاع آن‌ها، نرخ ساعت‌هایشان با ساعت‌های روی زمین فرق می‌کند. اگر این اثرهای نسبیتی در محاسبات اصلاح نشوند، مکان‌یابی به‌تدریج خطای قابل توجهی پیدا می‌کند."],
+        ["۷. یک نکتهٔ مهم دربارهٔ سرعت نور","اجسام دارای جرم را نمی‌توان با شتاب‌دادن معمولی به سرعت نور در خلأ رساند؛ هرچه به آن سرعت نزدیک‌تر شوند، انرژی لازم به‌شدت افزایش می‌یابد. بنابراین فیلم‌هایی که سفر آسان یک سفینهٔ معمولی با سرعت نور را نشان می‌دهند، تخیل‌اند نه فناوری فعلی." ]
+      ],
+      formula:"γ = 1 / √(1 − v²/c²)",
+      note:"اشتباه رایج: نسبیت نمی‌گوید هر کسی هر زمان دلش بخواهد، زمان را کنترل می‌کند. اختلاف زمان به حرکت، گرانش و مسیر وابسته است و باید دقیق محاسبه شود.",
+      quiz:[
+        {q:"طبق نسبیت خاص، سرعت نور در خلأ برای ناظران لَخت چگونه است؟",o:["برای همه یکسان است","برای هر ناظر دلخواه است","به رنگ لباس بستگی دارد","در خلأ صفر است"],a:0,e:"ثابت‌بودن سرعت نور در خلأ یکی از اصل‌های اساسی نسبیت خاص است."},
+        {q:"اتساع زمان یعنی چه؟",o:["زمان همیشه برای همه دقیقاً یکسان است","زمان اندازه‌گیری‌شده می‌تواند به حرکت نسبی یا گرانش بستگی داشته باشد","ساعت‌ها هیچ‌وقت خراب نمی‌شوند","زمان فقط در فضا وجود دارد"],a:1,e:"ساعت‌ها در شرایط حرکت و گرانش متفاوت می‌توانند زمان متفاوتی را اندازه بگیرند."},
+        {q:"کدام فناوری در عملکرد دقیق خود اثرهای نسبیتی را در نظر می‌گیرد؟",o:["GPS","مداد","چراغ‌قوهٔ خاموش","خط‌کش بدون عدد"],a:0,e:"ساعت‌های ماهواره‌های GPS به اصلاح اثرهای نسبیتی نیاز دارند."},
+        {q:"کدام گزاره درست‌تر است؟",o:["سفر به گذشته فناوری اثبات‌شدهٔ امروزی است","سرعت نور برای جسم دارای جرم به‌سادگی قابل دست‌یابی است","پیامدهای نسبیت با ساعت‌های دقیق آزمایش شده‌اند","نسبیت فقط یک داستان علمی‌تخیلی است"],a:2,e:"اثرهای نسبیتی در آزمایش‌ها و فناوری‌های دقیق اندازه‌گیری شده‌اند."},
+        {q:"در فرمول γ، وقتی سرعت v به سرعت نور c نزدیک‌تر شود، γ چه می‌شود؟",o:["به ۱۰۰ درصد ثابت می‌ماند","افزایش می‌یابد","همیشه صفر می‌شود","هیچ ارتباطی ندارد"],a:1,e:"مخرج کوچک‌تر و عامل γ بزرگ‌تر می‌شود؛ اتساع زمان برجسته‌تر می‌شود."}
+      ]
+    },
+    gravity: {
+      title:"🍎 جاذبه و سقوط آزاد",
+      intro:"گرانش باعث می‌شود اجسام به سوی زمین شتاب بگیرند و ماه و سیاره‌ها در مدار بمانند. با تفکیک مفهوم جرم، وزن، نیرو و شتاب، بسیاری از پدیده‌های روزمره روشن‌تر می‌شوند.",
+      sections:[
+        ["۱. نیرو چیست؟","نیرو می‌تواند حرکت جسم را تغییر دهد، آن را شتاب دهد یا شکلش را تغییر دهد. قانون دوم نیوتن رابطهٔ میان نیروی خالص، جرم و شتاب را بیان می‌کند:","F = ma","F نیروی خالص بر حسب نیوتن، m جرم بر حسب کیلوگرم و a شتاب بر حسب متر بر مجذور ثانیه است. اگر نیروی خالص بیشتر شود و جرم ثابت بماند، شتاب بیشتر می‌شود."],
+        ["۲. جرم و وزن فرق دارند","جرم معیاری از لَختی جسم است و بر حسب کیلوگرم سنجیده می‌شود؛ جرم با رفتن به ماه تغییر نمی‌کند. وزن نیروی گرانشی وارد بر جسم است و نزدیک سطح زمین تقریباً از رابطهٔ زیر به دست می‌آید:","W = mg","در این رابطه g نزدیک سطح زمین حدود 9.8 m/s² است. چون گرانش ماه کمتر از زمین است، وزن یک جسم روی ماه کمتر می‌شود، در حالی که جرمش همان است."],
+        ["۳. سقوط آزاد","در تعریف ساده، سقوط آزاد حرکتی است که تنها نیروی مؤثر بر جسم، گرانش باشد و مقاومت هوا را نادیده بگیریم. در این شرایط، اجسام با شتاب تقریباً یکسان g سقوط می‌کنند؛ توپ سنگین فقط به دلیل سنگین‌تر بودن سریع‌تر شتاب نمی‌گیرد."],
+        ["۴. چرا پر و سنگ در زمین متفاوت می‌افتند؟","در هوای زمین، مقاومت هوا بر پر اثر زیادی دارد و سرعت سقوطش را کم می‌کند؛ روی جسم فشرده و سنگین‌تر، اثر نسبی مقاومت هوا ممکن است کمتر باشد. در محفظهٔ خلأ یا روی ماه که هوا وجود ندارد، تفاوت ناشی از مقاومت هوا حذف می‌شود."],
+        ["۵. گرانش در فضا هم هست","فضانوردان داخل ایستگاه فضایی بی‌وزنیِ ظاهری را تجربه می‌کنند، نه اینکه گرانش زمین کاملاً از بین رفته باشد. ایستگاه و فضانوردان هر دو در حال سقوط پیوسته به دور زمین‌اند؛ سرعت جانبی آن‌ها باعث می‌شود به جای برخورد با زمین، در مدار بمانند."],
+        ["۶. سرعت نهایی در هوا","وقتی جسم در هوا سقوط می‌کند، مقاومت هوا با افزایش سرعت بیشتر می‌شود. ممکن است در نقطه‌ای نیروی مقاومت هوا با وزن جسم برابر شود و نیروی خالص و شتاب تقریباً صفر شود؛ آنگاه جسم با سرعتی تقریباً ثابت سقوط می‌کند که سرعت نهایی نام دارد."],
+        ["۷. مثال عددی","برای جسمی با جرم ۲ کیلوگرم نزدیک سطح زمین، وزن تقریبی آن برابر است با:","W = 2 × 9.8 = 19.6 N","واحد وزن نیوتن است، نه کیلوگرم. این محاسبه تقریبی است، چون مقدار g اندکی با مکان جغرافیایی و ارتفاع تغییر می‌کند." ]
+      ],
+      formula:"F = ma   |   W = mg",
+      note:"اشتباه رایج: جرم و وزن یک چیز نیستند. جرم بر حسب کیلوگرم، و وزن به‌عنوان نیرو بر حسب نیوتن سنجیده می‌شود.",
+      quiz:[
+        {q:"واحد متداول جرم چیست؟",o:["نیوتن","کیلوگرم","متر بر ثانیه","ولت"],a:1,e:"جرم با کیلوگرم سنجیده می‌شود؛ نیوتن واحد نیرو است."},
+        {q:"اگر مقاومت هوا نادیده گرفته شود، دو جسم با جرم متفاوت نزدیک زمین چگونه سقوط می‌کنند؟",o:["جسم سنگین همیشه شتاب بیشتری دارد","با شتاب گرانشی یکسان سقوط می‌کنند","جسم سبک به بالا می‌رود","هیچ‌کدام سقوط نمی‌کنند"],a:1,e:"در سقوط آزاد ایده‌آل، شتاب مستقل از جرم جسم است و نزدیک زمین حدود 9.8 m/s² است."},
+        {q:"وزن جسم ۲ کیلوگرمی روی زمین تقریباً چقدر است؟",o:["۲ نیوتن","۹٫۸ نیوتن","۱۹٫۶ نیوتن","۲۰۰ نیوتن"],a:2,e:"W = mg = 2 × 9.8 = 19.6 نیوتن."},
+        {q:"چرا پر در هوای زمین معمولاً دیرتر از سنگ می‌افتد؟",o:["چون گرانش روی پر وجود ندارد","به دلیل اثر قابل توجه مقاومت هوا","چون جرم پر منفی است","چون هوا زمان را متوقف می‌کند"],a:1,e:"مقاومت هوا نسبت به وزن پر بزرگ است و سقوط آن را کند می‌کند."},
+        {q:"فضانوردان در ایستگاه فضایی چرا بی‌وزنی ظاهری را تجربه می‌کنند؟",o:["چون گرانش زمین صفر است","چون ایستگاه و آن‌ها با هم در سقوط مداری‌اند","چون جرمشان ناپدید شده است","چون ماه آن‌ها را بالا می‌کشد"],a:1,e:"ایستگاه و فضانوردان پیوسته به سوی زمین سقوط می‌کنند و سرعت جانبی باعث ماندن در مدار می‌شود."}
+      ]
+    },
+    light: {
+      title:"🌈 نور و رنگ‌ها",
+      intro:"نور نوعی موج الکترومغناطیسی است که بدون محیط مادی نیز در خلأ حرکت می‌کند. بازتاب، شکست، پراکندگی و جذب نور توضیح می‌دهند چرا آینه تصویر می‌سازد، نی داخل آب خمیده به نظر می‌رسد و رنگین‌کمان پدیدار می‌شود.",
+      sections:[
+        ["۱. نور چگونه حرکت می‌کند؟","نور در خلأ با سرعتی نزدیک به ۳۰۰ هزار کیلومتر بر ثانیه حرکت می‌کند. نور مرئی فقط بخش کوچکی از طیف الکترومغناطیسی است؛ امواج رادیویی، فروسرخ، فرابنفش، پرتو ایکس و گاما هم از همین خانواده‌اند، اما طول موج و انرژی متفاوت دارند."],
+        ["۲. بازتاب نور","وقتی نور به سطحی برخورد می‌کند، ممکن است بازتاب شود. در بازتاب آینه‌ای از سطح صاف، زاویهٔ تابش و زاویهٔ بازتاب نسبت به خط عمود برابرند. سطح زبر نور را در جهت‌های مختلف پخش می‌کند و معمولاً تصویر واضحی تشکیل نمی‌دهد."],
+        ["۳. شکست نور","سرعت نور در محیط‌های گوناگون یکسان نیست. هنگام گذر از یک محیط به محیط دیگر، اگر مسیر نور به شکل مایل باشد، جهت آن تغییر می‌کند؛ این پدیده شکست نور نام دارد. قانون اسنل آن را بیان می‌کند:","n₁ sin θ₁ = n₂ sin θ₂","زاویه‌ها از خط عمود بر مرز دو محیط اندازه‌گیری می‌شوند. تغییر سرعت در محیط‌ها باعث تغییر جهت می‌شود؛ به همین علت نی داخل لیوان آب خمیده به نظر می‌رسد."],
+        ["۴. چرا منشور رنگ‌ها را جدا می‌کند؟","نور سفید آمیزه‌ای از طول موج‌های مرئی است. ضریب شکست ماده معمولاً برای طول موج‌های مختلف کمی فرق می‌کند؛ بنابراین رنگ‌ها با زاویه‌های متفاوتی منحرف می‌شوند و طیف رنگی پدید می‌آید. به این پدیده پراکندگی نور می‌گویند."],
+        ["۵. رنگین‌کمان","برای دیدن رنگین‌کمان، نور خورشید وارد قطرات آب می‌شود، در آن‌ها می‌شکند، از داخل قطره بازتاب می‌یابد و هنگام خروج دوباره می‌شکند. چون طول موج‌های مختلف رفتار شکست متفاوت دارند، رنگ‌ها از هم جدا می‌شوند. زاویهٔ دید ناظر و موقعیت خورشید و قطره‌ها مهم است."],
+        ["۶. چرا جسم‌ها رنگی دیده می‌شوند؟","یک جسم بخشی از نور تابیده‌شده را جذب و بخشی را بازتاب یا عبور می‌دهد. برگ معمولاً طول موج‌های سبز را بیشتر بازمی‌تاباند و رنگ سبز می‌بینیم. اگر نور محیط عوض شود، رنگ ظاهری اشیا هم می‌تواند تغییر کند؛ رنگ ویژگی جسم به‌تنهایی و مستقل از روشنایی نیست."],
+        ["۷. عدسی‌ها و کاربرد نور","عدسی‌ها با شکست نور مسیر پرتوها را تغییر می‌دهند. عدسی همگرا می‌تواند پرتوهای موازی را به کانون نزدیک کند و عدسی واگرا آن‌ها را از هم دور می‌سازد. عینک، دوربین، میکروسکوپ و تلسکوپ با ترکیب آینه‌ها و عدسی‌ها تصویر می‌سازند یا بزرگ‌نمایی می‌کنند." ]
+      ],
+      formula:"n₁ sin θ₁ = n₂ sin θ₂",
+      note:"اشتباه رایج: منشور رنگ‌های جدید از هیچ خلق نمی‌کند؛ نور سفید را بر اساس طول موج‌های موجود در آن از هم جدا می‌کند.",
+      quiz:[
+        {q:"نور در خلأ چه ویژگی‌ای دارد؟",o:["به محیط مادی نیاز دارد","با سرعت بسیار زیاد و تقریباً ۳۰۰ هزار کیلومتر بر ثانیه حرکت می‌کند","همیشه از صدا کندتر است","اصلاً حرکت نمی‌کند"],a:1,e:"نور موج الکترومغناطیسی است و برخلاف صدا برای حرکت در خلأ به ماده نیاز ندارد."},
+        {q:"قانون بازتاب نور چه می‌گوید؟",o:["زاویهٔ تابش برابر زاویهٔ بازتاب است","همیشه نور جذب می‌شود","نور آینه را دور می‌زند","زاویه‌ها هیچ ارتباطی ندارند"],a:0,e:"در بازتاب آینه‌ای، هر دو زاویه از خط عمود سنجیده می‌شوند و برابرند."},
+        {q:"شکست نور معمولاً در چه شرایطی رخ می‌دهد؟",o:["وقتی نور از مرز دو محیط بگذرد و سرعتش تغییر کند","فقط در تاریکی کامل","فقط در فلزات","وقتی صدا بلندتر شود"],a:0,e:"تغییر سرعت نور میان محیط‌ها می‌تواند مسیر پرتو را در مرز کج کند."},
+        {q:"رنگین‌کمان چگونه شکل می‌گیرد؟",o:["با سوختن رنگ در هوا","با شکست، بازتاب داخلی و پراکندگی نور در قطره‌های آب","با مغناطیس زمین به‌تنهایی","با انعکاس صدا"],a:1,e:"قطره‌های آب نور را می‌شکنند و رنگ‌های مختلف را با زاویه‌های متفاوت جدا می‌کنند."},
+        {q:"جسمی که سبز دیده می‌شود معمولاً چه می‌کند؟",o:["همهٔ نور را جذب می‌کند","نور سبز را بیشتر بازمی‌تاباند یا عبور می‌دهد","نور سبز تولیدشده از هیچ دارد","هیچ نوری با آن برخورد نمی‌کند"],a:1,e:"رنگ ظاهری به طول موج‌هایی بستگی دارد که جسم بازمی‌تاباند یا از خود عبور می‌دهد."}
+      ]
+    },
+    planets: {
+      title:"🪐 حرکت سیاره‌ها",
+      intro:"منظومهٔ شمسی از خورشید و اجرامی تشکیل شده که تحت اثر گرانش در مسیرهای گوناگون حرکت می‌کنند. سیاره نه به این دلیل که گرانش وجود ندارد، بلکه به کمک سرعت جانبی خود در مدار می‌ماند.",
+      sections:[
+        ["۱. منظومهٔ شمسی","خورشید ستارهٔ مرکزی منظومهٔ شمسی است و بیشتر جرم آن را در خود دارد. هشت سیاره به دور خورشید می‌گردند. عطارد، زهره، زمین و مریخ سنگی‌اند؛ مشتری و زحل غول‌های گازی و اورانوس و نپتون غول‌های یخی نامیده می‌شوند. افزون بر آن‌ها، قمرها، سیارک‌ها، دنباله‌دارها و اجرام کوچک زیادی وجود دارند."],
+        ["۲. چرا سیاره‌ها به خورشید نمی‌افتند؟","گرانش مسیر حرکت سیاره را به سوی خورشید خم می‌کند، اما سیاره هم سرعتی در راستای جانبی دارد. ترکیب این حرکت و جاذبه مدار می‌سازد. اگر سرعت جانبی به اندازهٔ مناسب نبود، مسیر می‌توانست بسیار متفاوت شود؛ مدار نتیجهٔ تعادل سادهٔ دو نیروی جداگانه نیست، بلکه حرکت تحت گرانش است."],
+        ["۳. مدار بیضی‌شکل","مدار سیاره‌ها معمولاً دایرهٔ کامل نیست؛ در بسیاری موارد بیضی است و خورشید در یکی از کانون‌های بیضی قرار می‌گیرد. فاصلهٔ سیاره تا خورشید در طول مدار تغییر می‌کند. در مدارهای معمول، سیاره هنگام نزدیک‌تر بودن سریع‌تر و هنگام دورتر بودن کندتر حرکت می‌کند."],
+        ["۴. قانون گرانش عمومی","نیروی گرانش میان دو جرم با حاصل‌ضرب جرم‌هایشان افزایش و با مجذور فاصلهٔ بین مراکز آن‌ها کاهش می‌یابد:","F = G M m / r²","G ثابت گرانش عمومی، M و m جرم‌ها و r فاصلهٔ مرکز تا مرکز است. دو برابر شدن فاصله، در شرایط ثابت نیرو را به یک‌چهارم می‌رساند؛ نه نصف."],
+        ["۵. قانون سوم کپلر","برای اجرامی که به دور یک جرم مرکزی واحد می‌گردند، مربع دورهٔ گردش با مکعب نیم‌محور بزرگ مدار متناسب است:","T² ∝ a³","در نتیجه، سیاره‌های دورتر از خورشید معمولاً یک دور کامل را در مدت طولانی‌تری انجام می‌دهند. یک سال مریخی از سال زمینی طولانی‌تر است."],
+        ["۶. فصل‌های زمین","فصل‌ها عمدتاً به دلیل کج‌بودن محور چرخش زمین نسبت به صفحهٔ مدارش رخ می‌دهند. وقتی نیم‌کره‌ای رو به خورشید متمایل است، روزهای بلندتر و پرتوهای مستقیم‌تری دریافت می‌کند؛ در آن نیم‌کره تابستان است. فصل‌ها علت اصلی دور و نزدیک شدن زمین به خورشید نیستند."],
+        ["۷. شب، روز و سال","چرخش زمین حول محور خودش باعث چرخهٔ روز و شب می‌شود، در حالی که گردش زمین به دور خورشید همراه با تعریف تقویمی، یک سال را می‌سازد. ماه نیز تحت گرانش زمین در مدار است و تغییر شکل ظاهری ماه در طول ماه قمری از هندسهٔ نور خورشید، زمین و ماه ناشی می‌شود." ]
+      ],
+      formula:"F = G M m / r²   |   T² ∝ a³",
+      note:"اشتباه رایج: فصل‌ها به خاطر نزدیک‌تر شدن زمین به خورشید ایجاد نمی‌شوند؛ عامل اصلی زاویهٔ محور زمین و زاویهٔ تابش خورشید است.",
+      quiz:[
+        {q:"کدام عامل باعث می‌شود سیاره‌ها در مدار بمانند؟",o:["فقط نبودن گرانش","ترکیب حرکت جانبی سیاره و گرانش خورشید","نیروی مغناطیسی ماه","فشار بادهای فضایی به‌تنهایی"],a:1,e:"گرانش مسیر را خم می‌کند و سرعت جانبی باعث می‌شود سیاره پیوسته در حال سقوط مداری باشد."},
+        {q:"عامل اصلی فصل‌های زمین چیست؟",o:["کج‌بودن محور زمین و تغییر زاویهٔ تابش","تغییر ناگهانی اندازهٔ خورشید","نبودن گرانش در زمستان","تغییر تعداد سیاره‌ها"],a:0,e:"کج‌بودن محور باعث تغییر طول روز و شدت تابش در نیم‌کره‌ها در طول سال می‌شود."},
+        {q:"طبق قانون گرانش، اگر فاصلهٔ دو جرم دو برابر شود و جرم‌ها ثابت بمانند، نیرو چه می‌شود؟",o:["دو برابر","نصف","یک‌چهارم","چهار برابر"],a:2,e:"نیرو با مجذور فاصله نسبت وارون دارد؛ 1/(2²) برابر یک‌چهارم است."},
+        {q:"کدام گزاره دربارهٔ مدار سیاره‌ها درست‌تر است؟",o:["همه دقیقاً دایره‌اند","بسیاری از مدارها بیضی‌اند","سیاره در مدار هیچ سرعتی ندارد","مدارها هیچ ارتباطی با گرانش ندارند"],a:1,e:"طبق قوانین کپلر، مدارهای سیاره‌ای بیضی‌اند و مدار دایره‌ای حالت ویژه‌ای از بیضی است."},
+        {q:"چرا یک سال مریخی از یک سال زمینی طولانی‌تر است؟",o:["مریخ به خورشید نزدیک‌تر است","مریخ در مدار دورتر خود زمان بیشتری برای یک دور نیاز دارد","مریخ گرانش ندارد","مریخ به دور زمین می‌گردد"],a:1,e:"سیارهٔ دورتر معمولاً مدار بزرگ‌تری را طی می‌کند و دورهٔ مداری‌اش طولانی‌تر است."}
+      ]
+    },
+    waves: {
+      title:"〰️ موج‌ها و صدا",
+      intro:"موج اختلالی است که انرژی را جابه‌جا می‌کند. امواج آب، صوت و نور همگی موج‌اند، اما برای انتشار به شرایط یکسانی نیاز ندارند. با سه مفهوم فرکانس، طول موج و سرعت می‌توان بسیاری از ویژگی‌های موج را توضیح داد.",
+      sections:[
+        ["۱. موج چه چیزی منتقل می‌کند؟","موج معمولاً انرژی را از جایی به جای دیگر می‌برد، بدون آنکه ماده در تمام مسیر همراه موج جابه‌جا شود. برای مثال، در موج سطح آب، آب بیشتر بالا و پایین می‌رود؛ خودِ هر تکه آب لزوماً از یک سوی استخر به سوی دیگر نمی‌رود."],
+        ["۲. طول موج، فرکانس و سرعت","طول موج فاصلهٔ دو نقطهٔ هم‌فازِ پیاپی، مانند دو قلهٔ پیاپی است. فرکانس تعداد نوسان‌ها در هر ثانیه و واحدش هرتز است. سرعت انتشار موج از این رابطه به دست می‌آید:","v = f λ","v سرعت موج، f فرکانس و λ طول موج است. در یک محیط معین، اگر سرعت ثابت بماند، افزایش فرکانس با کاهش طول موج همراه می‌شود."],
+        ["۳. موج عرضی و طولی","در موج عرضی، نوسان محیط عمود بر جهت انتشار موج است؛ موج روی یک طناب کشیده نمونه‌ای آشناست. در موج طولی، ذرات محیط موازی جهت انتشار نوسان می‌کنند؛ صدا در هوا به‌طور معمول از فشردگی‌ها و انبساط‌های پیاپی تشکیل می‌شود."],
+        ["۴. صدا چگونه به گوش می‌رسد؟","جسم لرزان، فشار محیط اطراف را تغییر می‌دهد. این تغییر فشار از هوا یا محیط دیگری عبور می‌کند و به پردهٔ گوش می‌رسد؛ گوش و مغز آن را به صدا تبدیل می‌کنند. صدا برای انتشار به محیط مادی نیاز دارد، پس در خلأ به صورت موج صوتی معمولی انتقال پیدا نمی‌کند."],
+        ["۵. زیر و بمی با بلندی صدا فرق دارد","فرکانس بیشتر معمولاً صدای زیرتر و فرکانس کمتر صدای بم‌تر می‌سازد. دامنهٔ موج صوتی با بلندی ادراک‌شده ارتباط دارد، هرچند بلندی شنیده‌شده به حساسیت گوش و فرکانس نیز وابسته است. پس «زیر بودن» و «بلند بودن» یک مفهوم نیستند."],
+        ["۶. پژواک و کاربرد موج صوتی","اگر صدا از مانعی دور بازتاب شود، پژواک شنیده می‌شود. خفاش‌ها و دلفین‌ها از بازتاب صدا برای بررسی محیط بهره می‌برند. دستگاه سونار نیز با ارسال موج و اندازه‌گیری زمان برگشت آن، فاصله یا شکل زیر آب را تخمین می‌زند."],
+        ["۷. نور در برابر صدا","صدا موج مکانیکی است و به محیط مادی نیاز دارد. نور موج الکترومغناطیسی است و می‌تواند در خلأ منتشر شود. بنابراین صدای انفجاری در خلأ به گوش شنونده نمی‌رسد، اما نور آن می‌تواند در فضا حرکت کند و با ابزار مناسب ثبت شود." ]
+      ],
+      formula:"v = f λ",
+      note:"اشتباه رایج: فرکانس بیشتر به معنای صدای بلندتر نیست؛ فرکانس با زیر و بمی، و دامنه بیشتر با بلندی ادراک‌شده ارتباط دارد.",
+      quiz:[
+        {q:"موج در حالت معمول چه چیزی را انتقال می‌دهد؟",o:["انرژی","همیشه کل مادهٔ محیط را","جرم از هیچ","فقط رنگ"],a:0,e:"موج انرژی را منتقل می‌کند؛ ذرات محیط در اطراف موقعیت تعادل نوسان می‌کنند."},
+        {q:"واحد فرکانس چیست؟",o:["نیوتن","هرتز","کیلوگرم","اهم"],a:1,e:"یک هرتز یعنی یک چرخه یا نوسان در هر ثانیه."},
+        {q:"چرا صدا در خلأ منتشر نمی‌شود؟",o:["چون رنگ ندارد","چون موج صوتی برای انتقال به ذرات محیط نیاز دارد","چون خلأ فقط نور را جذب می‌کند","چون سرعت صدا بی‌نهایت است"],a:1,e:"صدا موج مکانیکی است و انتقال فشردگی و انبساط به محیط مادی نیاز دارد."},
+        {q:"فرکانس بیشتر معمولاً چه تغییری در صدا ایجاد می‌کند؟",o:["صدای زیرتر","صدای بم‌تر","ناپدید شدن صدا","تبدیل صدا به نور"],a:0,e:"فرکانس به زیر و بمی مرتبط است؛ دامنه بیشتر با بلندتر شنیده‌شدن ارتباط دارد."},
+        {q:"اگر سرعت موج ثابت باشد و فرکانس افزایش یابد، طول موج چه می‌شود؟",o:["افزایش می‌یابد","کاهش می‌یابد","حتماً بی‌نهایت می‌شود","همیشه ثابت می‌ماند"],a:1,e:"از v = fλ نتیجه می‌شود که در سرعت ثابت، فرکانس و طول موج نسبت وارون دارند."}
+      ]
+    },
+    electricity: {
+      title:"⚡ برق و مغناطیس",
+      intro:"برق و مغناطیس دو بخش پیوسته از یک پدیدهٔ بزرگ‌تر به نام الکترومغناطیس‌اند. بارهای الکتریکی، جریان، ولتاژ و مقاومت رفتار مدارها را توضیح می‌دهند و میدان‌های مغناطیسی و القا پایهٔ موتور و مولد هستند.",
+      sections:[
+        ["۱. بار و جریان الکتریکی","ماده شامل ذرات باردار است؛ پروتون بار مثبت و الکترون بار منفی دارد. در یک سیم فلزی، الکترون‌ها حامل اصلی جریان‌اند. جریان الکتریکی آهنگ عبور بار از یک مقطع است و واحد آن آمپر است. جریان قراردادی در مدارهای معمول از قطب مثبت به سمت قطب منفی در نظر گرفته می‌شود، هرچند الکترون‌ها در فلز خلاف آن حرکت می‌کنند."],
+        ["۲. ولتاژ و مقاومت","ولتاژ اختلاف انرژی الکتریکی به ازای بار میان دو نقطه را بیان می‌کند و واحدش ولت است. مقاومت میزان مخالفت عنصر با عبور جریان را نشان می‌دهد و واحدش اهم است. برای رسانای اهمی در شرایط ثابت، قانون اهم چنین است:","V = IR","اگر ولتاژ ثابت باشد، افزایش مقاومت جریان را کم می‌کند. اگر مقاومت ثابت باشد، افزایش ولتاژ جریان را بیشتر می‌کند."],
+        ["۳. یک مثال ساده","اگر دو سر مقاومتی ۶ اهمی، ولتاژ ۱۲ ولت برقرار باشد، جریان از رابطهٔ زیر محاسبه می‌شود:","I = V/R = 12/6 = 2 A","در این مثال جریان ۲ آمپر است. مقدار واقعی قطعات می‌تواند با دما و شرایط مدار تغییر کند؛ قانون اهم برای عنصرهای اهمی و محدودهٔ عملکرد مناسب استفاده می‌شود."],
+        ["۴. مدار سری و موازی","در مدار سری، همهٔ قطعات در یک مسیر جریان قرار دارند؛ در مدل ساده جریان یکسانی از آن‌ها می‌گذرد و مقاومت‌ها جمع می‌شوند. در مدار موازی، دو سر قطعات به دو نقطهٔ مشترک وصل‌اند؛ ولتاژ دو سر شاخه‌ها برابر است و جریان میان شاخه‌ها تقسیم می‌شود. سیم‌کشی خانه‌ها عمدتاً موازی است تا دستگاه‌ها جداگانه کار کنند."],
+        ["۵. جریان، میدان مغناطیسی می‌سازد","جریان الکتریکی در اطراف سیم میدان مغناطیسی ایجاد می‌کند. با پیچاندن سیم به شکل کلاف و افزودن هستهٔ آهنی می‌توان آهن‌ربای برقی ساخت. افزایش تعداد دورها یا جریان، در شرایط مناسب می‌تواند میدان را تقویت کند؛ به همین دلیل می‌توان آن را روشن و خاموش کرد."],
+        ["۶. القای الکترومغناطیسی","تغییر شار مغناطیسی در یک حلقه یا سیم‌پیچ می‌تواند ولتاژ القا کند. مولد برق از حرکت نسبی سیم‌پیچ و میدان مغناطیسی استفاده می‌کند تا انرژی مکانیکی به انرژی الکتریکی تبدیل شود. موتور برقی از اثرهای الکترومغناطیسی برای تبدیل انرژی الکتریکی به حرکت بهره می‌گیرد."],
+        ["۷. ایمنی برق","برق شهری می‌تواند خطرناک و مرگ‌آور باشد. نباید سیم برهنه، پریز خراب یا وسیلهٔ برقی خیس را لمس کرد و نباید برای آزمایش مدرسه‌ای از برق شهری استفاده کرد. آزمایش‌های آموزشی را با باتری‌های کم‌ولتاژ و قطعات مناسب انجام بده و در خرابی سیم‌کشی از فرد متخصص کمک بگیر." ]
+      ],
+      formula:"V = IR",
+      note:"اشتباه رایج: برق به معنای «مصرف‌شدن جریان» در هر قطعه نیست. در مدار سری جریان در همهٔ قطعات یکسان است؛ انرژی الکتریکی در قطعات به شکل‌های دیگر تبدیل می‌شود.",
+      quiz:[
+        {q:"واحد جریان الکتریکی چیست؟",o:["آمپر","ولت","اهم","ژول بر متر"],a:0,e:"آمپر واحد شدت جریان الکتریکی است."},
+        {q:"اگر ولتاژ ۱۲ ولت و مقاومت ۶ اهم باشد، جریان چقدر است؟",o:["۰٫۵ آمپر","۲ آمپر","۶ آمپر","۷۲ آمپر"],a:1,e:"طبق قانون اهم I = V/R = 12/6 = 2 آمپر."},
+        {q:"کدام گزاره دربارهٔ مدار موازی درست است؟",o:["در همهٔ شاخه‌ها ولتاژ دو سر برابر است","جریان در هر شاخه باید صفر باشد","هر قطعه فقط یک سر دارد","مدار موازی هرگز کار نمی‌کند"],a:0,e:"در مدار موازی، شاخه‌ها به دو گره مشترک متصل‌اند و ولتاژ دو سرشان برابر است."},
+        {q:"چگونه می‌توان با جریان سیم‌پیچ میدان مغناطیسی ساخت؟",o:["با خاموش‌کردن همهٔ جریان‌ها","با عبور جریان از سیم، به‌ویژه سیم‌پیچ","با افزایش صدای بلندگو","با حذف همهٔ بارهای الکتریکی"],a:1,e:"جریان در اطراف سیم میدان مغناطیسی ایجاد می‌کند؛ سیم‌پیچ میدان کاربردی‌تری می‌سازد."},
+        {q:"کدام کار ایمن‌تر است؟",o:["بازکردن پریز برق در حال اتصال","آزمایش آموزشی با باتری کم‌ولتاژ مناسب","لمس سیم لخت","کار با وسیلهٔ برقی خیس"],a:1,e:"آزمایش‌های مدرسه‌ای باید با منابع کم‌ولتاژ و قطعات مناسب انجام شوند؛ برق شهری خطرناک است."}
+      ]
+    },
+    atom: {
+      title:"⚛️ اتم و هسته",
+      intro:"همهٔ مواد معمولی از اتم‌ها ساخته شده‌اند. اتم شامل هسته‌ای کوچک و چگال و الکترون‌هایی است که در حالت‌های کوانتومی پیرامون هسته توصیف می‌شوند. ساختار هسته، ایزوتوپ‌ها و تغییرهای هسته‌ای بخش مهمی از فیزیک اتمی و هسته‌ای‌اند.",
+      sections:[
+        ["۱. اجزای اتم","هستهٔ اتم از پروتون‌ها و معمولاً نوترون‌ها ساخته می‌شود. پروتون بار مثبت دارد، نوترون بار الکتریکی خالص ندارد و الکترون بار منفی دارد. بیشتر جرم اتم در هسته متمرکز است، در حالی که اندازهٔ اتم عمدتاً با ناحیهٔ حضور الکترون‌ها تعیین می‌شود."],
+        ["۲. عدد اتمی و عدد جرمی","عدد اتمی Z برابر تعداد پروتون‌های هسته است و مشخص می‌کند اتم متعلق به کدام عنصر است. در اتم خنثی، تعداد الکترون‌ها با تعداد پروتون‌ها برابر است. عدد جرمی A برابر مجموع پروتون‌ها و نوترون‌هاست؛ بنابراین شمار نوترون‌ها از A − Z به دست می‌آید."],
+        ["۳. ایزوتوپ‌ها","ایزوتوپ‌های یک عنصر تعداد پروتون یکسان، اما تعداد نوترون متفاوت دارند. برای همین از نظر شیمیایی رفتار نزدیک به همی دارند، هرچند جرمشان فرق می‌کند و بعضی ایزوتوپ‌ها پایدار و بعضی پرتوزا هستند. برای مثال، گونه‌های مختلف یک عنصر می‌توانند از نظر تعداد نوترون متفاوت باشند."],
+        ["۴. الکترون‌ها مانند سیاره‌های کوچک نیستند","در تصویرهای سادهٔ آموزشی، الکترون گاهی مانند سیاره‌ای که به دور خورشید می‌گردد رسم می‌شود؛ اما این تصویر کامل نیست. الکترون‌ها با حالت‌های کوانتومی و توزیع‌های احتمالی توصیف می‌شوند. اندازه‌گیری‌های طیفی نشان می‌دهند که اتم‌ها انرژی‌های مشخصی جذب یا گسیل می‌کنند."],
+        ["۵. پرتوزایی","برخی هسته‌ها ناپایدارند و خودبه‌خود به هسته‌های دیگر تبدیل می‌شوند و ذره یا تابش پرانرژی گسیل می‌کنند. به این فرایند پرتوزایی می‌گویند. پرتوهای یون‌ساز می‌توانند به سلول‌ها آسیب برسانند، اما با کنترل مناسب در پزشکی و پژوهش نیز کاربرد دارند؛ ایمنی، دوز و نوع پرتو اهمیت دارد."],
+        ["۶. شکافت و همجوشی","در شکافت هسته‌ای، هستهٔ سنگین به هسته‌های کوچک‌تر تبدیل می‌شود و انرژی آزاد می‌کند؛ این فرایند در بعضی نیروگاه‌های هسته‌ای به کار می‌رود. در همجوشی، هسته‌های سبک در شرایط بسیار ویژه به هم می‌پیوندند و انرژی آزاد می‌شود؛ همجوشی منبع انرژی ستارگان است و مهار صنعتی آن هنوز با چالش‌های بزرگ روبه‌روست."],
+        ["۷. جرم و انرژی","رابطهٔ معروف اینشتین چنین است:","E = mc²","این رابطه می‌گوید جرم و انرژی به هم مرتبط‌اند و c سرعت نور در خلأ است. چون c بسیار بزرگ است، مقدار کمی اختلاف جرم می‌تواند معادل انرژی زیادی باشد. در واکنش‌های هسته‌ای، اختلاف انرژی بستگی هسته‌ها با انرژی آزادشده ارتباط دارد." ]
+      ],
+      formula:"A = Z + N   |   E = mc²",
+      note:"اشتباه رایج: همهٔ اتم‌ها نوترون دارند؟ خیر؛ هستهٔ معمول هیدروژن-۱ یک پروتون دارد و نوترون ندارد. عدد اتمی را تعداد پروتون‌ها تعیین می‌کند.",
+      quiz:[
+        {q:"کدام ذره بار مثبت دارد؟",o:["الکترون","پروتون","نوترون","فوتون"],a:1,e:"پروتون بار مثبت، الکترون بار منفی و نوترون بار الکتریکی خالص صفر دارد."},
+        {q:"عدد اتمی یک عنصر چه چیزی را نشان می‌دهد؟",o:["تعداد پروتون‌ها","تعداد مولکول‌های هوا","تعداد همهٔ اتم‌های جهان","اندازهٔ ظرف"],a:0,e:"هویت عنصر با تعداد پروتون‌های هسته، یعنی عدد اتمی، تعیین می‌شود."},
+        {q:"دو ایزوتوپ از یک عنصر چه تفاوت معمولی دارند؟",o:["تعداد پروتون متفاوت است","تعداد نوترون متفاوت است","همیشه عنصرهای کاملاً جدا هستند","هر دو بار الکتریکی مثبت دارند"],a:1,e:"ایزوتوپ‌ها تعداد پروتون یکسان اما تعداد نوترون متفاوت دارند."},
+        {q:"منبع اصلی انرژی ستاره‌ها در بیشتر عمرشان چیست؟",o:["همجوشی هسته‌ای","سوزاندن چوب","اصطکاک با هوا","بازتاب نور زمین"],a:0,e:"در هستهٔ ستاره‌ها، هسته‌های سبک تحت شرایط دما و فشار بسیار بالا همجوشی می‌کنند."},
+        {q:"در رابطهٔ E = mc²، حرف c نشان‌دهندهٔ چیست؟",o:["سرعت صوت در آب","سرعت نور در خلأ","تعداد الکترون‌ها","ظرفیت گرمایی"],a:1,e:"c نماد سرعت نور در خلأ است و رابطهٔ جرم و انرژی را پیوند می‌دهد."}
+      ]
+    },
+    universe: {
+      title:"🌠 پیدایش و تکامل جهان",
+      intro:"کیهان‌شناسی علمی، جهان را در بزرگ‌ترین مقیاس بررسی می‌کند. شواهد نشان می‌دهند جهانِ قابل مشاهده در گذشته بسیار داغ‌تر و چگال‌تر بوده و از آن زمان در حال انبساط است. مدل مهبانگ دربارهٔ این تحول توضیح می‌دهد؛ نه یک انفجار معمولی در فضای خالی.",
+      sections:[
+        ["۱. مدل مهبانگ چه می‌گوید؟","مدل مهبانگ می‌گوید جهانِ قابل مشاهده از مرحله‌ای بسیار داغ و چگال تکامل یافته و فضا با گذشت زمان گسترش پیدا کرده است. این مدل به این معنا نیست که همهٔ کهکشان‌ها از یک نقطه در فضای از پیش موجود به درون فضای خالی پرتاب شدند؛ خودِ فاصله‌های کیهانی گسترش می‌یابند."],
+        ["۲. انبساط جهان و انتقال به سرخ","وقتی نور از بسیاری از کهکشان‌های دور به ما می‌رسد، طول موج آن به دلیل گسترش فضا کشیده می‌شود و نور به سوی بخش سرخ طیف جابه‌جا می‌شود. اندازه‌گیری این انتقال به سرخ، همراه با فاصلهٔ کهکشان‌ها، از شواهد مهم انبساط جهان است."],
+        ["۳. تابش زمینهٔ کیهانی","جهان اولیه بسیار داغ بود. با سردشدن جهان، نور توانست آزادانه در فضا حرکت کند. بقایای این تابش امروزه به شکل تابشی بسیار سرد در سراسر آسمان دیده می‌شود و «تابش زمینهٔ کیهانی» نام دارد. نقشه‌های دقیق این تابش اطلاعاتی دربارهٔ جهان اولیه و ترکیب کلی آن می‌دهند."],
+        ["۴. عناصر سبک","مدل‌های جهان اولیه پیش‌بینی می‌کنند که در نخستین دقایق، مقدارهایی از هسته‌های سبک مانند هیدروژن و هلیوم و مقدارهای کمی از برخی هسته‌های دیگر شکل گرفته‌اند. فراوانی مشاهده‌شدهٔ این عناصر، با در نظر گرفتن فرایندهای بعدی، یکی دیگر از آزمون‌های مهم مدل مهبانگ است."],
+        ["۵. سن جهان و نگاه به گذشته","برآوردهای علمیِ امروزی سن جهان را حدود ۱۳٫۸ میلیارد سال می‌دانند. چون نور برای رسیدن به ما زمان نیاز دارد، رصد اجرام بسیار دور در عمل دیدن آن‌ها در گذشته است. تلسکوپ‌ها مانند دستگاه زمان‌نگرند: هرچه جرم دورتر باشد، نورش معمولاً مدت بیشتری در راه بوده است."],
+        ["۶. مادهٔ تاریک و انرژی تاریک","اندازه‌گیری‌های کیهانی نشان می‌دهند مادهٔ معمولی، یعنی مادهٔ ساخته‌شده از اتم‌ها، تمام محتویات جهان را توضیح نمی‌دهد. مادهٔ تاریک از روی اثرهای گرانشی استنباط می‌شود، اما ماهیت دقیق آن هنوز مشخص نیست. انرژی تاریک نامی برای عامل یا ویژگی‌ای است که با شتاب‌گرفتن انبساط کیهانی مرتبط دانسته می‌شود؛ ماهیت بنیادی آن همچنان از پرسش‌های باز علم است."],
+        ["۷. چه چیزهایی هنوز ناشناخته‌اند؟","دانشمندان مدل‌های بسیار موفقی برای تحول جهان از مراحل اولیه به بعد دارند، اما پرسش‌هایی دربارهٔ ماهیت نخستین لحظه‌ها، رابطهٔ گرانش و کوانتوم، مادهٔ تاریک و انرژی تاریک باقی مانده‌اند. علم با شواهد بهتر می‌شود؛ پاسخ صادقانهٔ «هنوز نمی‌دانیم» بخشی طبیعی از پژوهش است." ]
+      ],
+      formula:"انبساط جهان: طول موج نورِ دوردست کشیده می‌شود",
+      note:"اشتباه رایج: مهبانگ انفجاری در یک نقطه از فضای خالی نیست؛ توصیف علمی از تحول جهانِ در حال انبساط از حالت داغ و چگال است.",
+      quiz:[
+        {q:"مدل مهبانگ در اصل چه چیزی را توضیح می‌دهد؟",o:["انفجار یک بمب در مرکز فضای خالی","تحول جهان از حالت اولیهٔ داغ و چگال و انبساط آن","پیدایش فوری همهٔ سیاره‌ها در یک ثانیه","چرخش روزانهٔ زمین"],a:1,e:"مدل مهبانگ چارچوبی برای تکامل جهان در حال انبساط از حالت بسیار داغ و چگال است."},
+        {q:"تابش زمینهٔ کیهانی چیست؟",o:["صدای ستاره‌ها","بقایای تابش جهان اولیه که اکنون سرد شده است","نور چراغ‌های شهر","تابش فقط از خورشید"],a:1,e:"این تابش پس‌زمینه‌ای از جهان جوان است که امروزه در سراسر آسمان دیده می‌شود."},
+        {q:"انتقال به سرخِ کیهانی معمولاً چه چیزی را نشان می‌دهد؟",o:["کشیده‌شدن طول موج نور بر اثر انبساط فضا","این‌که همهٔ ستاره‌ها قرمز هستند","کم‌شدن جرم زمین","توقف زمان در کهکشان"],a:0,e:"گسترش فضا طول موج نور کهکشان‌های دور را می‌کشد و یکی از شواهد انبساط جهان است."},
+        {q:"چرا نگاه به کهکشان‌های دور، نگاه به گذشته است؟",o:["چون تلسکوپ‌ها زمان را متوقف می‌کنند","چون نور برای رسیدن به ما زمان لازم دارد","چون کهکشان‌ها حرکت نمی‌کنند","چون فاصله هیچ اثری ندارد"],a:1,e:"نور با سرعت محدود حرکت می‌کند؛ بنابراین نوری که می‌بینیم از گذشتهٔ آن جرم آمده است."},
+        {q:"کدام مورد هنوز پرسشی باز در کیهان‌شناسی است؟",o:["ماهیت دقیق مادهٔ تاریک","این‌که زمین روز و شب دارد","این‌که نور از ستاره‌ها می‌آید","این‌که سیاره‌ها گرانش دارند"],a:0,e:"اثرهای گرانشی مادهٔ تاریک مشاهده می‌شود، اما ماهیت دقیق آن هنوز روشن نیست."}
+      ]
+    }
+  };
+
+  function updateCards() {
+    const query = search.value.trim().toLocaleLowerCase();
+    let visibleCount = 0;
+    cards.forEach(card => {
+      const matchesText = card.textContent.toLocaleLowerCase().includes(query);
+      const matchesCategory = activeCategory === "all" || card.dataset.category === activeCategory;
+      card.hidden = !(matchesText && matchesCategory);
+      if (!card.hidden) visibleCount++;
+    });
+    empty.style.display = visibleCount ? "none" : "block";
+  }
+  search.addEventListener("input", updateCards);
+  filters.forEach(button => button.addEventListener("click", function() {
+    activeCategory = this.dataset.category;
+    filters.forEach(item => item.classList.toggle("active", item === button));
+    updateCards();
+  }));
+
+  function persianNum(value) { return Number(value).toLocaleString('fa-IR'); }
+  function formatTime(seconds) {
+    seconds = Math.max(0, Math.floor(seconds || 0));
+    const m = Math.floor(seconds / 60), s = seconds % 60;
+    return String(m).padStart(2,'0') + ':' + String(s).padStart(2,'0');
+  }
+  function stopTicker() {
+    if (tickHandle) clearInterval(tickHandle);
+    tickHandle = null;
+  }
+  function updateDashboard() {
+    const keys = Object.keys(completed);
+    const correct = keys.reduce((sum,k) => sum + completed[k].correct, 0);
+    const answerTime = keys.reduce((sum,k) => sum + completed[k].answerSeconds, 0);
+    root.querySelector('#wp-done-count').textContent = `${persianNum(keys.length)} از ۱۰`;
+    root.querySelector('#wp-total-correct').textContent = persianNum(correct);
+    root.querySelector('#wp-total-time').textContent = formatTime(answerTime);
+    cards.forEach(card => {
+      const key = card.querySelector('[data-topic]')?.dataset.topic;
+      const body = card.querySelector('.wp-card-body');
+      if (!body || !key) return;
+      let badge = body.querySelector('.wp-topic-status');
+      if (completed[key]) {
+        if (!badge) { badge = document.createElement('span'); badge.className = 'wp-topic-status'; body.appendChild(badge); }
+        badge.textContent = `✅ آزمون: ${persianNum(completed[key].correct)} از ${persianNum(completed[key].total)} درست`;
+      } else if (badge) badge.remove();
+    });
+  }
+
+  function lessonHtml(topic) {
+    const sections = topic.sections.map((part, idx) => {
+      const title = part[0];
+      const paragraphs = part.slice(1).map(line => {
+        if (line.includes('=') || line.includes('∝')) {
+          return `<div class="wp-equation">${line}</div>`;
+        }
+        return `<p>${line}</p>`;
+      }).join('');
+      return `<section class="wp-lesson-block"><h4>${title}</h4>${paragraphs}</section>`;
+    }).join('');
+    return `<div class="wp-lesson-intro">${topic.intro}</div><div class="wp-heading"><h3>📖 درس کامل و ساده</h3><span>بخوان، فکر کن، سپس آزمون بده</span></div><div class="wp-lesson-grid">${sections}</div><div class="wp-note"><strong>فرمول یا ایدهٔ کلیدی:</strong><div class="wp-equation">${topic.formula}</div></div><div class="wp-lesson-foot">💡 <strong>نکتهٔ مهم:</strong> ${topic.note}</div>`;
+  }
+
+  function openTopic(key) {
+    const topic = topics[key];
+    if (!topic) return;
+    stopTicker();
+    current = null;
+    previousFocus = document.activeElement;
+    modalTitle.textContent = topic.title;
+    modalContent.innerHTML = lessonHtml(topic) + `
+      <section class="wp-quiz-wrap" id="wp-quiz-area">
+        <div class="wp-quiz-head"><div><h3>🧠 آزمون این موضوع</h3><p>۵ پرسش چهارگزینه‌ای با بررسی پاسخ و توضیح علمی</p></div><span class="wp-quiz-chip">⏱️ ثبت زمان هر پاسخ</span></div>
+        <div class="wp-quiz-intro" id="wp-quiz-intro"><p>حالا که درس را خواندی، دانسته‌هایت را امتحان کن. با شروع آزمون، زمان هر سؤال از لحظهٔ نمایش تا انتخاب پاسخ ثبت می‌شود. بعد از هر پاسخ، نتیجه و توضیح پاسخ درست را خواهی دید.</p><p>پاسخ‌ها را با دقت انتخاب کن؛ در پایان، تعداد پاسخ‌های درست و نادرست، زمان کل پاسخ‌گویی، میانگین زمان هر سؤال و کارنامهٔ همهٔ جواب‌ها نمایش داده می‌شود.</p><button type="button" class="wp-quiz-start" id="wp-quiz-start">شروع آزمون ←</button></div>
+        <div id="wp-quiz-stage" aria-live="polite"></div>
+      </section>`;
+    modal.classList.add('open');
+    modalContent.scrollTop = 0;
+    document.body.style.overflow = 'hidden';
+    closeButton.focus();
+    modalContent.querySelector('#wp-quiz-start').addEventListener('click', () => startQuiz(key));
+  }
+
+  function startQuiz(key) {
+    const topic = topics[key];
+    const stage = modalContent.querySelector('#wp-quiz-stage');
+    current = {key, topic, index:0, answers:[], startedAt:Date.now(), questionStartedAt:0, locked:false};
+    modalContent.querySelector('#wp-quiz-intro').style.display = 'none';
+    stage.innerHTML = '';
+    renderQuestion();
+    stage.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+
+  function renderQuestion() {
+    stopTicker();
+    const c = current;
+    const stage = modalContent.querySelector('#wp-quiz-stage');
+    if (!c || c.index >= c.topic.quiz.length) { renderResults(); return; }
+    c.locked = false;
+    c.questionStartedAt = Date.now();
+    const q = c.topic.quiz[c.index];
+    const percent = (c.index / c.topic.quiz.length) * 100;
+    const letters = ['الف','ب','ج','د','هـ','و'];
+    stage.innerHTML = `<div class="wp-quiz-topline"><span>پرسش ${persianNum(c.index+1)} از ${persianNum(c.topic.quiz.length)}</span><span>⏱️ زمان این سؤال: <strong id="wp-question-clock">۰۰:۰۰</strong></span></div><div class="wp-progress"><span style="width:${percent}%"></span></div><div class="wp-question">${q.q}</div><div class="wp-options" id="wp-options"></div><div id="wp-feedback" class="wp-feedback"></div><button type="button" class="wp-quiz-next" id="wp-next" hidden>سؤال بعدی ←</button>`;
+    const optionsBox = stage.querySelector('#wp-options');
+    q.o.forEach((option, index) => {
+      const button = document.createElement('button');
+      button.type = 'button';
+      button.className = 'wp-option';
+      const letter = document.createElement('span');
+      letter.className = 'wp-opt-letter';
+      letter.textContent = letters[index] || String(index+1);
+      const text = document.createElement('span');
+      text.textContent = option;
+      button.append(letter, text);
+      button.addEventListener('click', () => chooseAnswer(index));
+      optionsBox.appendChild(button);
+    });
+    tickHandle = setInterval(() => {
+      const clock = stage.querySelector('#wp-question-clock');
+      if (clock && current && !current.locked) clock.textContent = formatTime((Date.now()-current.questionStartedAt)/1000);
+    }, 250);
+    stage.querySelector('#wp-next').addEventListener('click', () => {
+      current.index++;
+      renderQuestion();
+      modalContent.querySelector('#wp-quiz-stage').scrollIntoView({behavior:'smooth',block:'start'});
+    });
+  }
+
+  function chooseAnswer(choice) {
+    const c = current;
+    if (!c || c.locked) return;
+    c.locked = true;
+    stopTicker();
+    const q = c.topic.quiz[c.index];
+    const seconds = Math.max(0, (Date.now() - c.questionStartedAt) / 1000);
+    const isCorrect = choice === q.a;
+    c.answers.push({choice, correct:q.a, isCorrect, seconds, question:q.q, options:q.o.slice(), explanation:q.e});
+    const stage = modalContent.querySelector('#wp-quiz-stage');
+    const optionButtons = Array.from(stage.querySelectorAll('.wp-option'));
+    optionButtons.forEach((button,index) => {
+      button.disabled = true;
+      if (index === q.a) button.classList.add('correct');
+      if (index === choice && !isCorrect) button.classList.add('wrong');
+    });
+    const clock = stage.querySelector('#wp-question-clock');
+    if (clock) clock.textContent = formatTime(seconds);
+    const feedback = stage.querySelector('#wp-feedback');
+    feedback.className = `wp-feedback ${isCorrect ? 'good' : 'bad'}`;
+    feedback.innerHTML = `<strong>${isCorrect ? '✅ آفرین! پاسخ درست است.' : `❌ این پاسخ درست نیست. پاسخ صحیح: ${q.o[q.a]}`}</strong><span>زمان پاسخ به این سؤال: ${formatTime(seconds)}</span><br>${q.e}`;
+    const next = stage.querySelector('#wp-next');
+    next.hidden = false;
+    next.textContent = c.index === c.topic.quiz.length - 1 ? 'دیدن کارنامه و پاسخ‌ها ←' : 'سؤال بعدی ←';
+    stage.querySelector('.wp-progress span').style.width = `${((c.index+1)/c.topic.quiz.length)*100}%`;
+  }
+
+  function renderResults() {
+    stopTicker();
+    const c = current;
+    const stage = modalContent.querySelector('#wp-quiz-stage');
+    const total = c.answers.length;
+    const correct = c.answers.filter(a => a.isCorrect).length;
+    const wrong = total - correct;
+    const answerSeconds = c.answers.reduce((sum,a) => sum + a.seconds, 0);
+    const sessionSeconds = (Date.now() - c.startedAt) / 1000;
+    const avg = total ? answerSeconds / total : 0;
+    let emoji = '💪', headline = 'خوب شروع کردی!';
+    if (correct === total) { emoji = '🏆'; headline = 'فوق‌العاده! همهٔ پاسخ‌ها درست بود!'; }
+    else if (correct >= 4) { emoji = '🌟'; headline = 'عالی بود! فقط چند نکته برای مرور داری.'; }
+    else if (correct >= 3) { emoji = '🚀'; headline = 'خوب پیش رفتی؛ با مرور درس بهتر هم می‌شوی.'; }
+    else { emoji = '📘'; headline = 'این آزمون فرصتی برای یادگیری دوباره است.'; }
+    completed[c.key] = {correct, total, wrong, answerSeconds, sessionSeconds, answers:c.answers.map(a => ({...a}))};
+    updateDashboard();
+    const reviews = c.answers.map((a,i) => `<div class="wp-review"><h5>${persianNum(i+1)}. ${a.question}</h5><div class="${a.isCorrect ? 'wp-review-right' : 'wp-review-wrong'}">${a.isCorrect ? '✅ پاسخ تو درست بود' : '❌ پاسخ تو: ' + a.options[a.choice]}</div><div class="wp-review-right">پاسخ صحیح: ${a.options[a.correct]}</div><div style="color:#cbd5e1">زمان پاسخ: ${formatTime(a.seconds)}</div><div style="color:#cbd5e1;margin-top:5px">توضیح: ${a.explanation}</div></div>`).join('');
+    stage.innerHTML = `<div class="wp-result-hero"><div class="wp-result-emoji">${emoji}</div><h4>${headline}</h4><p>آزمون «${c.topic.title}» را تمام کردی. عملکردت را در کارنامه ببین و پاسخ‌های اشتباه را مرور کن.</p></div><div class="wp-result-grid"><div class="wp-result-stat"><strong>${persianNum(correct)} / ${persianNum(total)}</strong><span>پاسخ درست</span></div><div class="wp-result-stat"><strong>${persianNum(wrong)}</strong><span>پاسخ نادرست</span></div><div class="wp-result-stat"><strong>${formatTime(answerSeconds)}</strong><span>مجموع زمان پاسخ‌ها</span></div><div class="wp-result-stat"><strong>${formatTime(avg)}</strong><span>میانگین زمان هر سؤال</span></div></div><p style="color:#b9c8dd;line-height:2">زمان کل جلسه از شروع آزمون تا پایان: <strong style="color:#a5f3fc">${formatTime(sessionSeconds)}</strong>. مجموع زمان پاسخ‌ها فقط فاصلهٔ نمایش هر سؤال تا انتخاب پاسخ را جمع می‌کند؛ زمان خواندن توضیح‌ها در این عدد نیست.</p><h4 class="wp-results-title">📝 مرور کامل سؤال‌ها و جواب‌ها</h4>${reviews}<div class="wp-quiz-actions"><button type="button" class="wp-quiz-start" id="wp-retry">🔁 آزمون دوباره</button><button type="button" class="wp-secondary" id="wp-back-to-lesson">📖 برگشت به درس</button></div>`;
+    stage.querySelector('#wp-retry').addEventListener('click', () => {
+      delete completed[c.key];
+      updateDashboard();
+      startQuiz(c.key);
+    });
+    stage.querySelector('#wp-back-to-lesson').addEventListener('click', () => {
+      modalContent.scrollTo({top:0,behavior:'smooth'});
+    });
+    stage.scrollIntoView({behavior:'smooth',block:'start'});
+  }
+
+  function closeModal() {
+    stopTicker();
+    modal.classList.remove('open');
+    document.body.style.overflow = '';
+    if (previousFocus && previousFocus.focus) previousFocus.focus();
+  }
+  root.querySelectorAll('[data-topic]').forEach(button => button.addEventListener('click', function() { openTopic(this.dataset.topic); }));
+  closeButton.addEventListener('click', closeModal);
+  modal.addEventListener('click', event => { if (event.target === modal) closeModal(); });
+  document.addEventListener('keydown', event => { if (event.key === 'Escape' && modal.classList.contains('open')) closeModal(); });
+  root.querySelector('#wp-start').addEventListener('click', () => root.querySelector('#wp-topics').scrollIntoView({behavior:'smooth'}));
+  root.querySelector('#wp-focus-search').addEventListener('click', () => { root.querySelector('#wp-topics').scrollIntoView({behavior:'smooth'}); search.focus(); });
+})();
+</script>
+
+</section>
+</body>
+</html>
